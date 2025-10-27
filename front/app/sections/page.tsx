@@ -87,28 +87,80 @@ El marco conceptual incluirá definiciones, teorías y modelos fundamentales par
   {
     id: 4,
     title: 'Análisis Cultural',
-    description: 'Análisis de contextos culturales y sus impactos',
+    description: 'Análisis de roles de género en diferentes contextos',
     color: 'from-pink-600 to-pink-800',
     icon: '🌍',
     content: `
-### Análisis Cultural
+**Realizado por: María Ignacia Castañeda G.**
 
-**Esta sección está en desarrollo.**
+Los roles de género son los papeles, conductas y actitudes que una persona asume en la sociedad según el género. El grupo social al que se pertenece determina cómo debe comportarse y relacionarse de acuerdo con las expectativas que se tengan para hombres y mujeres.
 
-El análisis cultural explorará cómo diferentes contextos culturales construyen y perpetúan roles de género específicos.
-
-**Temas por desarrollar:**
-- Roles de género en América Latina
-- Contexto colombiano específico
-- Comparación transcultural
-- Influencia de medios de comunicación
-- Prácticas culturales y su impacto en la equidad
-- Casos de estudio
+Estos roles no son naturales ni biológicos, sino construidos socialmente y, por lo tanto, pueden cambiar con el tiempo y variar entre culturas y épocas.
 
 ---
 
-**Estado:** PENDIENTE  
-**Próximamente:** Análisis profundo con ejemplos contextualizados.
+## 🏠 CONTEXTO: FAMILIA / HOGAR
+
+A continuación, se presentan algunos roles que históricamente han desempeñado hombres y mujeres:
+
+### Roles Asignados Tradicionalmente
+
+**👩 MUJERES:**
+- Encargada de los niños
+- Sustento emocional
+- Realizar el aseo general
+- Preparar alimentos
+
+**👨 HOMBRES:**
+- Responsable del soporte económico
+- Sustento de protección
+- Toma de decisiones importantes
+- Realizar trabajos de mantenimiento y reparación
+
+---
+
+## 🎓 CONTEXTO: UNIVERSIDAD
+
+### Estereotipos en el Ámbito Académico
+
+**👩 MUJERES:**
+- Presentar trabajos más organizados
+- Más sociables
+- Más puntuales
+- Rol de acompañamiento, no de liderazgo
+- Apoyo emocional y mediadoras en conflictos
+- Superación más rápida (Ej: Perder un parcial)
+
+**👨 HOMBRES:**
+- Desentenderse de tareas de "orden" o "detalle"
+- Evitar mostrar cansancio, estrés o emociones
+
+---
+
+## 🧬 CONTEXTO: BIOLÓGICO
+
+### Características Biológicas
+
+**👩 MUJERES:**
+- Cromosomas XX
+- Órganos reproductivos femeninos (ovarios, útero, vagina)
+- Capacidad de gestación y lactancia
+- Ciclo menstrual
+- Mayor proporción de grasa corporal
+- Menor masa muscular promedio
+
+**👨 HOMBRES:**
+- Cromosomas XY
+- Órganos reproductivos masculinos (testículos, pene, próstata)
+- Producción de espermatozoides
+- Mayor masa muscular promedio
+- Mayor cantidad de vello corporal y facial
+- Voz más grave debido a la laringe de mayor tamaño
+
+---
+
+**Conclusión del Análisis:**
+Los roles de género no son determinaciones biológicas inevitables, sino construcciones sociales y culturales que se refuerzan a través de instituciones, expectativas y normas. Reconocer esta distinción es fundamental para promover relaciones más equitativas y liberar el potencial humano de las limitaciones impuestas por estereotipos.
     `,
   },
   {
@@ -527,7 +579,7 @@ export default function SectionsPage() {
                 </div>
               )}
 
-              {(section?.id === 3 || section?.id === 4) && (
+              {section?.id === 3 && (
                 <div className="space-y-6">
                   <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-8 rounded-xl shadow-lg text-center">
                     <div className="text-6xl mb-4">🚧</div>
@@ -546,28 +598,173 @@ export default function SectionsPage() {
                     <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg">
                       <p className="font-bold text-orange-800 mb-3">📋 Temas por desarrollar:</p>
                       <div className="space-y-2 text-gray-700">
-                        {section?.id === 3 && (
-                          <>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Definición de género vs sexo biológico</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Teorías de socialización de género</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Construccionismo social</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Estereotipos y prejuicios de género</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Identidad y expresión de género</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Interseccionalidad</div>
-                          </>
-                        )}
-                        {section?.id === 4 && (
-                          <>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Roles de género en América Latina</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Contexto colombiano específico</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Comparación transcultural</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Influencia de medios de comunicación</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Prácticas culturales y equidad</div>
-                            <div className="flex items-center"><span className="mr-2">✓</span> Casos de estudio</div>
-                          </>
-                        )}
+                        <div className="flex items-center"><span className="mr-2">✓</span> Definición de género vs sexo biológico</div>
+                        <div className="flex items-center"><span className="mr-2">✓</span> Teorías de socialización de género</div>
+                        <div className="flex items-center"><span className="mr-2">✓</span> Construccionismo social</div>
+                        <div className="flex items-center"><span className="mr-2">✓</span> Estereotipos y prejuicios de género</div>
+                        <div className="flex items-center"><span className="mr-2">✓</span> Identidad y expresión de género</div>
+                        <div className="flex items-center"><span className="mr-2">✓</span> Interseccionalidad</div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {section?.id === 4 && (
+                <div className="space-y-8">
+                  {/* Introducción */}
+                  <div className="bg-gradient-to-r from-pink-600 to-pink-800 text-white p-8 rounded-xl shadow-lg">
+                    <h2 className="text-3xl font-bold mb-4">🌍 Análisis Cultural de los Roles de Género</h2>
+                    <p className="text-lg leading-relaxed mb-4">
+                      Los roles de género son los papeles, conductas y actitudes que una persona asume en la sociedad según el género. El grupo social al que se pertenece determina cómo debe comportarse y relacionarse de acuerdo con las expectativas que se tengan para hombres y mujeres.
+                    </p>
+                    <p className="text-lg leading-relaxed">
+                      Estos roles no son naturales ni biológicos, sino construidos socialmente y, por lo tanto, pueden cambiar con el tiempo y variar entre culturas y épocas.
+                    </p>
+                  </div>
+
+                  {/* Contexto: FAMILIA/HOGAR */}
+                  <div className="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-xl shadow-xl border-l-4 border-orange-500">
+                    <div className="mb-6">
+                      <h3 className="text-3xl font-bold text-orange-700 mb-4 flex items-center">
+                        <span className="text-4xl mr-3">🏠</span>
+                        CONTEXTO: FAMILIA / HOGAR
+                      </h3>
+                      <p className="text-gray-700 text-lg">
+                        A continuación, se presentan algunos roles que históricamente han desempeñado hombres y mujeres:
+                      </p>
+                    </div>
+
+                    <h4 className="text-2xl font-bold text-orange-800 mb-4">Roles Asignados Tradicionalmente</h4>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Mujeres */}
+                      <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-pink-500">
+                        <h4 className="text-2xl font-bold text-pink-700 mb-4 flex items-center">
+                          <span className="text-3xl mr-2">👩</span>
+                          MUJERES
+                        </h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Encargada de los niños</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Sustento emocional</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Realizar el aseo general</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Preparar alimentos</li>
+                        </ul>
+                      </div>
+
+                      {/* Hombres */}
+                      <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                        <h4 className="text-2xl font-bold text-blue-700 mb-4 flex items-center">
+                          <span className="text-3xl mr-2">👨</span>
+                          HOMBRES
+                        </h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Responsable del soporte económico</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Sustento de protección</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Toma de decisiones importantes</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Realizar trabajos de mantenimiento y reparación</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Contexto: UNIVERSIDAD */}
+                  <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-8 rounded-xl shadow-xl border-l-4 border-purple-500">
+                    <div className="mb-6">
+                      <h3 className="text-3xl font-bold text-purple-700 mb-4 flex items-center">
+                        <span className="text-4xl mr-3">🎓</span>
+                        CONTEXTO: UNIVERSIDAD
+                      </h3>
+                    </div>
+
+                    <h4 className="text-2xl font-bold text-purple-800 mb-4">Estereotipos en el Ámbito Académico</h4>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Mujeres */}
+                      <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-pink-500">
+                        <h4 className="text-2xl font-bold text-pink-700 mb-4 flex items-center">
+                          <span className="text-3xl mr-2">👩</span>
+                          MUJERES
+                        </h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Presentar trabajos más organizados</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Más sociables</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Más puntuales</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Rol de acompañamiento, no de liderazgo</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Apoyo emocional y mediadoras en conflictos</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Superación más rápida (Ej: Perder un parcial)</li>
+                        </ul>
+                      </div>
+
+                      {/* Hombres */}
+                      <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                        <h4 className="text-2xl font-bold text-blue-700 mb-4 flex items-center">
+                          <span className="text-3xl mr-2">👨</span>
+                          HOMBRES
+                        </h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Desentenderse de tareas de "orden" o "detalle"</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Evitar mostrar cansancio, estrés o emociones</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Contexto: BIOLÓGICO */}
+                  <div className="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-xl shadow-xl border-l-4 border-green-500">
+                    <div className="mb-6">
+                      <h3 className="text-3xl font-bold text-green-700 mb-4 flex items-center">
+                        <span className="text-4xl mr-3">🧬</span>
+                        CONTEXTO: BIOLÓGICO
+                      </h3>
+                    </div>
+
+                    <h4 className="text-2xl font-bold text-green-800 mb-4">Características Biológicas</h4>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {/* Mujeres */}
+                      <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-pink-500">
+                        <h4 className="text-2xl font-bold text-pink-700 mb-4 flex items-center">
+                          <span className="text-3xl mr-2">👩</span>
+                          MUJERES
+                        </h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li className="flex items-start"><span className="text-pink-400 mr-2">◦</span> Cromosomas XX</li>
+                          <li className="flex items-start"><span className="text-pink-400 mr-2">◦</span> Órganos reproductivos femeninos (ovarios, útero, vagina)</li>
+                          <li className="flex items-start"><span className="text-pink-400 mr-2">◦</span> Capacidad de gestación y lactancia</li>
+                          <li className="flex items-start"><span className="text-pink-400 mr-2">◦</span> Ciclo menstrual</li>
+                          <li className="flex items-start"><span className="text-pink-400 mr-2">◦</span> Mayor proporción de grasa corporal</li>
+                          <li className="flex items-start"><span className="text-pink-400 mr-2">◦</span> Menor masa muscular promedio</li>
+                        </ul>
+                      </div>
+
+                      {/* Hombres */}
+                      <div className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                        <h4 className="text-2xl font-bold text-blue-700 mb-4 flex items-center">
+                          <span className="text-3xl mr-2">👨</span>
+                          HOMBRES
+                        </h4>
+                        <ul className="space-y-2 text-gray-700">
+                          <li className="flex items-start"><span className="text-blue-400 mr-2">◦</span> Cromosomas XY</li>
+                          <li className="flex items-start"><span className="text-blue-400 mr-2">◦</span> Órganos reproductivos masculinos (testículos, pene, próstata)</li>
+                          <li className="flex items-start"><span className="text-blue-400 mr-2">◦</span> Producción de espermatozoides</li>
+                          <li className="flex items-start"><span className="text-blue-400 mr-2">◦</span> Mayor masa muscular promedio</li>
+                          <li className="flex items-start"><span className="text-blue-400 mr-2">◦</span> Mayor cantidad de vello corporal y facial</li>
+                          <li className="flex items-start"><span className="text-blue-400 mr-2">◦</span> Voz más grave debido a la laringe de mayor tamaño</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Conclusión */}
+                  <div className="bg-gradient-to-r from-pink-600 to-purple-600 text-white p-8 rounded-xl shadow-lg">
+                    <h3 className="text-2xl font-bold mb-4 flex items-center">
+                      <span className="text-3xl mr-2">💡</span>
+                      Conclusión del Análisis
+                    </h3>
+                    <p className="text-lg leading-relaxed">
+                      Los roles de género <strong>no son determinaciones biológicas inevitables</strong>, sino construcciones sociales y culturales que se refuerzan a través de instituciones, expectativas y normas. Reconocer esta distinción es fundamental para promover relaciones más equitativas y liberar el potencial humano de las limitaciones impuestas por estereotipos.
+                    </p>
                   </div>
                 </div>
               )}
