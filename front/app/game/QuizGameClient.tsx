@@ -183,12 +183,14 @@ export default function QuizGame() {
   }
 
   return (
-    <div className="fixed inset-0 bg-slate-900 overflow-hidden">
-      {/* Escena 3D de fondo */}
-      <ThreeScene intensity={sceneIntensity} />
+    <div className="relative min-h-screen bg-slate-900">
+      {/* Escena 3D de fondo (fija) */}
+      <div className="fixed inset-0 pointer-events-none">
+        <ThreeScene intensity={sceneIntensity} />
+      </div>
 
-      {/* Contenido principal */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-4 overflow-y-auto">
+      {/* Contenido principal con scroll */}
+      <div className="relative z-10 min-h-screen flex items-center justify-center p-4 py-24">
         <AnimatePresence mode="wait">
           {gameState === "welcome" && (
             <WelcomeScreen
