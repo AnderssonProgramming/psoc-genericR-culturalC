@@ -41,15 +41,15 @@ Los roles de género no son neutrales; moldean oportunidades, limitan potencial 
 
 #### Importancia y comprensión del tema
 
-El propósito de este documento es ofrecer una exploración crítica y reflexiva sobre los roles de género y cómo se han construido y perpetuado a lo largo del tiempo. Los roles de género son patrones de conducta, expectativas y normas sociales que se asignan a las personas en función de su sexo biológico, influyendo profundamente en la manera en que interactúan, se perciben a sí mismas y son percibidas por los demás. Desde la infancia, estos roles son transmitidos y reforzados por instituciones como la familia, la educación, los medios de comunicación y las estructuras económicas y políticas, lo que hace que parezcan "naturales" cuando, en realidad, son construcciones sociales.
+El propósito de este documento es ofrecer una exploración crítica y reflexiva sobre los roles de género y cómo se han construido y perpetuado a lo largo del tiempo. Los roles de género son patrones de conducta, expectativas y normas sociales que se asignan a las personas en función de su sexo biológico, influyendo profundamente en la manera en que interactúan, se perciben a sí mismas y son percibidas por los demás. Desde la infancia, estos roles son transmitidos y reforzados por instituciones como la familia, las instituciones educativas, los medios de comunicación y las estructuras económicas y políticas, lo que hace que parezcan "naturales" cuando, en realidad, son construcciones sociales.
 
 La importancia de abordar este tema radica en que los roles de género no son neutrales; tienen consecuencias reales en la vida de las personas, afectando su bienestar psicológico, su acceso a oportunidades educativas y laborales, su participación en la vida pública y, en muchos casos, su seguridad física. Entender cómo estos roles se han formado, quiénes se benefician de ellos y cómo se pueden transformar es esencial para construir sociedades más justas e igualitarias. Al cuestionar y deconstruir estos roles, no solo se benefician las mujeres, sino todas las personas, independientemente de su identidad de género, ya que se abre la posibilidad de desarrollar todo su potencial sin las limitaciones impuestas por expectativas rígidas y estereotipadas.
 
 #### Razón de los roles y evolución del tema
 
-Los roles de género tienen sus raíces en estructuras sociales y económicas que, históricamente, asignaron funciones específicas a hombres y mujeres basándose en diferencias biológicas como la capacidad reproductiva. En sociedades preindustriales, la división del trabajo entre lo público (predominantemente masculino) y lo privado o doméstico (predominantemente femenino) respondía, en parte, a necesidades de supervivencia y organización comunitaria. Sin embargo, con el tiempo, estas divisiones se naturalizaron y se justificaron a través de discursos religiosos, filosóficos y científicos que presentaban a los hombres como más aptos para el liderazgo, la razón y el espacio público, mientras que a las mujeres se les asociaba con la emocionalidad, el cuidado y el ámbito privado.
+Los roles de género tienen sus raíces en múltiples dimensiones: estructuras sociales, económicas, culturales y psicológicas que, históricamente, asignaron funciones específicas a hombres y mujeres. Estas asignaciones se basaron tanto en diferencias biológicas como la capacidad reproductiva, como en diferencias psicológicas atribuidas a cada género, tales como la empatía y la sensibilidad, aunque es importante reconocer que muchas de estas características consideradas "naturales" son en realidad producto de la socialización y no determinantes biológicos inmutables. En sociedades preindustriales, la división del trabajo entre lo público (predominantemente masculino) y lo privado o doméstico (predominantemente femenino) respondía, en parte, a necesidades de supervivencia y organización comunitaria. Sin embargo, con el tiempo, estas divisiones se naturalizaron y se justificaron a través de discursos religiosos, filosóficos y científicos que presentaban a los hombres como más aptos para el liderazgo, la razón y el espacio público, mientras que a las mujeres se les asociaba con la emocionalidad, el cuidado y el ámbito privado.
 
-Con la llegada de movimientos sociales y políticos, como el feminismo y los movimientos por los derechos civiles, estas estructuras comenzaron a cuestionarse de manera más sistemática. A lo largo del siglo XX y XXI, se ha evidenciado que los roles de género no son inmutables ni universales; varían significativamente entre culturas, épocas históricas y contextos socioeconómicos. Esto demuestra que son construcciones sociales y no hechos biológicos inevitables. En la actualidad, existe un creciente reconocimiento de que los roles de género pueden y deben evolucionar para reflejar los valores de equidad, respeto a la diversidad y dignidad humana.
+Con la llegada de movimientos sociales y políticos, como el feminismo y los movimientos por los derechos civiles, estas estructuras comenzaron a cuestionarse de manera más sistemática. A lo largo del siglo XX y XXI, se ha evidenciado que los roles de género no son inmutables ni universales; varían significativamente entre culturas, épocas históricas y contextos socioeconómicos. Esto demuestra que son construcciones sociales y no hechos biológicos inevitables. En la actualidad, los roles de género han cambiado y evolucionado significativamente, e incluyen hoy una mayor flexibilidad, reconocimiento de la diversidad y un creciente compromiso con los valores de equidad, respeto y dignidad humana para todas las personas, independientemente de su identidad de género.
 
 ---
 
@@ -750,10 +750,10 @@ export default function SectionsPage() {
                     <div className="bg-white p-6 rounded-xl shadow-lg border-l-4 border-purple-500">
                       <h3 className="text-2xl font-bold text-purple-700 mb-3 flex items-center">
                         <span className="text-3xl mr-2">🎯</span>
-                        Objetivo del Proyecto
+                        Objetivo
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Dar una idea clara sobre el propósito del proyecto y servir como una primera sección "abrebocas" que invite a la reflexión sobre los roles de género y las construcciones culturales que los sustentan.
+                        Ofrecer a la comunidad universitaria una herramienta que sirva como abrebocas en la reflexión sobre los roles de género y las construcciones culturales que los sustentan.
                       </p>
                     </div>
 
@@ -763,13 +763,12 @@ export default function SectionsPage() {
                         ¿Por qué es importante?
                       </h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Los roles de género no son neutrales; moldean oportunidades, limitan potencial humano y perpetúan desigualdades estructurales. Este proyecto es un llamado a la acción para repensar y reconstruir nuestras relaciones, espacios y comunidades desde la equidad.
+                        Los roles de género son comportamientos y actitudes que asumen hombres y mujeres de acuerdo con su género. Estas formas de ser, en ocasiones, limitan su desarrollo social, por lo cual se requiere hoy tener mayor conocimiento para una mejor comprensión y cambio.
                       </p>
                     </div>
                   </div>
 
                   <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-8 rounded-xl shadow-lg text-center">
-                    <p className="text-3xl font-bold mb-2">💫 Slogan del Proyecto</p>
                     <p className="text-5xl font-black italic">"El cambio empieza con equilibrio"</p>
                   </div>
                 </div>
@@ -792,7 +791,7 @@ export default function SectionsPage() {
                       </p>
                       <div className="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
                         <p className="text-purple-900">
-                          <strong>Dato clave:</strong> Desde la infancia, estos roles son transmitidos y reforzados por instituciones como la familia, la educación, los medios de comunicación y las estructuras económicas y políticas, lo que hace que parezcan "naturales" cuando, en realidad, son construcciones sociales.
+                          <strong>Dato clave:</strong> Desde la infancia, estos roles son transmitidos y reforzados por instituciones como la familia, las instituciones educativas, los medios de comunicación y las estructuras económicas y políticas, lo que hace que parezcan "naturales" cuando, en realidad, son construcciones sociales.
                         </p>
                       </div>
                       <p>
@@ -808,20 +807,10 @@ export default function SectionsPage() {
                     </h3>
                     <div className="space-y-4 text-gray-700 leading-relaxed">
                       <p>
-                        Los roles de género tienen sus raíces en <strong className="text-pink-700">estructuras sociales y económicas</strong> que, históricamente, asignaron funciones específicas a hombres y mujeres basándose en diferencias biológicas como la capacidad reproductiva.
+                        Los roles de género tienen sus raíces en múltiples dimensiones: <strong className="text-pink-700">estructuras sociales, económicas, culturales y psicológicas</strong> que, históricamente, asignaron funciones específicas a hombres y mujeres. Estas asignaciones se basaron tanto en <strong className="text-pink-700">diferencias biológicas</strong> como la capacidad reproductiva, como en <strong className="text-pink-700">diferencias psicológicas</strong> atribuidas a cada género, tales como la empatía y la sensibilidad.
                       </p>
-                      <div className="grid md:grid-cols-2 gap-4 my-4">
-                        <div className="bg-pink-50 p-4 rounded-lg">
-                          <p className="font-bold text-pink-800 mb-2">🏛️ División Histórica</p>
-                          <p className="text-sm">Público (masculino) vs Privado (femenino)</p>
-                        </div>
-                        <div className="bg-purple-50 p-4 rounded-lg">
-                          <p className="font-bold text-purple-800 mb-2">🌊 Movimientos Sociales</p>
-                          <p className="text-sm">Feminismo y derechos civiles cuestionaron estructuras</p>
-                        </div>
-                      </div>
                       <p>
-                        En la actualidad, existe un creciente reconocimiento de que los roles de género <strong className="text-pink-700">pueden y deben evolucionar</strong> para reflejar los valores de equidad, respeto a la diversidad y dignidad humana.
+                        En la actualidad, los roles de género <strong className="text-pink-700">han cambiado y evolucionado significativamente</strong>, e incluyen hoy una mayor flexibilidad, reconocimiento de la diversidad y un creciente compromiso con los valores de equidad, respeto y dignidad humana para todas las personas.
                       </p>
                     </div>
                   </div>
