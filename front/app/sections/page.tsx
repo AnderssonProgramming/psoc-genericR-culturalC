@@ -64,24 +64,273 @@ Con la llegada de movimientos sociales y políticos, como el feminismo y los mov
     color: 'from-pink-500 to-pink-700',
     icon: '🧠',
     content: `
-### Marco Conceptual
+# 🧠 Marco Conceptual sobre los Roles de Género y las Influencias Culturales
 
-**Esta sección está en desarrollo.**
-
-El marco conceptual incluirá definiciones, teorías y modelos fundamentales para comprender los roles de género desde la Psicología Social.
-
-**Temas por desarrollar:**
-- Definición de género vs sexo biológico
-- Teorías de socialización de género
-- Construccionismo social
-- Estereotipos y prejuicios de género
-- Identidad de género y expresión de género
-- Interseccionalidad
+*Análisis de la construcción social del género en la sociedad contemporánea*
 
 ---
 
-**Estado:** PENDIENTE  
-**Próximamente:** Contenido completo con fundamentos teóricos rigurosos.
+## 📋 Introducción
+
+El presente marco conceptual aborda la relación entre los **roles de género** y las **influencias culturales**, considerando cómo ambos fenómenos se entrelazan para moldear las prácticas, creencias y estructuras sociales. A partir de una revisión de estudios recientes, se examinan:
+
+- 🔍 Los procesos de construcción social del género
+- 🔄 Las transformaciones contemporáneas en los roles de hombres y mujeres
+- 🌍 Las múltiples formas en que las influencias culturales impactan las dinámicas sociales y de género
+
+*(Ospina, 2023; Alfaro Arismendy & Bonilla Maradey, 2021; OECD, 2023)*
+
+---
+
+## 👥 Roles de Género
+
+### 📖 Definición y Construcción Social
+
+Los **roles de género** son entendidos como el conjunto de **comportamientos, normas y expectativas socialmente construidas** en torno al hecho de ser hombre o mujer.
+
+#### 🏛️ Instituciones Socializadoras
+
+\`\`\`
+    ┌─────────────────────────────────┐
+    │   CONSTRUCCIÓN DE ROLES         │
+    │        DE GÉNERO                │
+    └─────────────────────────────────┘
+              │
+              ├──► 👨‍👩‍👧 FAMILIA (Primera socialización)
+              │
+              ├──► 🏫 ESCUELA (Educación formal)
+              │
+              └──► 📺 MEDIOS DE COMUNICACIÓN (Difusión masiva)
+\`\`\`
+
+Desde la **infancia**, estas instituciones influyen en la definición de dichos roles, generando patrones de conducta que suelen perpetuar estereotipos y desigualdades *(Ospina, 2023)*.
+
+#### 🎯 Áreas de Impacto
+
+Esta construcción social del género condiciona aspectos como:
+
+| **Área** | **Impacto** |
+|----------|-------------|
+| 💑 **Relaciones** | Toma de decisiones sexuales y afectivas |
+| 🏠 **Hogar** | Distribución del trabajo doméstico |
+| 🎓 **Educación** | Participación en espacios académicos |
+| 💼 **Trabajo** | Acceso y desarrollo en espacios laborales |
+
+---
+
+### 🔄 Transformaciones Contemporáneas
+
+> **⚠️ Nota Importante:** Los roles de género **NO son estáticos**
+
+#### 📈 Avances Significativos
+
+En las últimas décadas, varios factores han promovido transformaciones importantes:
+
+\`\`\`
+    FACTORES DE CAMBIO
+            │
+    ┌───────┼───────┐
+    │       │       │
+ EDUCACIÓN  FEMINISMO  POLÍTICAS
+ SUPERIOR              PÚBLICAS
+    🎓       ✊         📜
+    │       │       │
+    └───────┴───────┘
+            │
+    TRANSFORMACIÓN DE
+     ROLES DE GÉNERO
+\`\`\`
+
+**Logros destacados:**
+- ✅ Aumento de la participación femenina en educación superior
+- ✅ Mayor presencia en el trabajo remunerado
+- ✅ Acción de movimientos feministas
+- ✅ Cambios en políticas públicas de igualdad
+
+*(Malaver-Fonseca, Serrano-Cárdenas & Castro-Silva, 2021)*
+
+---
+
+### 🦠 Impacto de la Pandemia COVID-19
+
+La pandemia evidenció tanto **avances** como **retrocesos** en la equidad de género:
+
+#### 📉 Retrocesos
+
+\`\`\`
+┌──────────────────────────────────────────┐
+│  IMPACTO NEGATIVO COVID-19               │
+│                                          │
+│  ⚠️ Incremento de cargas de cuidado      │
+│     sobre las mujeres                    │
+│                                          │
+│  ⚠️ Sobrecarga del trabajo doméstico     │
+│     no remunerado                        │
+│                                          │
+│  ⚠️ Reducción de participación laboral   │
+│     femenina                             │
+└──────────────────────────────────────────┘
+\`\`\`
+
+#### 💡 Oportunidades
+
+- ✨ Visibilización de la necesidad de políticas más equitativas
+- 💬 Mayor conciencia sobre economías del cuidado
+- 🏠 Normalización del trabajo remoto y flexibilidad laboral
+- 👨‍👧 Incremento de participación masculina en tareas domésticas
+
+---
+
+## 🌍 Influencias Culturales
+
+### 🔍 Definición y Alcance
+
+Las **influencias culturales** abarcan un conjunto de factores que moldean los valores, creencias y prácticas de las sociedades.
+
+#### 🌐 Factores Principales
+
+\`\`\`
+        INFLUENCIAS CULTURALES
+                 │
+        ┌────────┼────────┬────────┐
+        │        │        │        │
+   MIGRACIÓN  GLOBALIZACIÓN  MEDIOS  POLÍTICAS
+                                    SOCIALES  PÚBLICAS
+     🚶‍♀️        🌐          📱       📜
+        │        │        │        │
+        └────────┴────────┴────────┘
+                 │
+        TRANSFORMACIÓN CULTURAL
+           Y DE GÉNERO
+\`\`\`
+
+#### 📊 Escalas de Interacción
+
+| **Nivel** | **Características** | **Ejemplo** |
+|-----------|---------------------|-------------|
+| 🏘️ **Local** | Valores comunitarios | Tradiciones familiares |
+| 🌆 **Regional** | Políticas y normativas | Legislación laboral |
+| 🌍 **Global** | Flujos transnacionales | Movimientos sociales internacionales |
+
+Estos elementos interactúan a escalas locales, regionales y globales, generando **procesos de intercambio y transformación cultural** que afectan directamente las percepciones sobre el género *(Alfaro Arismendy & Bonilla Maradey, 2021)*.
+
+---
+
+### 🎭 Consecuencias de las Influencias Culturales
+
+Entre las consecuencias de dichas influencias se encuentran:
+
+#### 🌈 1. Identidades Híbridas
+
+- Fusión de modelos tradicionales y contemporáneos
+- Negociación constante de expectativas contradictorias
+- Emergencia de nuevas formas de expresión de género
+
+#### ♻️ 2. Resignificación de Tradiciones
+
+\`\`\`
+    TRADICIONES LOCALES
+            │
+            ▼
+    ┌─────────────────┐
+    │ Transformación  │───► Pérdida o
+    │ Cultural        │     resignificación
+    └─────────────────┘
+            │
+            ▼
+    Adaptación a nuevos
+    contextos globales
+\`\`\`
+
+#### 🏙️ 3. Reconfiguración de Estilos de Vida
+
+| **Contexto** | **Características de Roles** |
+|--------------|------------------------------|
+| Urbano | Roles más flexibles y negociables |
+| Rural | Roles más tradicionales y definidos |
+| Cosmopolita | Hibridación de múltiples modelos |
+
+#### 💭 4. Transformación de Expectativas sobre Roles de Género
+
+> **📌 Hallazgo Clave (OECD, 2023):**  
+> Organismos internacionales como la OECD han resaltado la **persistencia de desigualdades estructurales** y la necesidad urgente de **políticas públicas que promuevan la igualdad de oportunidades**.
+
+---
+
+### 🏢 Impacto en Contextos Empresariales
+
+Estudios como el de **Vos (2022)** demuestran que los **valores culturales influyen** incluso en los contextos empresariales:
+
+| **Área Empresarial** | **Influencia Cultural** |
+|----------------------|-------------------------|
+| 💻 Adopción tecnológica | Valores sobre innovación y cambio |
+| 🤝 Relaciones laborales | Normas de interacción y jerarquía |
+| 👔 Liderazgo | Estereotipos de género en puestos directivos |
+| ⚖️ Equidad salarial | Valoración diferencial del trabajo |
+| 🏠 Conciliación | Expectativas sobre cuidado y familia |
+
+Esto evidencia la **profunda conexión entre cultura y prácticas sociales**.
+
+---
+
+## 🎓 Conclusión
+
+### 🔗 Interdependencia de Fenómenos
+
+\`\`\`
+    ┌─────────────────────────────────────┐
+    │   ROLES DE GÉNERO ↔ CULTURA         │
+    │              ↕                      │
+    │   GLOBALIZACIÓN ↔ TRADICIÓN         │
+    │              ↕                      │
+    │   POLÍTICAS ↔ PRÁCTICAS SOCIALES    │
+    └─────────────────────────────────────┘
+\`\`\`
+
+En conclusión, los **roles de género** y las **influencias culturales** son fenómenos **interdependientes** que reflejan la dinámica social contemporánea.
+
+### 🌟 Hallazgos Principales
+
+1. 📚 **Normas culturales** continúan moldeando las expectativas sobre hombres y mujeres
+2. 🌍 **Procesos de globalización** han impulsado transformaciones significativas
+3. ✊ **Movimientos por la igualdad** han generado cambios estructurales importantes
+4. ⚖️ **Desigualdades estructurales** persisten en múltiples ámbitos
+
+### 💡 Requisitos para la Equidad
+
+\`\`\`
+┌────────────────────────────────────────────┐
+│  EQUIDAD DE GÉNERO REQUIERE:               │
+│                                            │
+│  ✓ Cambios estructurales                  │
+│  ✓ Redefinición de valores culturales     │
+│  ✓ Transformación de prácticas sociales   │
+│  ✓ Políticas públicas efectivas           │
+└────────────────────────────────────────────┘
+\`\`\`
+
+Las investigaciones revisadas evidencian que la equidad de género requiere **no solo cambios estructurales**, sino también la **redefinición de valores culturales y sociales** que sustentan las desigualdades *(OECD, 2023; Vos, 2022)*.
+
+---
+
+## 📚 Referencias Bibliográficas
+
+1. **Alfaro Arismendy, C. G., & Bonilla Maradey, P. A.** (2021). *Influencia de las costumbres y valores colombianos en docentes extranjeros*. Universidad Ean.
+
+2. **Malaver-Fonseca, L. F., Serrano-Cárdenas, L. F., & Castro-Silva, H. F.** (2021). La pandemia COVID-19 y el rol de las mujeres en la economía del cuidado en América Latina: Una revisión sistemática. *Estudios Gerenciales*.
+
+3. **OECD** (2023). *Gender Equality in Colombia*. OECD Publishing.
+
+4. **Ospina, J. M.** (2023). *Roles, género, jóvenes, sexualidad, toma de decisiones*. Universidad Javeriana Cali.
+
+5. **Pérez Sánchez, B., & Concha-Salgado, A.** (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. *Anales de Psicología*.
+
+6. **Vos, J. F. J.** (2022). The influence of cultural values on Enterprise System adoption. *Journal of Business Research*.
+
+---
+
+*📖 Marco Conceptual desarrollado como parte del proyecto **Gender Quest***  
+*Enfoque desde la Psicología Social para promover la equidad de género*
     `,
   },
   {
@@ -580,30 +829,426 @@ export default function SectionsPage() {
               )}
 
               {section?.id === 3 && (
-                <div className="space-y-6">
-                  <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white p-8 rounded-xl shadow-lg text-center">
-                    <div className="text-6xl mb-4">🚧</div>
-                    <h2 className="text-3xl font-bold mb-2">{section?.title}</h2>
-                    <p className="text-xl opacity-90">{section?.description}</p>
+                <div className="space-y-8">
+                  {/* Encabezado Principal - MÁS LLAMATIVO */}
+                  <div className="relative bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white p-10 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+                    <div className="absolute inset-0 bg-black/10"></div>
+                    <div className="relative z-10">
+                      <div className="flex items-center mb-4">
+                        <div className="text-7xl mr-4 animate-pulse">🧠</div>
+                        <div>
+                          <h2 className="text-5xl font-black mb-2 drop-shadow-lg">
+                            Marco Conceptual
+                          </h2>
+                          <p className="text-2xl font-semibold opacity-95 italic">Roles de Género y las Influencias Culturales</p>
+                        </div>
+                      </div>
+                      <p className="text-xl opacity-90 bg-white/20 backdrop-blur-sm p-4 rounded-xl mt-4">
+                        ✨ Análisis de la construcción social del género en la sociedad contemporánea
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="bg-white p-8 rounded-xl shadow-lg border-4 border-dashed border-yellow-400">
-                    <h3 className="text-2xl font-bold text-orange-700 mb-4 text-center">
-                      ⏳ Esta sección está en desarrollo
-                    </h3>
-                    <p className="text-gray-700 text-center mb-6">
-                      Próximamente encontrarás aquí contenido completo con fundamentos teóricos rigurosos y análisis profundo.
+                  {/* Introducción - MEJORADA CON MÁS COLOR */}
+                  <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-xl border-4 border-transparent hover:border-pink-300 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-6 rounded-xl shadow-lg mb-6">
+                      <h3 className="text-3xl font-bold flex items-center">
+                        <span className="text-4xl mr-3">📋</span>
+                        Introducción
+                      </h3>
+                    </div>
+                    <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-white p-5 rounded-xl shadow-md">
+                      El presente marco conceptual aborda la relación entre los <strong className="text-pink-600">roles de género</strong> y las <strong className="text-purple-600">influencias culturales</strong>, considerando cómo ambos fenómenos se entrelazan para moldear las prácticas, creencias y estructuras sociales.
                     </p>
-                    
-                    <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-lg">
-                      <p className="font-bold text-orange-800 mb-3">📋 Temas por desarrollar:</p>
-                      <div className="space-y-2 text-gray-700">
-                        <div className="flex items-center"><span className="mr-2">✓</span> Definición de género vs sexo biológico</div>
-                        <div className="flex items-center"><span className="mr-2">✓</span> Teorías de socialización de género</div>
-                        <div className="flex items-center"><span className="mr-2">✓</span> Construccionismo social</div>
-                        <div className="flex items-center"><span className="mr-2">✓</span> Estereotipos y prejuicios de género</div>
-                        <div className="flex items-center"><span className="mr-2">✓</span> Identidad y expresión de género</div>
-                        <div className="flex items-center"><span className="mr-2">✓</span> Interseccionalidad</div>
+                    <div className="grid md:grid-cols-3 gap-6 mt-6">
+                      <div className="bg-gradient-to-br from-pink-400 to-pink-600 p-6 rounded-xl shadow-xl text-white transform hover:scale-105 hover:rotate-1 transition-all duration-300">
+                        <div className="text-5xl mb-3">🔍</div>
+                        <p className="font-bold text-xl mb-2">Procesos de construcción</p>
+                        <p className="text-sm opacity-90">Los procesos de construcción social del género</p>
+                      </div>
+                      <div className="bg-gradient-to-br from-purple-400 to-purple-600 p-6 rounded-xl shadow-xl text-white transform hover:scale-105 transition-all duration-300">
+                        <div className="text-5xl mb-3">🔄</div>
+                        <p className="font-bold text-xl mb-2">Transformaciones</p>
+                        <p className="text-sm opacity-90">Las transformaciones contemporáneas en los roles</p>
+                      </div>
+                      <div className="bg-gradient-to-br from-indigo-400 to-indigo-600 p-6 rounded-xl shadow-xl text-white transform hover:scale-105 hover:-rotate-1 transition-all duration-300">
+                        <div className="text-5xl mb-3">🌍</div>
+                        <p className="font-bold text-xl mb-2">Influencias culturales</p>
+                        <p className="text-sm opacity-90">Cómo impactan las dinámicas sociales</p>
+                      </div>
+                    </div>
+                    <div className="mt-6 bg-gradient-to-r from-yellow-100 to-orange-100 p-4 rounded-xl border-l-4 border-orange-500">
+                      <p className="text-sm text-gray-700 italic font-semibold">
+                        📚 Referencias: Ospina (2023), Alfaro Arismendy & Bonilla Maradey (2021), OECD (2023)
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Roles de Género - DISEÑO MEJORADO Y MÁS COLORIDO */}
+                  <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 p-10 rounded-2xl shadow-2xl border-4 border-purple-300 hover:border-pink-400 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white p-6 rounded-xl shadow-xl mb-8 transform hover:scale-[1.02] transition-all duration-300">
+                      <h3 className="text-4xl font-black flex items-center">
+                        <span className="text-5xl mr-4 animate-bounce">👥</span>
+                        Roles de Género
+                      </h3>
+                    </div>
+
+                    {/* Definición - MÁS LLAMATIVA */}
+                    <div className="bg-white p-8 rounded-2xl shadow-2xl mb-8 border-l-8 border-purple-500 hover:shadow-purple-300 transition-all duration-300">
+                      <h4 className="text-2xl font-bold text-purple-700 mb-4 flex items-center">
+                        <span className="text-3xl mr-3">📖</span>
+                        Definición y Construcción Social
+                      </h4>
+                      <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-xl">
+                        Los <strong className="text-purple-700">roles de género</strong> son entendidos como el conjunto de <strong className="text-pink-600">comportamientos, normas y expectativas socialmente construidas</strong> en torno al hecho de ser hombre o mujer.
+                      </p>
+
+                      {/* Instituciones Socializadoras - MÁS COLORIDAS */}
+                      <div className="bg-gradient-to-br from-indigo-50 to-purple-100 p-6 rounded-2xl mb-6 shadow-lg">
+                        <h5 className="font-black text-purple-800 mb-5 text-xl flex items-center">
+                          <span className="text-2xl mr-2">🏛️</span>
+                          Instituciones Socializadoras
+                        </h5>
+                        <div className="grid md:grid-cols-3 gap-6">
+                          <div className="text-center p-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl transform hover:scale-110 hover:-rotate-2 transition-all duration-300">
+                            <div className="text-6xl mb-3">👨‍👩‍👧</div>
+                            <p className="font-black text-xl text-white mb-2">FAMILIA</p>
+                            <p className="text-sm text-blue-100">Primera socialización</p>
+                          </div>
+                          <div className="text-center p-6 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                            <div className="text-6xl mb-3">🏫</div>
+                            <p className="font-black text-xl text-white mb-2">ESCUELA</p>
+                            <p className="text-sm text-green-100">Educación formal</p>
+                          </div>
+                          <div className="text-center p-6 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl shadow-xl transform hover:scale-110 hover:rotate-2 transition-all duration-300">
+                            <div className="text-6xl mb-3">📺</div>
+                            <p className="font-black text-xl text-white mb-2">MEDIOS</p>
+                            <p className="text-sm text-red-100">Difusión masiva</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Áreas de Impacto - MÁS COLORIDAS */}
+                      <h5 className="font-black text-purple-800 mb-4 text-xl flex items-center">
+                        <span className="text-2xl mr-2">🎯</span>
+                        Áreas de Impacto
+                      </h5>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-gradient-to-r from-pink-400 to-pink-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-4xl mr-4">💑</span>
+                          <div className="text-white">
+                            <p className="font-bold text-lg">Relaciones</p>
+                            <p className="text-sm opacity-90">Toma de decisiones sexuales y afectivas</p>
+                          </div>
+                        </div>
+                        <div className="bg-gradient-to-r from-orange-400 to-orange-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-4xl mr-4">🏠</span>
+                          <div className="text-white">
+                            <p className="font-bold text-lg">Hogar</p>
+                            <p className="text-sm opacity-90">Distribución del trabajo doméstico</p>
+                          </div>
+                        </div>
+                        <div className="bg-gradient-to-r from-blue-400 to-blue-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-4xl mr-4">🎓</span>
+                          <div className="text-white">
+                            <p className="font-bold text-lg">Educación</p>
+                            <p className="text-sm opacity-90">Participación en espacios académicos</p>
+                          </div>
+                        </div>
+                        <div className="bg-gradient-to-r from-purple-400 to-purple-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-4xl mr-4">💼</span>
+                          <div className="text-white">
+                            <p className="font-bold text-lg">Trabajo</p>
+                            <p className="text-sm opacity-90">Acceso y desarrollo laboral</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Transformaciones */}
+                    <div className="bg-white p-6 rounded-lg shadow mb-6">
+                      <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-4">
+                        <p className="font-bold text-yellow-800">⚠️ Nota Importante: Los roles de género NO son estáticos</p>
+                      </div>
+
+                      <h4 className="text-xl font-bold text-purple-600 mb-3">🔄 Transformaciones Contemporáneas</h4>
+                      <p className="text-gray-700 mb-4">En las últimas décadas, varios factores han promovido transformaciones importantes:</p>
+
+                      <div className="grid md:grid-cols-3 gap-4 mb-4">
+                        <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
+                          <div className="text-4xl mb-2">🎓</div>
+                          <p className="font-bold text-blue-700">EDUCACIÓN SUPERIOR</p>
+                          <p className="text-sm text-gray-600 mt-2">Mayor participación femenina</p>
+                        </div>
+                        <div className="text-center p-4 bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg">
+                          <div className="text-4xl mb-2">✊</div>
+                          <p className="font-bold text-pink-700">FEMINISMO</p>
+                          <p className="text-sm text-gray-600 mt-2">Movimientos sociales activos</p>
+                        </div>
+                        <div className="text-center p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
+                          <div className="text-4xl mb-2">📜</div>
+                          <p className="font-bold text-green-700">POLÍTICAS PÚBLICAS</p>
+                          <p className="text-sm text-gray-600 mt-2">Legislación de igualdad</p>
+                        </div>
+                      </div>
+
+                      <div className="bg-green-50 p-4 rounded-lg">
+                        <p className="font-semibold text-green-800 mb-2">Logros destacados:</p>
+                        <ul className="space-y-1 text-gray-700">
+                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Aumento de participación femenina en educación superior</li>
+                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Mayor presencia en trabajo remunerado</li>
+                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Acción de movimientos feministas</li>
+                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Cambios en políticas públicas de igualdad</li>
+                        </ul>
+                        <p className="text-sm text-gray-600 italic mt-3">(Malaver-Fonseca, Serrano-Cárdenas & Castro-Silva, 2021)</p>
+                      </div>
+                    </div>
+
+                    {/* COVID-19 */}
+                    <div className="bg-white p-6 rounded-lg shadow">
+                      <h4 className="text-xl font-bold text-purple-600 mb-3 flex items-center">
+                        <span className="text-2xl mr-2">🦠</span>
+                        Impacto de la Pandemia COVID-19
+                      </h4>
+                      <p className="text-gray-700 mb-4">La pandemia evidenció tanto <strong>avances</strong> como <strong>retrocesos</strong> en la equidad de género:</p>
+
+                      <div className="grid md:grid-cols-2 gap-4">
+                        <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                          <h5 className="font-bold text-red-700 mb-2">📉 Retrocesos</h5>
+                          <ul className="space-y-1 text-sm text-gray-700">
+                            <li className="flex items-start"><span className="text-red-500 mr-2">⚠️</span> Incremento de cargas de cuidado sobre las mujeres</li>
+                            <li className="flex items-start"><span className="text-red-500 mr-2">⚠️</span> Sobrecarga del trabajo doméstico no remunerado</li>
+                            <li className="flex items-start"><span className="text-red-500 mr-2">⚠️</span> Reducción de participación laboral femenina</li>
+                          </ul>
+                        </div>
+
+                        <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                          <h5 className="font-bold text-green-700 mb-2">💡 Oportunidades</h5>
+                          <ul className="space-y-1 text-sm text-gray-700">
+                            <li className="flex items-start"><span className="text-green-500 mr-2">✨</span> Visibilización de necesidad de políticas equitativas</li>
+                            <li className="flex items-start"><span className="text-green-500 mr-2">💬</span> Mayor conciencia sobre economías del cuidado</li>
+                            <li className="flex items-start"><span className="text-green-500 mr-2">🏠</span> Normalización del trabajo remoto</li>
+                            <li className="flex items-start"><span className="text-green-500 mr-2">👨‍👧</span> Mayor participación masculina en tareas domésticas</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Influencias Culturales - DISEÑO MEJORADO Y MÁS COLORIDO */}
+                  <div className="bg-gradient-to-br from-cyan-100 via-teal-100 to-blue-100 p-10 rounded-2xl shadow-2xl border-4 border-cyan-300 hover:border-teal-400 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-cyan-600 via-teal-600 to-blue-600 text-white p-6 rounded-xl shadow-xl mb-8 transform hover:scale-[1.02] transition-all duration-300">
+                      <h3 className="text-4xl font-black flex items-center">
+                        <span className="text-5xl mr-4 animate-spin-slow">🌍</span>
+                        Influencias Culturales
+                      </h3>
+                    </div>
+
+                    <div className="bg-white p-8 rounded-2xl shadow-2xl mb-8 border-l-8 border-cyan-500">
+                      <h4 className="text-2xl font-bold text-cyan-700 mb-4 flex items-center">
+                        <span className="text-3xl mr-3">🔍</span>
+                        Definición y Alcance
+                      </h4>
+                      <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-gradient-to-r from-cyan-50 to-teal-50 p-5 rounded-xl">
+                        Las <strong className="text-cyan-700">influencias culturales</strong> abarcan un conjunto de factores que moldean los valores, creencias y prácticas de las sociedades.
+                      </p>
+
+                      <h5 className="font-black text-cyan-800 mb-5 text-xl flex items-center">
+                        <span className="text-2xl mr-2">🌐</span>
+                        Factores Principales
+                      </h5>
+                      <div className="grid md:grid-cols-4 gap-4 mb-6">
+                        <div className="text-center p-5 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-5xl mb-2">🚶‍♀️</div>
+                          <p className="font-black text-lg text-white">MIGRACIÓN</p>
+                        </div>
+                        <div className="text-center p-5 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-5xl mb-2">🌐</div>
+                          <p className="font-black text-lg text-white">GLOBALIZACIÓN</p>
+                        </div>
+                        <div className="text-center p-5 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-5xl mb-2">📱</div>
+                          <p className="font-black text-lg text-white">MEDIOS SOCIALES</p>
+                        </div>
+                        <div className="text-center p-5 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-5xl mb-2">📜</div>
+                          <p className="font-black text-lg text-white">POLÍTICAS PÚBLICAS</p>
+                        </div>
+                      </div>
+
+                      <h5 className="font-black text-cyan-800 mb-4 text-xl flex items-center">
+                        <span className="text-2xl mr-2">📊</span>
+                        Escalas de Interacción
+                      </h5>
+                      <div className="space-y-4">
+                        <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-5xl mr-4">🏘️</span>
+                          <div className="text-white">
+                            <p className="font-bold text-xl">Local</p>
+                            <p className="text-sm opacity-90">Valores comunitarios • Tradiciones familiares</p>
+                          </div>
+                        </div>
+                        <div className="bg-gradient-to-r from-indigo-400 to-purple-500 p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-5xl mr-4">🌆</span>
+                          <div className="text-white">
+                            <p className="font-bold text-xl">Regional</p>
+                            <p className="text-sm opacity-90">Políticas y normativas • Legislación laboral</p>
+                          </div>
+                        </div>
+                        <div className="bg-gradient-to-r from-teal-400 to-cyan-500 p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-5xl mr-4">🌍</span>
+                          <div className="text-white">
+                            <p className="font-bold text-xl">Global</p>
+                            <p className="text-sm text-gray-600">Flujos transnacionales • Movimientos sociales internacionales</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <p className="text-sm text-gray-600 italic mt-4">
+                        (Alfaro Arismendy & Bonilla Maradey, 2021)
+                      </p>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-lg shadow mb-6">
+                      <h4 className="text-xl font-bold text-cyan-600 mb-3">🎭 Consecuencias de las Influencias Culturales</h4>
+                      
+                      <div className="space-y-4">
+                        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg">
+                          <h5 className="font-bold text-purple-700 mb-2 flex items-center">
+                            <span className="mr-2">🌈</span> 1. Identidades Híbridas
+                          </h5>
+                          <ul className="text-sm text-gray-700 space-y-1 ml-6">
+                            <li>• Fusión de modelos tradicionales y contemporáneos</li>
+                            <li>• Negociación constante de expectativas contradictorias</li>
+                            <li>• Emergencia de nuevas formas de expresión de género</li>
+                          </ul>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
+                          <h5 className="font-bold text-orange-700 mb-2 flex items-center">
+                            <span className="mr-2">♻️</span> 2. Resignificación de Tradiciones
+                          </h5>
+                          <p className="text-sm text-gray-700">Adaptación de prácticas tradicionales a nuevos contextos globales</p>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg">
+                          <h5 className="font-bold text-green-700 mb-2 flex items-center">
+                            <span className="mr-2">🏙️</span> 3. Reconfiguración de Estilos de Vida
+                          </h5>
+                          <div className="grid md:grid-cols-3 gap-2 mt-2">
+                            <div className="bg-white p-2 rounded text-center">
+                              <p className="text-xs font-semibold text-green-700">Urbano</p>
+                              <p className="text-xs text-gray-600">Roles flexibles</p>
+                            </div>
+                            <div className="bg-white p-2 rounded text-center">
+                              <p className="text-xs font-semibold text-green-700">Rural</p>
+                              <p className="text-xs text-gray-600">Roles tradicionales</p>
+                            </div>
+                            <div className="bg-white p-2 rounded text-center">
+                              <p className="text-xs font-semibold text-green-700">Cosmopolita</p>
+                              <p className="text-xs text-gray-600">Modelos híbridos</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg">
+                          <h5 className="font-bold text-blue-700 mb-2 flex items-center">
+                            <span className="mr-2">💭</span> 4. Transformación de Expectativas
+                          </h5>
+                          <div className="bg-blue-200 border-l-4 border-blue-500 p-3 mt-2">
+                            <p className="text-sm font-semibold text-blue-900">📌 Hallazgo Clave (OECD, 2023):</p>
+                            <p className="text-sm text-blue-800 mt-1">
+                              Persistencia de desigualdades estructurales y necesidad urgente de políticas públicas que promuevan la igualdad de oportunidades.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white p-6 rounded-lg shadow">
+                      <h4 className="text-xl font-bold text-cyan-600 mb-3 flex items-center">
+                        <span className="text-2xl mr-2">🏢</span>
+                        Impacto en Contextos Empresariales
+                      </h4>
+                      <p className="text-gray-700 mb-4">Estudios como el de <strong>Vos (2022)</strong> demuestran que los valores culturales influyen en:</p>
+                      
+                      <div className="grid md:grid-cols-2 gap-3">
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">💻 Adopción tecnológica</strong><br/><span className="text-sm text-gray-600">Valores sobre innovación y cambio</span></div>
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">🤝 Relaciones laborales</strong><br/><span className="text-sm text-gray-600">Normas de interacción y jerarquía</span></div>
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">👔 Liderazgo</strong><br/><span className="text-sm text-gray-600">Estereotipos de género en puestos directivos</span></div>
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">⚖️ Equidad salarial</strong><br/><span className="text-sm text-gray-600">Valoración diferencial del trabajo</span></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Conclusiones - DISEÑO MEJORADO Y MÁS COLORIDO */}
+                  <div className="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-10 rounded-2xl shadow-2xl border-4 border-indigo-300 hover:border-purple-400 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white p-6 rounded-xl shadow-xl mb-8 transform hover:scale-[1.02] transition-all duration-300">
+                      <h3 className="text-4xl font-black flex items-center">
+                        <span className="text-5xl mr-4">🎓</span>
+                        Conclusión
+                      </h3>
+                    </div>
+
+                    <div className="bg-white p-8 rounded-2xl shadow-2xl mb-8 border-l-8 border-indigo-500">
+                      <h4 className="text-2xl font-bold text-indigo-700 mb-5 flex items-center">
+                        <span className="text-3xl mr-3">🔗</span>
+                        Interdependencia de Fenómenos
+                      </h4>
+                      <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-gradient-to-r from-indigo-50 to-purple-50 p-5 rounded-xl">
+                        En conclusión, los <strong className="text-indigo-700">roles de género</strong> y las <strong className="text-purple-700">influencias culturales</strong> son fenómenos <strong className="text-pink-700">interdependientes</strong> que reflejan la dinámica social contemporánea.
+                      </p>
+
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-2xl shadow-lg mb-6">
+                        <h5 className="font-black text-indigo-800 mb-4 text-xl flex items-center">
+                          <span className="text-2xl mr-2">🌟</span>
+                          Hallazgos Principales
+                        </h5>
+                        <div className="space-y-3">
+                          <div className="bg-gradient-to-r from-pink-500 to-rose-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start"><span className="font-black text-2xl mr-3">1</span> <span className="text-lg">Normas culturales continúan moldeando expectativas sobre hombres y mujeres</span></p>
+                          </div>
+                          <div className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start"><span className="font-black text-2xl mr-3">2</span> <span className="text-lg">Procesos de globalización han impulsado transformaciones significativas</span></p>
+                          </div>
+                          <div className="bg-gradient-to-r from-blue-500 to-cyan-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start"><span className="font-black text-2xl mr-3">3</span> <span className="text-lg">Movimientos por la igualdad han generado cambios estructurales importantes</span></p>
+                          </div>
+                          <div className="bg-gradient-to-r from-teal-500 to-green-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start"><span className="font-black text-2xl mr-3">4</span> <span className="text-lg">Desigualdades estructurales persisten en múltiples ámbitos</span></p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
+                        <h5 className="font-black text-3xl mb-6 text-center flex items-center justify-center">
+                          <span className="text-4xl mr-3">💡</span>
+                          Requisitos para la Equidad
+                        </h5>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-3xl mr-3">✓</span>
+                            <span className="font-bold text-lg">Cambios estructurales</span>
+                          </div>
+                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-3xl mr-3">✓</span>
+                            <span className="font-bold text-lg">Redefinición de valores culturales</span>
+                          </div>
+                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-3xl mr-3">✓</span>
+                            <span className="font-bold text-lg">Transformación de prácticas sociales</span>
+                          </div>
+                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-3xl mr-3">✓</span>
+                            <span className="font-bold text-lg">Políticas públicas efectivas</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 bg-gradient-to-r from-yellow-100 to-orange-100 p-4 rounded-xl border-l-4 border-orange-500">
+                        <p className="text-sm text-gray-700 italic font-semibold">
+                          📚 Referencias: OECD (2023), Vos (2022)
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -924,6 +1569,33 @@ export default function SectionsPage() {
                       </div>
                       <div className="bg-yellow-50 p-4 rounded-lg hover:bg-yellow-100 transition">
                         <p className="leading-relaxed">Scott, J. W. (1990). <em>Gender and the Politics of History</em>. Columbia University Press.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-xl shadow-xl border-l-4 border-pink-500 mt-6">
+                    <h3 className="text-xl font-bold text-pink-700 mb-4 flex items-center">
+                      <span className="text-2xl mr-2">🧠</span>
+                      Referencias del Marco Conceptual
+                    </h3>
+                    <div className="space-y-4 text-gray-700">
+                      <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-pink-400">
+                        <p className="leading-relaxed"><strong>Alfaro Arismendy, C. G., & Bonilla Maradey, P. A.</strong> (2021). <em>Influencia de las costumbres y valores colombianos en docentes extranjeros</em>. Universidad Ean.</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-purple-400">
+                        <p className="leading-relaxed"><strong>Malaver-Fonseca, L. F., Serrano-Cárdenas, L. F., & Castro-Silva, H. F.</strong> (2021). La pandemia COVID-19 y el rol de las mujeres en la economía del cuidado en América Latina: Una revisión sistemática. <em>Estudios Gerenciales</em>.</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-blue-400">
+                        <p className="leading-relaxed"><strong>OECD</strong> (2023). <em>Gender Equality in Colombia</em>. OECD Publishing.</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-green-400">
+                        <p className="leading-relaxed"><strong>Ospina, J. M.</strong> (2023). <em>Roles, género, jóvenes, sexualidad, toma de decisiones</em>. Universidad Javeriana Cali.</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-indigo-50 to-indigo-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-indigo-400">
+                        <p className="leading-relaxed"><strong>Pérez Sánchez, B., & Concha-Salgado, A.</strong> (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. <em>Anales de Psicología</em>.</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-teal-50 to-teal-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-teal-400">
+                        <p className="leading-relaxed"><strong>Vos, J. F. J.</strong> (2022). The influence of cultural values on Enterprise System adoption. <em>Journal of Business Research</em>.</p>
                       </div>
                     </div>
                   </div>
