@@ -1323,10 +1323,10 @@ export default function SectionsPage() {
                         <ul className="space-y-2 text-gray-700">
                           <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Presentar trabajos más organizados</li>
                           <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Más sociables</li>
-                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Más puntuales</li>
-                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Rol de acompañamiento, no de liderazgo</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Más puntuales y responsables con horarios de cualquier índole</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Rol de acompañamiento y apoyo, no de liderazgo o dirección</li>
                           <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Apoyo emocional y mediadoras en conflictos</li>
-                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Superación más rápida (Ej: Perder un parcial)</li>
+                          <li className="flex items-start"><span className="text-pink-500 mr-2">•</span> Superación más rápida ante adversidades (Ej: Perder un parcial, recibir críticas)</li>
                         </ul>
                       </div>
 
@@ -1339,6 +1339,10 @@ export default function SectionsPage() {
                         <ul className="space-y-2 text-gray-700">
                           <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Desentenderse de tareas de "orden" o "detalle"</li>
                           <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Evitar mostrar cansancio, estrés o emociones</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Mayor aptitud para carreras "duras" (ingenierías, matemáticas, física)</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Más inteligentes en áreas de lógica y razonamiento cuantitativo</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Naturalmente competitivos y orientados al liderazgo</li>
+                          <li className="flex items-start"><span className="text-blue-500 mr-2">•</span> Menor habilidad para trabajos que requieren empatía o cuidado</li>
                         </ul>
                       </div>
                     </div>
