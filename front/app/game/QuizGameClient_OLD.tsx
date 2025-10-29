@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Stars, Float } from "@react-three/drei"
+import { OrbitControls, Stars, Float, Text } from "@react-three/drei"
 import * as THREE from "three"
 import { apiClient } from "@/lib/api"
 import { useAuth } from "@/lib/auth-context"
