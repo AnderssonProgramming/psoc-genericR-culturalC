@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
-import { User, LogOut, Trophy, BookOpen, Menu, X, MessageCircle } from 'lucide-react';
+import { User, LogOut, Trophy, BookOpen, Menu, X, MessageCircle, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function NavBar() {
@@ -65,6 +65,13 @@ export default function NavBar() {
           >
             <MessageCircle className="w-4 h-4" />
             Chatbot
+          </a>
+          <a
+            href="/integrantes"
+            className="text-slate-300 hover:text-white font-medium transition-colors hover:scale-105 transform flex items-center gap-2"
+          >
+            <Users className="w-4 h-4" />
+            Integrantes
           </a>
 
           {/* User Menu or Login Button */}
@@ -186,6 +193,13 @@ export default function NavBar() {
               >
                 <MessageCircle className="w-4 h-4" />
                 Chatbot
+              </a>
+              <a
+                href="/integrantes"
+                className="block text-slate-300 hover:text-white font-medium transition-colors py-2 flex items-center gap-2"
+              >
+                <Users className="w-4 h-4" />
+                Integrantes
               </a>
 
               {user ? (

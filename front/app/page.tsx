@@ -61,7 +61,7 @@ export default function Home() {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Aprende sobre <span className="text-purple-400 font-semibold">igualdad de género</span> jugando.
+              Aprende sobre <span className="text-purple-400 font-semibold">roles de género</span> jugando.
               Compite, explora contenido educativo y chatea con nuestra{' '}
               <span className="text-fuchsia-400 font-semibold">IA especializada</span>.
             </p>
@@ -246,7 +246,7 @@ export default function Home() {
               ¿Listo para comenzar?
             </h2>
             <p className="text-xl text-purple-100 mb-8 max-w-2xl mx-auto">
-              Únete a la comunidad de Gender Quest y aprende sobre igualdad de género
+              Únete a la comunidad de Gender Quest y aprende sobre roles de género
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -272,7 +272,7 @@ export default function Home() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-400 text-sm">
-              © 2025 Gender Quest. Plataforma educativa para la igualdad de género.
+              © 2025 Gender Quest. Plataforma educativa para los roles de género.
             </p>
             <div className="flex gap-6">
               <Link href="/sections" className="text-slate-400 hover:text-white transition-colors text-sm">
