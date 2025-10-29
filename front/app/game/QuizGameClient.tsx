@@ -34,6 +34,7 @@ export default function QuizGame() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState<{ questionId: number; answer: string }[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   
   // Resultados
   const [result, setResult] = useState<any>(null)
@@ -59,9 +60,10 @@ export default function QuizGame() {
       console.log('✅ Preguntas cargadas:', data.length);
       setQuestions(data)
       setLoading(false)
-    } catch (error) {
+      setError(null)
+    } catch (error: any) {
       console.error("❌ Error loading questions:", error)
-      alert('Error al cargar las preguntas. Verifica la consola para más detalles.')
+      setError(error.message || 'Error al cargar las preguntas')
       setLoading(false)
     }
   }
@@ -178,8 +180,38 @@ export default function QuizGame() {
     return (
       <div className="fixed inset-0 bg-slate-900 flex items-center justify-center">
         <ThreeScene intensity={1} />
-        <div className="relative z-10 text-white text-2xl font-bold">
-          Cargando quiz...
+        <div className="relative z-10 text-center">
+          <div className="text-white text-2xl font-bold mb-4">Cargando quiz...</div>
+          <div className="text-slate-400 text-sm">Conectando con el servidor...</div>
+        </div>
+      </div>
+    )
+  }
+
+  // Error
+  if (error) {
+    return (
+      <div className="fixed inset-0 bg-slate-900 flex items-center justify-center">
+        <ThreeScene intensity={1} />
+        <div className="relative z-10 max-w-md mx-auto bg-slate-800/90 backdrop-blur-xl rounded-2xl p-8 border border-red-500/30">
+          <div className="text-center">
+            <div className="text-6xl mb-4">❌</div>
+            <h2 className="text-2xl font-bold text-white mb-4">Error de Conexión</h2>
+            <p className="text-slate-300 mb-2">{error}</p>
+            <p className="text-sm text-slate-400 mb-6">
+              API URL: {process.env.NEXT_PUBLIC_API_URL || 'No configurada'}
+            </p>
+            <button
+              onClick={() => {
+                setError(null)
+                setLoading(true)
+                loadQuestions()
+              }}
+              className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl font-bold hover:from-purple-600 hover:to-blue-600 transition-all"
+            >
+              🔄 Reintentar
+            </button>
+          </div>
         </div>
       </div>
     )
