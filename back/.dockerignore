@@ -4,6 +4,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Cache directories
+node_modules/.cache
+.cache/
+
 # Build artifacts
 dist/
 build/
