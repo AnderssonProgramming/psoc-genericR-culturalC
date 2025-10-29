@@ -11,7 +11,7 @@ import { ThreeScene } from "./ThreeScene"
 import { WelcomeScreen } from "./WelcomeScreen"
 import { QuizCard } from "./QuizCard"
 import { ResultsScreen } from "./ResultsScreen"
-import { AnimatePresence } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
 interface Question {
   id: number
