@@ -54,11 +54,14 @@ export default function QuizGame() {
 
   const loadQuestions = async () => {
     try {
+      console.log('🔍 Cargando preguntas desde:', process.env.NEXT_PUBLIC_API_URL);
       const data = await apiClient.getQuizQuestions()
+      console.log('✅ Preguntas cargadas:', data.length);
       setQuestions(data)
       setLoading(false)
     } catch (error) {
-      console.error("Error loading questions:", error)
+      console.error("❌ Error loading questions:", error)
+      alert('Error al cargar las preguntas. Verifica la consola para más detalles.')
       setLoading(false)
     }
   }

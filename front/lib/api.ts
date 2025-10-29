@@ -1,5 +1,10 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
 
+// Log para debugging
+if (typeof window !== 'undefined') {
+  console.log('🌐 API_URL configurada:', API_URL);
+}
+
 export class ApiClient {
   private token: string | null = null;
 
