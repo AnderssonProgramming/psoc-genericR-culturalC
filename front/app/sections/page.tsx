@@ -714,9 +714,10 @@ export default function SectionsPage() {
             </div>
 
             <div className="p-8 bg-gradient-to-br from-gray-50 via-purple-50 to-pink-50">
-              {/* Mostrar imagen solo en la portada (sección 1) */}
+              {/* Mostrar imágenes solo en la portada (sección 1) */}
               {section?.id === 1 && (
-                <div className="mb-8 flex justify-center">
+                <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Primera imagen */}
                   <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
                     <Image 
@@ -724,7 +725,20 @@ export default function SectionsPage() {
                       alt="Gender Quest - El cambio empieza con equilibrio" 
                       width={800}
                       height={400}
-                      className="relative rounded-xl shadow-2xl object-cover"
+                      className="relative rounded-xl shadow-2xl object-cover w-full"
+                      priority
+                    />
+                  </div>
+                  
+                  {/* Segunda imagen */}
+                  <div className="relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+                    <Image 
+                      src="/portada.png" 
+                      alt="Gender Quest - Portada" 
+                      width={800}
+                      height={400}
+                      className="relative rounded-xl shadow-2xl object-cover w-full"
                       priority
                     />
                   </div>
