@@ -28,4 +28,10 @@ export class ChatController {
   async getUserSessions(@Request() req) {
     return this.chatService.getUserSessions(req.user.id);
   }
+
+  // Endpoint de diagnóstico (público para facilitar debug)
+  @Get('config')
+  getConfig() {
+    return this.chatService.getConfig();
+  }
 }

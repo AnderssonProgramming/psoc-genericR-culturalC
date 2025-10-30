@@ -46,11 +46,19 @@ Tu rol es:
     this.ollamaBaseUrl = this.configService.get<string>('OLLAMA_BASE_URL') || 'http://localhost:11434';
     this.ollamaModel = this.configService.get<string>('OLLAMA_MODEL') || 'phi3';
     
+    // Logs de diagnóstico
+    console.log('🔍 Configuración del Chatbot:');
+    console.log(`   USE_LOCAL_MODEL: ${this.useLocalModel}`);
+    console.log(`   HUGGINGFACE_API_KEY configurado: ${!!this.huggingFaceApiKey}`);
+    console.log(`   HUGGINGFACE_API_KEY primeros caracteres: ${this.huggingFaceApiKey?.substring(0, 7)}...`);
+    
     if (this.useLocalModel) {
       console.log(`🤖 Usando modelo GPT-OSS vía Python AI Service: ${this.pythonAiServiceUrl}`);
       this.checkPythonAiService();
     } else if (!this.huggingFaceApiKey || this.huggingFaceApiKey === 'tu_token_aqui') {
       console.warn('⚠️  HUGGINGFACE_API_KEY no configurado. El chat usará respuestas de demostración.');
+    } else {
+      console.log('✅ Usando HuggingFace Inference API');
     }
   }
 
@@ -71,16 +79,24 @@ Tu rol es:
   }
 
   private async callHuggingFace(messages: any[]): Promise<string> {
+    console.log('🔍 callHuggingFace - Inicio');
+    console.log(`   useLocalModel: ${this.useLocalModel}`);
+    console.log(`   huggingFaceApiKey existe: ${!!this.huggingFaceApiKey}`);
+    
     // Prioridad 1: Usar Python AI Service con GPT-OSS
     if (this.useLocalModel) {
+      console.log('📍 Ruta 1: Usando Python AI Service');
       return this.callPythonAiService(messages);
     }
     
     // Prioridad 2: Usar Hugging Face API
     if (!this.huggingFaceApiKey || this.huggingFaceApiKey === 'tu_token_aqui') {
+      console.log('📍 Ruta 2: Sin API Key - Usando respuestas demo');
       // Modo demo sin API key
       return this.getDemoResponse(messages.at(-1).content);
     }
+
+    console.log('📍 Ruta 3: Llamando a HuggingFace Inference API');
 
     try {
       // Usar modelo más estable y rápido
@@ -377,5 +393,20 @@ Estoy aquí para ayudarte con preguntas sobre roles de género, estereotipos y e
       messageCount: s.messages?.length || 0,
       lastMessage: s.messages?.at(-1)?.content?.substring(0, 100) || '',
     }));
+  }
+
+  // Método de diagnóstico para verificar configuración
+  getConfig() {
+    return {
+      useLocalModel: this.useLocalModel,
+      hasHuggingFaceKey: !!this.huggingFaceApiKey,
+      huggingFaceKeyPrefix: this.huggingFaceApiKey?.substring(0, 7),
+      pythonAiServiceUrl: this.pythonAiServiceUrl,
+      mode: this.useLocalModel 
+        ? 'Python AI Service (Local)' 
+        : this.huggingFaceApiKey && this.huggingFaceApiKey !== 'tu_token_aqui'
+          ? 'HuggingFace Inference API'
+          : 'Demo Mode (No API Key)',
+    };
   }
 }
