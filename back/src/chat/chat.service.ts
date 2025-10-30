@@ -99,9 +99,9 @@ Tu rol es:
     console.log('📍 Ruta 3: Llamando a HuggingFace Inference API');
 
     try {
-      // Usar google/flan-t5-large que está SIEMPRE disponible en HuggingFace Inference API (tier gratuito)
-      // Es un modelo de Google, muy confiable y optimizado para instrucciones
-      const modelUrl = 'https://api-inference.huggingface.co/models/google/flan-t5-large';
+      // Usar GPT-2 que es el modelo base más confiable en HuggingFace free tier
+      // Siempre está disponible y funciona sin problemas
+      const modelUrl = 'https://api-inference.huggingface.co/models/gpt2';
       console.log(`🔗 Llamando a: ${modelUrl}`);
       
       const response = await fetch(modelUrl, {
@@ -113,15 +113,15 @@ Tu rol es:
         body: JSON.stringify({
           inputs: this.formatPrompt(messages),
           parameters: {
-            max_length: 500,
-            min_length: 50,
-            temperature: 0.8,
-            top_p: 0.95,
+            max_new_tokens: 150,
+            temperature: 0.7,
+            top_p: 0.9,
             do_sample: true,
+            return_full_text: false,
           },
           options: {
             wait_for_model: true,
-            use_cache: false, // No cache para respuestas más frescas
+            use_cache: false,
           },
         }),
       });
@@ -146,11 +146,11 @@ Tu rol es:
             body: JSON.stringify({
               inputs: this.formatPrompt(messages),
               parameters: {
-                max_length: 500,
-                min_length: 50,
-                temperature: 0.8,
-                top_p: 0.95,
+                max_new_tokens: 150,
+                temperature: 0.7,
+                top_p: 0.9,
                 do_sample: true,
+                return_full_text: false,
               },
               options: {
                 wait_for_model: true,
@@ -260,19 +260,22 @@ Tu rol es:
   }
 
   private formatPrompt(messages: any[]): string {
-    // Formato simple para FLAN-T5 (Google)
-    // FLAN-T5 prefiere instrucciones directas sin tokens especiales
-    let prompt = `Contexto: ${this.systemContext}\n\n`;
+    // Formato simple para GPT-2
+    // GPT-2 simplemente continúa el texto que le des
+    let prompt = `Este es un asistente educativo sobre Gender Quest, un juego sobre roles de género y equidad.\n\n`;
     
-    for (const msg of messages) {
+    // Incluir solo los últimos 3 mensajes para mantenerlo corto
+    const recentMessages = messages.slice(-3);
+    
+    for (const msg of recentMessages) {
       if (msg.role === 'user') {
-        prompt += `Pregunta: ${msg.content}\n`;
+        prompt += `Usuario: ${msg.content}\n`;
       } else if (msg.role === 'assistant') {
-        prompt += `Respuesta: ${msg.content}\n`;
+        prompt += `Asistente: ${msg.content}\n`;
       }
     }
     
-    prompt += `Respuesta:`;
+    prompt += `Asistente:`;
     return prompt;
   }
 
