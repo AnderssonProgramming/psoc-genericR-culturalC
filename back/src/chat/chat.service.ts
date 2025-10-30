@@ -129,11 +129,56 @@ Tu rol es:
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('Hugging Face API error:', response.status, errorText);
+        console.error('❌ Hugging Face API error:', response.status, errorText);
         
-        // Si es error 503 (modelo cargando) o 404, usar demo
-        if (response.status === 503 || response.status === 404) {
-          console.log('Modelo no disponible, usando respuestas demo');
+        // Si es error 503 (modelo cargando), esperar y reintentar
+        if (response.status === 503) {
+          console.log('⏳ Modelo cargando, reintentando en 5 segundos...');
+          await new Promise(resolve => setTimeout(resolve, 5000));
+          
+          // Reintentar una vez más
+          const retryResponse = await fetch(
+            'https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct',
+            {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${this.huggingFaceApiKey}`,
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                inputs: this.formatPromptForPhi(messages),
+                parameters: {
+                  max_new_tokens: 400,
+                  temperature: 0.7,
+                  top_p: 0.9,
+                  do_sample: true,
+                  return_full_text: false,
+                },
+                options: {
+                  wait_for_model: true,
+                  use_cache: true,
+                },
+              }),
+            },
+          );
+          
+          if (retryResponse.ok) {
+            const retryData = await retryResponse.json();
+            console.log('✅ Respuesta de HuggingFace recibida (reintento exitoso)');
+            
+            if (Array.isArray(retryData) && retryData[0]?.generated_text) {
+              return retryData[0].generated_text.trim();
+            } else if (retryData?.generated_text) {
+              return retryData.generated_text.trim();
+            } else if (typeof retryData === 'string') {
+              return retryData.trim();
+            }
+          }
+        }
+        
+        // Si es error 404 o cualquier otro error, usar demo
+        if (response.status === 404 || response.status === 401) {
+          console.log('⚠️  Modelo no disponible o API key inválida, usando respuestas demo');
           return this.getDemoResponse(messages.at(-1).content);
         }
         
@@ -141,20 +186,27 @@ Tu rol es:
       }
 
       const data = await response.json();
+      console.log('✅ Respuesta de HuggingFace recibida');
+      console.log('📦 Tipo de respuesta:', typeof data, Array.isArray(data) ? '(array)' : '(object)');
       
       // Manejar diferentes formatos de respuesta de HF
       if (Array.isArray(data) && data[0]?.generated_text) {
+        console.log('✅ Respuesta parseada exitosamente (formato array)');
         return data[0].generated_text.trim();
       } else if (data?.generated_text) {
+        console.log('✅ Respuesta parseada exitosamente (formato object)');
         return data.generated_text.trim();
       } else if (typeof data === 'string') {
+        console.log('✅ Respuesta parseada exitosamente (formato string)');
         return data.trim();
       }
       
-      console.error('Respuesta inesperada de Hugging Face:', data);
+      console.error('❌ Respuesta inesperada de Hugging Face:', JSON.stringify(data));
+      console.log('⚠️  Usando respuestas demo como fallback');
       return this.getDemoResponse(messages.at(-1).content);
     } catch (error) {
-      console.error('Error calling Hugging Face:', error);
+      console.error('❌ Error calling Hugging Face:', error);
+      console.log('⚠️  Usando respuestas demo como fallback');
       return this.getDemoResponse(messages.at(-1).content);
     }
   }
