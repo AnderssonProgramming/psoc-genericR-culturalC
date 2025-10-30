@@ -59,7 +59,7 @@ Tu rol es:
       console.log(`🤖 Usando modelo GPT-OSS vía Python AI Service: ${this.pythonAiServiceUrl}`);
       this.checkPythonAiService();
     } else if (this.groqApiKey) {
-      console.log('✅ Usando Groq API (Llama 3.1 70B)');
+      console.log('✅ Usando Groq API (Llama 3.3 70B)');
     } else if (!this.huggingFaceApiKey || this.huggingFaceApiKey === 'tu_token_aqui') {
       console.warn('⚠️  Ni GROQ_API_KEY ni HUGGINGFACE_API_KEY configurados. El chat usará respuestas de demostración.');
     } else {
@@ -117,7 +117,7 @@ Tu rol es:
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: 'llama-3.1-70b-versatile', // Modelo GRATIS y muy potente
+          model: 'llama-3.3-70b-versatile', // Modelo GRATIS y muy potente (reemplazo de 3.1)
           messages: [
             {
               role: 'system',
@@ -416,7 +416,7 @@ Estoy aquí para ayudarte con preguntas sobre roles de género, estereotipos y e
     if (this.useLocalModel) {
       mode = 'Python AI Service (Local)';
     } else if (this.groqApiKey) {
-      mode = 'Groq API (Llama 3.1 70B)';
+      mode = 'Groq API (Llama 3.3 70B)';
     } else if (this.huggingFaceApiKey && this.huggingFaceApiKey !== 'tu_token_aqui') {
       mode = 'HuggingFace Inference API';
     }
