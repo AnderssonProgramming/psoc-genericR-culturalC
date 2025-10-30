@@ -129,6 +129,7 @@ Tu rol es:
       if (!response.ok) {
         const errorText = await response.text();
         console.error('❌ Hugging Face API error:', response.status, errorText);
+        console.error('📋 Error completo:', errorText);
         
         // Si es error 503 (modelo cargando), esperar y reintentar
         if (response.status === 503) {
@@ -169,21 +170,20 @@ Tu rol es:
             } else if (typeof retryData === 'string') {
               return retryData.trim();
             }
+          } else {
+            const retryErrorText = await retryResponse.text();
+            console.error('❌ Error en reintento:', retryResponse.status, retryErrorText);
           }
         }
         
-        // Si es error 404 o cualquier otro error, usar demo
-        if (response.status === 404 || response.status === 401) {
-          console.log('⚠️  Modelo no disponible o API key inválida, usando respuestas demo');
-          return this.getDemoResponse(messages.at(-1).content);
-        }
-        
-        throw new Error('Error al conectar con Hugging Face');
+        // NO usar demo - lanzar error para ver qué está pasando
+        throw new Error(`HuggingFace API Error ${response.status}: ${errorText}`);
       }
 
       const data = await response.json();
       console.log('✅ Respuesta de HuggingFace recibida');
       console.log('📦 Tipo de respuesta:', typeof data, Array.isArray(data) ? '(array)' : '(object)');
+      console.log('📄 Contenido de la respuesta:', JSON.stringify(data).substring(0, 200));
       
       // Manejar diferentes formatos de respuesta de HF
       if (Array.isArray(data) && data[0]?.generated_text) {
@@ -198,12 +198,12 @@ Tu rol es:
       }
       
       console.error('❌ Respuesta inesperada de Hugging Face:', JSON.stringify(data));
-      console.log('⚠️  Usando respuestas demo como fallback');
-      return this.getDemoResponse(messages.at(-1).content);
+      throw new Error('Formato de respuesta inesperado de HuggingFace API');
     } catch (error) {
       console.error('❌ Error calling Hugging Face:', error);
-      console.log('⚠️  Usando respuestas demo como fallback');
-      return this.getDemoResponse(messages.at(-1).content);
+      console.error('❌ Stack trace:', error instanceof Error ? error.stack : 'No stack trace');
+      // Re-lanzar el error en lugar de usar demo
+      throw error;
     }
   }
 
@@ -352,65 +352,84 @@ Estoy aquí para ayudarte con preguntas sobre roles de género, estereotipos y e
   }
 
   async sendMessage(userId: string, message: string, sessionId?: string) {
-    // Get or create session
-    let session;
-    if (sessionId) {
-      const { data } = await this.supabase
-        .from('chat_sessions')
-        .select('*')
-        .eq('id', sessionId)
-        .eq('user_id', userId)
-        .single();
-      session = data;
-    }
-
-    if (!session) {
-      // Create new session
-      const { data: newSession } = await this.supabase
-        .from('chat_sessions')
-        .insert({
-          user_id: userId,
-          messages: [],
-        })
-        .select()
-        .single();
-      session = newSession;
-    }
-
-    // Get conversation history
-    const messages = session.messages || [];
-    messages.push({
-      role: 'user',
-      content: message,
-      timestamp: new Date().toISOString(),
-    });
-
-    // Call Hugging Face API
-    const conversationMessages = messages.map((m) => ({
-      role: m.role,
-      content: m.content,
-    }));
+    console.log('🔵 sendMessage llamado');
+    console.log(`   userId: ${userId}`);
+    console.log(`   message: ${message.substring(0, 50)}...`);
+    console.log(`   sessionId: ${sessionId || 'nuevo'}`);
     
-    const assistantMessage = await this.callHuggingFace(conversationMessages);
+    try {
+      // Get or create session
+      let session;
+      if (sessionId) {
+        const { data } = await this.supabase
+          .from('chat_sessions')
+          .select('*')
+          .eq('id', sessionId)
+          .eq('user_id', userId)
+          .single();
+        session = data;
+      }
 
-    // Save assistant response
-    messages.push({
-      role: 'assistant',
-      content: assistantMessage,
-      timestamp: new Date().toISOString(),
-    });
+      if (!session) {
+        // Create new session
+        const { data: newSession } = await this.supabase
+          .from('chat_sessions')
+          .insert({
+            user_id: userId,
+            messages: [],
+          })
+          .select()
+          .single();
+        session = newSession;
+      }
 
-    // Update session
-    await this.supabase
-      .from('chat_sessions')
-      .update({ messages })
-      .eq('id', session.id);
+      // Get conversation history
+      const messages = session.messages || [];
+      messages.push({
+        role: 'user',
+        content: message,
+        timestamp: new Date().toISOString(),
+      });
 
-    return {
-      sessionId: session.id,
-      message: assistantMessage,
-      timestamp: new Date().toISOString(),
-    };
+      // Call Hugging Face API
+      const conversationMessages = messages.map((m) => ({
+        role: m.role,
+        content: m.content,
+      }));
+      
+      console.log('📞 Llamando a callHuggingFace...');
+      const assistantMessage = await this.callHuggingFace(conversationMessages);
+      console.log(`✅ Respuesta recibida: ${assistantMessage.substring(0, 100)}...`);
+
+      // Save assistant response
+      messages.push({
+        role: 'assistant',
+        content: assistantMessage,
+        timestamp: new Date().toISOString(),
+      });
+
+      // Update session
+      await this.supabase
+        .from('chat_sessions')
+        .update({ messages })
+        .eq('id', session.id);
+
+      return {
+        sessionId: session.id,
+        message: assistantMessage,
+        timestamp: new Date().toISOString(),
+      };
+    } catch (error) {
+      console.error('❌ Error en sendMessage:', error);
+      console.error('❌ Error stack:', error instanceof Error ? error.stack : 'No stack');
+      
+      // Si hay error, usar respuesta demo y avisar al usuario
+      return {
+        sessionId: sessionId || 'demo',
+        message: `⚠️ Error al conectar con el servicio de IA: ${error instanceof Error ? error.message : 'Error desconocido'}. Por favor, intenta de nuevo en unos momentos.`,
+        timestamp: new Date().toISOString(),
+      };
+    }
   }
 
   async getChatHistory(userId: string, sessionId: string) {
