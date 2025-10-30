@@ -7,6 +7,7 @@ import { SUPABASE_CLIENT } from '../supabase/supabase.module';
 export class ChatService {
   private readonly huggingFaceApiKey: string;
   private readonly useLocalModel: boolean;
+  private readonly pythonAiServiceUrl: string;
   private readonly ollamaBaseUrl: string;
   private readonly ollamaModel: string;
   private readonly systemContext = `Eres un asistente educativo del juego "Gender Quest" sobre roles de género y equidad.
@@ -41,20 +42,38 @@ Tu rol es:
   ) {
     this.huggingFaceApiKey = this.configService.get<string>('HUGGINGFACE_API_KEY');
     this.useLocalModel = this.configService.get<string>('USE_LOCAL_MODEL') === 'true';
+    this.pythonAiServiceUrl = this.configService.get<string>('PYTHON_AI_SERVICE_URL') || 'http://localhost:5000';
     this.ollamaBaseUrl = this.configService.get<string>('OLLAMA_BASE_URL') || 'http://localhost:11434';
     this.ollamaModel = this.configService.get<string>('OLLAMA_MODEL') || 'phi3';
     
     if (this.useLocalModel) {
-      console.log(`🤖 Usando modelo local Ollama: ${this.ollamaModel}`);
+      console.log(`🤖 Usando modelo GPT-OSS vía Python AI Service: ${this.pythonAiServiceUrl}`);
+      this.checkPythonAiService();
     } else if (!this.huggingFaceApiKey || this.huggingFaceApiKey === 'tu_token_aqui') {
       console.warn('⚠️  HUGGINGFACE_API_KEY no configurado. El chat usará respuestas de demostración.');
     }
   }
 
+  private async checkPythonAiService(): Promise<void> {
+    try {
+      const response = await fetch(`${this.pythonAiServiceUrl}/health`);
+      if (response.ok) {
+        const data = await response.json();
+        console.log(`✅ Python AI Service conectado (${data.device})`);
+      } else {
+        console.warn('⚠️  Python AI Service no disponible. Verifica que esté corriendo.');
+      }
+    } catch (error) {
+      console.warn('⚠️  No se pudo conectar con Python AI Service. Asegúrate de iniciar el servicio:');
+      console.warn('   cd back/python-ai-service');
+      console.warn('   python app.py');
+    }
+  }
+
   private async callHuggingFace(messages: any[]): Promise<string> {
-    // Prioridad 1: Usar modelo local con Ollama
+    // Prioridad 1: Usar Python AI Service con GPT-OSS
     if (this.useLocalModel) {
-      return this.callOllama(messages);
+      return this.callPythonAiService(messages);
     }
     
     // Prioridad 2: Usar Hugging Face API
@@ -66,6 +85,7 @@ Tu rol es:
     try {
       // Usar modelo más estable y rápido
       // microsoft/Phi-3-mini-4k-instruct es más pequeño y responde más rápido
+      // Para producción, este modelo es ideal: rápido, gratuito y buena calidad
       const response = await fetch(
         'https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct',
         {
@@ -123,62 +143,54 @@ Tu rol es:
     }
   }
 
-  private async callOllama(messages: any[]): Promise<string> {
+  private async callPythonAiService(messages: any[]): Promise<string> {
     try {
-      console.log(`🤖 Llamando a Ollama (${this.ollamaModel})...`);
+      console.log(`🤖 Llamando a Python AI Service (GPT-OSS)...`);
       
-      const response = await fetch(`${this.ollamaBaseUrl}/api/chat`, {
+      const response = await fetch(`${this.pythonAiServiceUrl}/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          model: this.ollamaModel,
-          messages: [
-            {
-              role: 'system',
-              content: this.systemContext,
-            },
-            ...messages.map((m) => ({
-              role: m.role,
-              content: m.content,
-            })),
-          ],
-          stream: false,
-          options: {
-            temperature: 0.7,
-            num_predict: 400,
-          },
+          messages: messages.map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
         }),
       });
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('Ollama error:', response.status, errorText);
+        console.error('Python AI Service error:', response.status, errorText);
         
-        // Si Ollama no está disponible, usar demo
-        if (response.status === 404 || response.status === 500) {
-          console.log('⚠️  Ollama no disponible. Verifica que esté instalado y corriendo.');
-          console.log('   Instala: https://ollama.ai/download');
-          console.log(`   Ejecuta: ollama pull ${this.ollamaModel}`);
+        // Si el servicio no está disponible, usar demo
+        if (response.status === 404 || response.status === 500 || response.status === 503) {
+          console.log('⚠️  Python AI Service no disponible. Verifica que esté instalado y corriendo.');
+          console.log('   Instrucciones:');
+          console.log('   1. cd back/python-ai-service');
+          console.log('   2. python -m venv venv');
+          console.log('   3. venv\\Scripts\\activate (Windows) o source venv/bin/activate (Linux/Mac)');
+          console.log('   4. pip install -r requirements.txt');
+          console.log('   5. python app.py');
           return this.getDemoResponse(messages.at(-1).content);
         }
         
-        throw new Error('Error al conectar con Ollama');
+        throw new Error('Error al conectar con Python AI Service');
       }
 
       const data = await response.json();
       
-      if (data?.message?.content) {
-        console.log('✅ Respuesta de Ollama recibida');
-        return data.message.content.trim();
+      if (data?.message) {
+        console.log('✅ Respuesta de Python AI Service recibida');
+        return data.message.trim();
       }
       
-      console.error('Respuesta inesperada de Ollama:', data);
+      console.error('Respuesta inesperada de Python AI Service:', data);
       return this.getDemoResponse(messages.at(-1).content);
     } catch (error) {
-      console.error('Error calling Ollama:', error);
-      console.log('💡 Tip: Asegúrate de que Ollama esté corriendo (ollama serve)');
+      console.error('Error calling Python AI Service:', error);
+      console.log('💡 Tip: Asegúrate de que el servicio Python esté corriendo en', this.pythonAiServiceUrl);
       return this.getDemoResponse(messages.at(-1).content);
     }
   }
