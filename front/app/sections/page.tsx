@@ -1646,7 +1646,7 @@ export default function SectionsPage() {
                       Nota sobre las Referencias
                     </h3>
                     <p className="text-gray-700 leading-relaxed mb-3">
-                      Esta lista será ampliada con las referencias específicas de cada sección según se complete el desarrollo del proyecto. Se recomienda incluir fuentes actualizadas sobre psicología social, estudios de género, neurociencia y educación.
+                      Esta lista será ampliada con las referencias específicas de cada sección según se complete el desarrollo de la plataforma.
                     </p>
                     <div className="bg-white p-4 rounded-lg">
                       <p className="text-sm text-gray-600">
