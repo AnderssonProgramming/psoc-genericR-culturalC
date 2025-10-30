@@ -89,13 +89,14 @@ Tu rol es:
       return this.callPythonAiService(messages);
     }
     
-    // Prioridad 2: Usar Hugging Face API
-    if (!this.huggingFaceApiKey || this.huggingFaceApiKey === 'tu_token_aqui') {
-      console.log('📍 Ruta 2: Sin API Key - Usando respuestas demo');
-      // Modo demo sin API key
-      return this.getDemoResponse(messages.at(-1).content);
-    }
+    // Prioridad 2: Usar respuestas demo inteligentes
+    // HuggingFace Inference API gratuito tiene disponibilidad muy limitada
+    // Las respuestas demo son educativas y contextuales
+    console.log('📍 Ruta 2: Usando respuestas demo educativas (HF API no confiable en tier gratuito)');
+    return this.getDemoResponse(messages.at(-1).content);
 
+    // Código comentado temporalmente - HuggingFace free tier no es confiable
+    /*
     console.log('📍 Ruta 3: Llamando a HuggingFace Inference API');
 
     try {
@@ -205,6 +206,7 @@ Tu rol es:
       // Re-lanzar el error en lugar de usar demo
       throw error;
     }
+    */
   }
 
   private async callPythonAiService(messages: any[]): Promise<string> {
