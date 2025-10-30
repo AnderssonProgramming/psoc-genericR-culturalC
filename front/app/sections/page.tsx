@@ -841,6 +841,27 @@ export default function SectionsPage() {
                       </p>
                     </div>
                   </div>
+
+                  {/* Video de YouTube sobre estereotipos de género */}
+                  <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 rounded-xl shadow-lg">
+                    <h3 className="text-2xl font-bold text-white mb-4 flex items-center">
+                      <span className="text-3xl mr-3">🎬</span>
+                      Material de referencia: Estereotipos de género
+                    </h3>
+                    <p className="text-white mb-6 text-lg">
+                      Como preámbulo y entendimiento hacia los estereotipos de género, te invitamos a ver el siguiente video educativo:
+                    </p>
+                    <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                      <iframe 
+                        className="absolute top-0 left-0 w-full h-full rounded-lg shadow-xl"
+                        src="https://www.youtube.com/embed/K6wnjAaPe5g" 
+                        title="Estereotipos de género" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowFullScreen>
+                      </iframe>
+                    </div>
+                  </div>
                 </div>
               )}
 

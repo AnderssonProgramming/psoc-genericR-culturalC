@@ -130,7 +130,7 @@ export default function IntegrantesPage() {
           </motion.div>
         </div>
         <p className="text-slate-300 text-xl max-w-3xl mx-auto font-medium">
-          Equipo multidisciplinario comprometido con la <span className="text-purple-400 font-bold">equidad de género</span> y la{' '}
+          Equipo multidisciplinario comprometido con los <span className="text-purple-400 font-bold">roles de género</span> y la{' '}
           <span className="text-fuchsia-400 font-bold">inclusión</span>
         </p>
         <div className="mt-6 inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-6 py-3">
