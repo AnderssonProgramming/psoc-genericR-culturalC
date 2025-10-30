@@ -99,33 +99,32 @@ Tu rol es:
     console.log('📍 Ruta 3: Llamando a HuggingFace Inference API');
 
     try {
-      // Usar modelo más estable y rápido
-      // microsoft/Phi-3-mini-4k-instruct es más pequeño y responde más rápido
-      // Para producción, este modelo es ideal: rápido, gratuito y buena calidad
-      const response = await fetch(
-        'https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct',
-        {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${this.huggingFaceApiKey}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            inputs: this.formatPromptForPhi(messages),
-            parameters: {
-              max_new_tokens: 400,
-              temperature: 0.7,
-              top_p: 0.9,
-              do_sample: true,
-              return_full_text: false,
-            },
-            options: {
-              wait_for_model: true, // Esperar si el modelo está cargando
-              use_cache: true,
-            },
-          }),
+      // Usar Mistral-7B-Instruct que está disponible en HuggingFace Inference API
+      // Este modelo es confiable, rápido y gratuito
+      const modelUrl = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2';
+      console.log(`🔗 Llamando a: ${modelUrl}`);
+      
+      const response = await fetch(modelUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.huggingFaceApiKey}`,
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          inputs: this.formatPrompt(messages),
+          parameters: {
+            max_new_tokens: 400,
+            temperature: 0.7,
+            top_p: 0.9,
+            do_sample: true,
+            return_full_text: false,
+          },
+          options: {
+            wait_for_model: true, // Esperar si el modelo está cargando
+            use_cache: true,
+          },
+        }),
+      });
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -137,30 +136,27 @@ Tu rol es:
           await new Promise(resolve => setTimeout(resolve, 5000));
           
           // Reintentar una vez más
-          const retryResponse = await fetch(
-            'https://api-inference.huggingface.co/models/microsoft/Phi-3-mini-4k-instruct',
-            {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${this.huggingFaceApiKey}`,
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                inputs: this.formatPromptForPhi(messages),
-                parameters: {
-                  max_new_tokens: 400,
-                  temperature: 0.7,
-                  top_p: 0.9,
-                  do_sample: true,
-                  return_full_text: false,
-                },
-                options: {
-                  wait_for_model: true,
-                  use_cache: true,
-                },
-              }),
+          const retryResponse = await fetch(modelUrl, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${this.huggingFaceApiKey}`,
+              'Content-Type': 'application/json',
             },
-          );
+            body: JSON.stringify({
+              inputs: this.formatPrompt(messages),
+              parameters: {
+                max_new_tokens: 400,
+                temperature: 0.7,
+                top_p: 0.9,
+                do_sample: true,
+                return_full_text: false,
+              },
+              options: {
+                wait_for_model: true,
+                use_cache: true,
+              },
+            }),
+          });
           
           if (retryResponse.ok) {
             const retryData = await retryResponse.json();
