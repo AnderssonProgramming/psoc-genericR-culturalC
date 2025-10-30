@@ -6,6 +6,7 @@ import { SUPABASE_CLIENT } from '../supabase/supabase.module';
 @Injectable()
 export class ChatService {
   private readonly huggingFaceApiKey: string;
+  private readonly groqApiKey: string;
   private readonly useLocalModel: boolean;
   private readonly pythonAiServiceUrl: string;
   private readonly ollamaBaseUrl: string;
@@ -41,6 +42,7 @@ Tu rol es:
     private readonly configService: ConfigService,
   ) {
     this.huggingFaceApiKey = this.configService.get<string>('HUGGINGFACE_API_KEY');
+    this.groqApiKey = this.configService.get<string>('GROQ_API_KEY');
     this.useLocalModel = this.configService.get<string>('USE_LOCAL_MODEL') === 'true';
     this.pythonAiServiceUrl = this.configService.get<string>('PYTHON_AI_SERVICE_URL') || 'http://localhost:5000';
     this.ollamaBaseUrl = this.configService.get<string>('OLLAMA_BASE_URL') || 'http://localhost:11434';
@@ -49,16 +51,19 @@ Tu rol es:
     // Logs de diagnóstico
     console.log('🔍 Configuración del Chatbot:');
     console.log(`   USE_LOCAL_MODEL: ${this.useLocalModel}`);
+    console.log(`   GROQ_API_KEY configurado: ${!!this.groqApiKey}`);
+    console.log(`   GROQ_API_KEY primeros caracteres: ${this.groqApiKey?.substring(0, 10)}...`);
     console.log(`   HUGGINGFACE_API_KEY configurado: ${!!this.huggingFaceApiKey}`);
-    console.log(`   HUGGINGFACE_API_KEY primeros caracteres: ${this.huggingFaceApiKey?.substring(0, 7)}...`);
     
     if (this.useLocalModel) {
       console.log(`🤖 Usando modelo GPT-OSS vía Python AI Service: ${this.pythonAiServiceUrl}`);
       this.checkPythonAiService();
+    } else if (this.groqApiKey) {
+      console.log('✅ Usando Groq API (Llama 3.1 70B)');
     } else if (!this.huggingFaceApiKey || this.huggingFaceApiKey === 'tu_token_aqui') {
-      console.warn('⚠️  HUGGINGFACE_API_KEY no configurado. El chat usará respuestas de demostración.');
+      console.warn('⚠️  Ni GROQ_API_KEY ni HUGGINGFACE_API_KEY configurados. El chat usará respuestas de demostración.');
     } else {
-      console.log('✅ Usando HuggingFace Inference API');
+      console.log('✅ Usando HuggingFace Inference API (fallback)');
     }
   }
 
@@ -79,9 +84,9 @@ Tu rol es:
   }
 
   private async callHuggingFace(messages: any[]): Promise<string> {
-    console.log('🔍 callHuggingFace - Inicio');
+    console.log('🔍 callAI - Inicio');
     console.log(`   useLocalModel: ${this.useLocalModel}`);
-    console.log(`   huggingFaceApiKey existe: ${!!this.huggingFaceApiKey}`);
+    console.log(`   groqApiKey existe: ${!!this.groqApiKey}`);
     
     // Prioridad 1: Usar Python AI Service con GPT-OSS
     if (this.useLocalModel) {
@@ -89,124 +94,64 @@ Tu rol es:
       return this.callPythonAiService(messages);
     }
     
-    // Prioridad 2: Usar respuestas demo inteligentes
-    // HuggingFace Inference API gratuito tiene disponibilidad muy limitada
-    // Las respuestas demo son educativas y contextuales
-    console.log('📍 Ruta 2: Usando respuestas demo educativas (HF API no confiable en tier gratuito)');
+    // Prioridad 2: Usar Groq API (MEJOR OPCIÓN)
+    if (this.groqApiKey) {
+      console.log('📍 Ruta 2: Usando Groq API');
+      return this.callGroq(messages);
+    }
+    
+    // Prioridad 3: Usar respuestas demo inteligentes
+    console.log('📍 Ruta 3: Usando respuestas demo educativas');
     return this.getDemoResponse(messages.at(-1).content);
+  }
 
-    // Código comentado temporalmente - HuggingFace free tier no es confiable
-    /*
-    console.log('📍 Ruta 3: Llamando a HuggingFace Inference API');
-
+  private async callGroq(messages: any[]): Promise<string> {
     try {
-      // Usar GPT-2 que es el modelo base más confiable en HuggingFace free tier
-      // Siempre está disponible y funciona sin problemas
-      const modelUrl = 'https://api-inference.huggingface.co/models/gpt2';
-      console.log(`🔗 Llamando a: ${modelUrl}`);
+      console.log('🚀 Llamando a Groq API...');
       
-      const response = await fetch(modelUrl, {
+      // Groq usa el formato estándar de OpenAI
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${this.huggingFaceApiKey}`,
+          'Authorization': `Bearer ${this.groqApiKey}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          inputs: this.formatPrompt(messages),
-          parameters: {
-            max_new_tokens: 150,
-            temperature: 0.7,
-            top_p: 0.9,
-            do_sample: true,
-            return_full_text: false,
-          },
-          options: {
-            wait_for_model: true,
-            use_cache: false,
-          },
+          model: 'llama-3.1-70b-versatile', // Modelo GRATIS y muy potente
+          messages: [
+            {
+              role: 'system',
+              content: this.systemContext,
+            },
+            ...messages,
+          ],
+          temperature: 0.7,
+          max_tokens: 500,
+          top_p: 0.9,
         }),
       });
 
       if (!response.ok) {
         const errorText = await response.text();
-        console.error('❌ Hugging Face API error:', response.status, errorText);
-        console.error('📋 Error completo:', errorText);
-        
-        // Si es error 503 (modelo cargando), esperar y reintentar
-        if (response.status === 503) {
-          console.log('⏳ Modelo cargando, reintentando en 5 segundos...');
-          await new Promise(resolve => setTimeout(resolve, 5000));
-          
-          // Reintentar una vez más
-          const retryResponse = await fetch(modelUrl, {
-            method: 'POST',
-            headers: {
-              'Authorization': `Bearer ${this.huggingFaceApiKey}`,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              inputs: this.formatPrompt(messages),
-              parameters: {
-                max_new_tokens: 150,
-                temperature: 0.7,
-                top_p: 0.9,
-                do_sample: true,
-                return_full_text: false,
-              },
-              options: {
-                wait_for_model: true,
-                use_cache: false,
-              },
-            }),
-          });
-          
-          if (retryResponse.ok) {
-            const retryData = await retryResponse.json();
-            console.log('✅ Respuesta de HuggingFace recibida (reintento exitoso)');
-            
-            if (Array.isArray(retryData) && retryData[0]?.generated_text) {
-              return retryData[0].generated_text.trim();
-            } else if (retryData?.generated_text) {
-              return retryData.generated_text.trim();
-            } else if (typeof retryData === 'string') {
-              return retryData.trim();
-            }
-          } else {
-            const retryErrorText = await retryResponse.text();
-            console.error('❌ Error en reintento:', retryResponse.status, retryErrorText);
-          }
-        }
-        
-        // NO usar demo - lanzar error para ver qué está pasando
-        throw new Error(`HuggingFace API Error ${response.status}: ${errorText}`);
+        console.error('❌ Groq API error:', response.status, errorText);
+        throw new Error(`Groq API Error ${response.status}: ${errorText}`);
       }
 
       const data = await response.json();
-      console.log('✅ Respuesta de HuggingFace recibida');
-      console.log('📦 Tipo de respuesta:', typeof data, Array.isArray(data) ? '(array)' : '(object)');
-      console.log('📄 Contenido de la respuesta:', JSON.stringify(data).substring(0, 200));
+      console.log('✅ Respuesta de Groq recibida');
       
-      // Manejar diferentes formatos de respuesta de HF
-      if (Array.isArray(data) && data[0]?.generated_text) {
-        console.log('✅ Respuesta parseada exitosamente (formato array)');
-        return data[0].generated_text.trim();
-      } else if (data?.generated_text) {
-        console.log('✅ Respuesta parseada exitosamente (formato object)');
-        return data.generated_text.trim();
-      } else if (typeof data === 'string') {
-        console.log('✅ Respuesta parseada exitosamente (formato string)');
-        return data.trim();
+      if (data?.choices?.[0]?.message?.content) {
+        const reply = data.choices[0].message.content.trim();
+        console.log(`✅ Respuesta parseada: ${reply.substring(0, 100)}...`);
+        return reply;
       }
       
-      console.error('❌ Respuesta inesperada de Hugging Face:', JSON.stringify(data));
-      throw new Error('Formato de respuesta inesperado de HuggingFace API');
+      console.error('❌ Respuesta inesperada de Groq:', JSON.stringify(data));
+      throw new Error('Formato de respuesta inesperado de Groq API');
     } catch (error) {
-      console.error('❌ Error calling Hugging Face:', error);
-      console.error('❌ Stack trace:', error instanceof Error ? error.stack : 'No stack trace');
-      // Re-lanzar el error en lugar de usar demo
+      console.error('❌ Error calling Groq:', error);
       throw error;
     }
-    */
   }
 
   private async callPythonAiService(messages: any[]): Promise<string> {
@@ -467,16 +412,22 @@ Estoy aquí para ayudarte con preguntas sobre roles de género, estereotipos y e
 
   // Método de diagnóstico para verificar configuración
   getConfig() {
+    let mode = 'Demo Mode (No API Key)';
+    if (this.useLocalModel) {
+      mode = 'Python AI Service (Local)';
+    } else if (this.groqApiKey) {
+      mode = 'Groq API (Llama 3.1 70B)';
+    } else if (this.huggingFaceApiKey && this.huggingFaceApiKey !== 'tu_token_aqui') {
+      mode = 'HuggingFace Inference API';
+    }
+    
     return {
       useLocalModel: this.useLocalModel,
+      hasGroqKey: !!this.groqApiKey,
+      groqKeyPrefix: this.groqApiKey?.substring(0, 10),
       hasHuggingFaceKey: !!this.huggingFaceApiKey,
-      huggingFaceKeyPrefix: this.huggingFaceApiKey?.substring(0, 7),
       pythonAiServiceUrl: this.pythonAiServiceUrl,
-      mode: this.useLocalModel 
-        ? 'Python AI Service (Local)' 
-        : this.huggingFaceApiKey && this.huggingFaceApiKey !== 'tu_token_aqui'
-          ? 'HuggingFace Inference API'
-          : 'Demo Mode (No API Key)',
+      mode,
     };
   }
 }
