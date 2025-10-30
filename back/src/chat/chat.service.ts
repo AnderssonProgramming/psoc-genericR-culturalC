@@ -99,9 +99,9 @@ Tu rol es:
     console.log('📍 Ruta 3: Llamando a HuggingFace Inference API');
 
     try {
-      // Usar Mistral-7B-Instruct que está disponible en HuggingFace Inference API
-      // Este modelo es confiable, rápido y gratuito
-      const modelUrl = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2';
+      // Usar google/flan-t5-large que está SIEMPRE disponible en HuggingFace Inference API (tier gratuito)
+      // Es un modelo de Google, muy confiable y optimizado para instrucciones
+      const modelUrl = 'https://api-inference.huggingface.co/models/google/flan-t5-large';
       console.log(`🔗 Llamando a: ${modelUrl}`);
       
       const response = await fetch(modelUrl, {
@@ -113,15 +113,15 @@ Tu rol es:
         body: JSON.stringify({
           inputs: this.formatPrompt(messages),
           parameters: {
-            max_new_tokens: 400,
-            temperature: 0.7,
-            top_p: 0.9,
+            max_length: 500,
+            min_length: 50,
+            temperature: 0.8,
+            top_p: 0.95,
             do_sample: true,
-            return_full_text: false,
           },
           options: {
-            wait_for_model: true, // Esperar si el modelo está cargando
-            use_cache: true,
+            wait_for_model: true,
+            use_cache: false, // No cache para respuestas más frescas
           },
         }),
       });
@@ -146,15 +146,15 @@ Tu rol es:
             body: JSON.stringify({
               inputs: this.formatPrompt(messages),
               parameters: {
-                max_new_tokens: 400,
-                temperature: 0.7,
-                top_p: 0.9,
+                max_length: 500,
+                min_length: 50,
+                temperature: 0.8,
+                top_p: 0.95,
                 do_sample: true,
-                return_full_text: false,
               },
               options: {
                 wait_for_model: true,
-                use_cache: true,
+                use_cache: false,
               },
             }),
           });
@@ -260,21 +260,19 @@ Tu rol es:
   }
 
   private formatPrompt(messages: any[]): string {
-    let prompt = `<s>[INST] ${this.systemContext}\n\n`;
+    // Formato simple para FLAN-T5 (Google)
+    // FLAN-T5 prefiere instrucciones directas sin tokens especiales
+    let prompt = `Contexto: ${this.systemContext}\n\n`;
     
-    for (let index = 0; index < messages.length; index++) {
-      const msg = messages[index];
+    for (const msg of messages) {
       if (msg.role === 'user') {
-        if (index === messages.length - 1) {
-          prompt += `${msg.content} [/INST]`;
-        } else {
-          prompt += `${msg.content} [/INST] `;
-        }
+        prompt += `Pregunta: ${msg.content}\n`;
       } else if (msg.role === 'assistant') {
-        prompt += `${msg.content}</s><s>[INST] `;
+        prompt += `Respuesta: ${msg.content}\n`;
       }
     }
-
+    
+    prompt += `Respuesta:`;
     return prompt;
   }
 
