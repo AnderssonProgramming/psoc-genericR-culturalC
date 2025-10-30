@@ -94,7 +94,7 @@ Tu rol es:
       return this.callPythonAiService(messages);
     }
     
-    // Prioridad 2: Usar Groq API (MEJOR OPCIÓN)
+    // Prioridad 2: Usar Groq API (-MEJOR OPCIÓN-)
     if (this.groqApiKey) {
       console.log('📍 Ruta 2: Usando Groq API');
       return this.callGroq(messages);
