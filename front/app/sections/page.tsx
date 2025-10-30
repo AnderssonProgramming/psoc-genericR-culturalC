@@ -51,6 +51,21 @@ Los roles de género tienen sus raíces en múltiples dimensiones: estructuras s
 
 Con la llegada de movimientos sociales y políticos, como el feminismo y los movimientos por los derechos civiles, estas estructuras comenzaron a cuestionarse de manera más sistemática. A lo largo del siglo XX y XXI, se ha evidenciado que los roles de género no son inmutables ni universales; varían significativamente entre culturas, épocas históricas y contextos socioeconómicos. Esto demuestra que son construcciones sociales y no hechos biológicos inevitables. En la actualidad, los roles de género han cambiado y evolucionado significativamente, e incluyen hoy una mayor flexibilidad, reconocimiento de la diversidad y un creciente compromiso con los valores de equidad, respeto y dignidad humana para todas las personas, independientemente de su identidad de género.
 
+#### Material de referencia: Estereotipos de género
+
+Como preámbulo y entendimiento hacia los estereotipos de género, te invitamos a ver el siguiente video educativo:
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem 0;">
+  <iframe 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    src="https://www.youtube.com/embed/K6wnjAaPe5g" 
+    title="Estereotipos de género" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
+
 ---
 
 **Revisado Por:** María Ignacia Castañeda  

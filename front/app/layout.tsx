@@ -3,6 +3,7 @@ import './globals.css';
 import { AuthProvider } from '@/lib/auth-context';
 import NavBar from '@/components/NavBar';
 import FloatingChatbot from '@/components/FloatingChatbot';
+import BackgroundMusic from '@/components/BackgroundMusic';
 
 export const metadata: Metadata = {
   title: 'Gender Quest - Plataforma Educativa sobre Roles de Género',
@@ -28,6 +29,9 @@ export default function RootLayout({
 
           {/* Floating Chatbot - Available globally */}
           <FloatingChatbot />
+          
+          {/* Background Music */}
+          <BackgroundMusic />
         </AuthProvider>
       </body>
     </html>
