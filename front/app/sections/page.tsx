@@ -867,206 +867,206 @@ export default function SectionsPage() {
               )}
 
               {section?.id === 3 && (
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8 overflow-x-hidden">
                   {/* Encabezado Principal - MÁS LLAMATIVO */}
-                  <div className="relative bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white p-10 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
+                  <div className="relative bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white p-6 sm:p-10 rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300">
                     <div className="absolute inset-0 bg-black/10"></div>
                     <div className="relative z-10">
-                      <div className="flex items-center mb-4">
-                        <div className="text-7xl mr-4 animate-pulse">🧠</div>
-                        <div>
-                          <h2 className="text-5xl font-black mb-2 drop-shadow-lg">
+                      <div className="flex flex-col sm:flex-row items-center mb-4">
+                        <div className="text-5xl sm:text-7xl mb-3 sm:mb-0 sm:mr-4 animate-pulse">🧠</div>
+                        <div className="text-center sm:text-left">
+                          <h2 className="text-3xl sm:text-5xl font-black mb-2 drop-shadow-lg">
                             Marco Conceptual
                           </h2>
-                          <p className="text-2xl font-semibold opacity-95 italic">Roles de Género y las Influencias Culturales</p>
+                          <p className="text-lg sm:text-2xl font-semibold opacity-95 italic">Roles de Género y las Influencias Culturales</p>
                         </div>
                       </div>
-                      <p className="text-xl opacity-90 bg-white/20 backdrop-blur-sm p-4 rounded-xl mt-4">
+                      <p className="text-base sm:text-xl opacity-90 bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl mt-4">
                         ✨ Análisis de la construcción social del género en la sociedad contemporánea
                       </p>
                     </div>
                   </div>
 
                   {/* Introducción - MEJORADA CON MÁS COLOR */}
-                  <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-8 rounded-2xl shadow-xl border-4 border-transparent hover:border-pink-300 transition-all duration-300">
-                    <div className="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-6 rounded-xl shadow-lg mb-6">
-                      <h3 className="text-3xl font-bold flex items-center">
-                        <span className="text-4xl mr-3">📋</span>
+                  <div className="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-4 sm:p-8 rounded-2xl shadow-xl border-4 border-transparent hover:border-pink-300 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-pink-500 to-purple-600 text-white p-4 sm:p-6 rounded-xl shadow-lg mb-4 sm:mb-6">
+                      <h3 className="text-2xl sm:text-3xl font-bold flex items-center">
+                        <span className="text-3xl sm:text-4xl mr-2 sm:mr-3">📋</span>
                         Introducción
                       </h3>
                     </div>
-                    <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-white p-5 rounded-xl shadow-md">
+                    <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 bg-white p-4 sm:p-5 rounded-xl shadow-md">
                       El presente marco conceptual aborda la relación entre los <strong className="text-pink-600">roles de género</strong> y las <strong className="text-purple-600">influencias culturales</strong>, considerando cómo ambos fenómenos se entrelazan para moldear las prácticas, creencias y estructuras sociales.
                     </p>
-                    <div className="grid md:grid-cols-3 gap-6 mt-6">
-                      <div className="bg-gradient-to-br from-pink-400 to-pink-600 p-6 rounded-xl shadow-xl text-white transform hover:scale-105 hover:rotate-1 transition-all duration-300">
-                        <div className="text-5xl mb-3">🔍</div>
-                        <p className="font-bold text-xl mb-2">Procesos de construcción</p>
-                        <p className="text-sm opacity-90">Los procesos de construcción social del género</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-4 sm:mt-6">
+                      <div className="bg-gradient-to-br from-pink-400 to-pink-600 p-5 sm:p-6 rounded-xl shadow-xl text-white transform hover:scale-105 hover:rotate-1 transition-all duration-300">
+                        <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">🔍</div>
+                        <p className="font-bold text-lg sm:text-xl mb-1 sm:mb-2">Procesos de construcción</p>
+                        <p className="text-xs sm:text-sm opacity-90">Los procesos de construcción social del género</p>
                       </div>
-                      <div className="bg-gradient-to-br from-purple-400 to-purple-600 p-6 rounded-xl shadow-xl text-white transform hover:scale-105 transition-all duration-300">
-                        <div className="text-5xl mb-3">🔄</div>
-                        <p className="font-bold text-xl mb-2">Transformaciones</p>
-                        <p className="text-sm opacity-90">Las transformaciones contemporáneas en los roles</p>
+                      <div className="bg-gradient-to-br from-purple-400 to-purple-600 p-5 sm:p-6 rounded-xl shadow-xl text-white transform hover:scale-105 transition-all duration-300">
+                        <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">🔄</div>
+                        <p className="font-bold text-lg sm:text-xl mb-1 sm:mb-2">Transformaciones</p>
+                        <p className="text-xs sm:text-sm opacity-90">Las transformaciones contemporáneas en los roles</p>
                       </div>
-                      <div className="bg-gradient-to-br from-indigo-400 to-indigo-600 p-6 rounded-xl shadow-xl text-white transform hover:scale-105 hover:-rotate-1 transition-all duration-300">
-                        <div className="text-5xl mb-3">🌍</div>
-                        <p className="font-bold text-xl mb-2">Influencias culturales</p>
-                        <p className="text-sm opacity-90">Cómo impactan las dinámicas sociales</p>
+                      <div className="bg-gradient-to-br from-indigo-400 to-indigo-600 p-5 sm:p-6 rounded-xl shadow-xl text-white transform hover:scale-105 hover:-rotate-1 transition-all duration-300">
+                        <div className="text-4xl sm:text-5xl mb-2 sm:mb-3">🌍</div>
+                        <p className="font-bold text-lg sm:text-xl mb-1 sm:mb-2">Influencias culturales</p>
+                        <p className="text-xs sm:text-sm opacity-90">Cómo impactan las dinámicas sociales</p>
                       </div>
                     </div>
-                    <div className="mt-6 bg-gradient-to-r from-yellow-100 to-orange-100 p-4 rounded-xl border-l-4 border-orange-500">
-                      <p className="text-sm text-gray-700 italic font-semibold">
+                    <div className="mt-4 sm:mt-6 bg-gradient-to-r from-yellow-100 to-orange-100 p-3 sm:p-4 rounded-xl border-l-4 border-orange-500">
+                      <p className="text-xs sm:text-sm text-gray-700 italic font-semibold break-words">
                         📚 Referencias: Ospina (2023), Alfaro Arismendy & Bonilla Maradey (2021), OECD (2023)
                       </p>
                     </div>
                   </div>
 
                   {/* Roles de Género - DISEÑO MEJORADO Y MÁS COLORIDO */}
-                  <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 p-10 rounded-2xl shadow-2xl border-4 border-purple-300 hover:border-pink-400 transition-all duration-300">
-                    <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white p-6 rounded-xl shadow-xl mb-8 transform hover:scale-[1.02] transition-all duration-300">
-                      <h3 className="text-4xl font-black flex items-center">
-                        <span className="text-5xl mr-4 animate-bounce">👥</span>
+                  <div className="bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 p-5 sm:p-10 rounded-2xl shadow-2xl border-4 border-purple-300 hover:border-pink-400 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 text-white p-4 sm:p-6 rounded-xl shadow-xl mb-6 sm:mb-8 transform hover:scale-[1.02] transition-all duration-300">
+                      <h3 className="text-2xl sm:text-4xl font-black flex items-center">
+                        <span className="text-4xl sm:text-5xl mr-3 sm:mr-4 animate-bounce">👥</span>
                         Roles de Género
                       </h3>
                     </div>
 
                     {/* Definición - MÁS LLAMATIVA */}
-                    <div className="bg-white p-8 rounded-2xl shadow-2xl mb-8 border-l-8 border-purple-500 hover:shadow-purple-300 transition-all duration-300">
-                      <h4 className="text-2xl font-bold text-purple-700 mb-4 flex items-center">
-                        <span className="text-3xl mr-3">📖</span>
-                        Definición y Construcción Social
+                    <div className="bg-white p-5 sm:p-8 rounded-2xl shadow-2xl mb-6 sm:mb-8 border-l-8 border-purple-500 hover:shadow-purple-300 transition-all duration-300">
+                      <h4 className="text-xl sm:text-2xl font-bold text-purple-700 mb-3 sm:mb-4 flex flex-wrap items-center">
+                        <span className="text-2xl sm:text-3xl mr-2 sm:mr-3">📖</span>
+                        <span className="break-words">Definición y Construcción Social</span>
                       </h4>
-                      <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-gradient-to-r from-purple-50 to-pink-50 p-5 rounded-xl">
+                      <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 bg-gradient-to-r from-purple-50 to-pink-50 p-4 sm:p-5 rounded-xl break-words">
                         Los <strong className="text-purple-700">roles de género</strong> son entendidos como el conjunto de <strong className="text-pink-600">comportamientos, normas y expectativas socialmente construidas</strong> en torno al hecho de ser hombre o mujer.
                       </p>
 
                       {/* Instituciones Socializadoras - MÁS COLORIDAS */}
-                      <div className="bg-gradient-to-br from-indigo-50 to-purple-100 p-6 rounded-2xl mb-6 shadow-lg">
-                        <h5 className="font-black text-purple-800 mb-5 text-xl flex items-center">
-                          <span className="text-2xl mr-2">🏛️</span>
+                      <div className="bg-gradient-to-br from-indigo-50 to-purple-100 p-4 sm:p-6 rounded-2xl mb-4 sm:mb-6 shadow-lg">
+                        <h5 className="font-black text-purple-800 mb-4 sm:mb-5 text-lg sm:text-xl flex items-center">
+                          <span className="text-xl sm:text-2xl mr-2">🏛️</span>
                           Instituciones Socializadoras
                         </h5>
-                        <div className="grid md:grid-cols-3 gap-6">
-                          <div className="text-center p-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl transform hover:scale-110 hover:-rotate-2 transition-all duration-300">
-                            <div className="text-6xl mb-3">👨‍👩‍👧</div>
-                            <p className="font-black text-xl text-white mb-2">FAMILIA</p>
-                            <p className="text-sm text-blue-100">Primera socialización</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+                          <div className="text-center p-5 sm:p-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl transform hover:scale-110 hover:-rotate-2 transition-all duration-300">
+                            <div className="text-5xl sm:text-6xl mb-2 sm:mb-3">👨‍👩‍👧</div>
+                            <p className="font-black text-lg sm:text-xl text-white mb-1 sm:mb-2">FAMILIA</p>
+                            <p className="text-xs sm:text-sm text-blue-100">Primera socialización</p>
                           </div>
-                          <div className="text-center p-6 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
-                            <div className="text-6xl mb-3">🏫</div>
-                            <p className="font-black text-xl text-white mb-2">ESCUELA</p>
-                            <p className="text-sm text-green-100">Educación formal</p>
+                          <div className="text-center p-5 sm:p-6 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                            <div className="text-5xl sm:text-6xl mb-2 sm:mb-3">🏫</div>
+                            <p className="font-black text-lg sm:text-xl text-white mb-1 sm:mb-2">ESCUELA</p>
+                            <p className="text-xs sm:text-sm text-green-100">Educación formal</p>
                           </div>
-                          <div className="text-center p-6 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl shadow-xl transform hover:scale-110 hover:rotate-2 transition-all duration-300">
-                            <div className="text-6xl mb-3">📺</div>
-                            <p className="font-black text-xl text-white mb-2">MEDIOS</p>
-                            <p className="text-sm text-red-100">Difusión masiva</p>
+                          <div className="text-center p-5 sm:p-6 bg-gradient-to-br from-red-400 to-red-600 rounded-2xl shadow-xl transform hover:scale-110 hover:rotate-2 transition-all duration-300">
+                            <div className="text-5xl sm:text-6xl mb-2 sm:mb-3">📺</div>
+                            <p className="font-black text-lg sm:text-xl text-white mb-1 sm:mb-2">MEDIOS</p>
+                            <p className="text-xs sm:text-sm text-red-100">Difusión masiva</p>
                           </div>
                         </div>
                       </div>
 
                       {/* Áreas de Impacto - MÁS COLORIDAS */}
-                      <h5 className="font-black text-purple-800 mb-4 text-xl flex items-center">
-                        <span className="text-2xl mr-2">🎯</span>
+                      <h5 className="font-black text-purple-800 mb-3 sm:mb-4 text-lg sm:text-xl flex items-center">
+                        <span className="text-xl sm:text-2xl mr-2">🎯</span>
                         Áreas de Impacto
                       </h5>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="bg-gradient-to-r from-pink-400 to-pink-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                          <span className="text-4xl mr-4">💑</span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div className="bg-gradient-to-r from-pink-400 to-pink-600 p-3 sm:p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-3xl sm:text-4xl mr-3 sm:mr-4 flex-shrink-0">💑</span>
                           <div className="text-white">
-                            <p className="font-bold text-lg">Relaciones</p>
-                            <p className="text-sm opacity-90">Toma de decisiones sexuales y afectivas</p>
+                            <p className="font-bold text-base sm:text-lg">Relaciones</p>
+                            <p className="text-xs sm:text-sm opacity-90">Toma de decisiones sexuales y afectivas</p>
                           </div>
                         </div>
-                        <div className="bg-gradient-to-r from-orange-400 to-orange-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                          <span className="text-4xl mr-4">🏠</span>
+                        <div className="bg-gradient-to-r from-orange-400 to-orange-600 p-3 sm:p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-3xl sm:text-4xl mr-3 sm:mr-4 flex-shrink-0">🏠</span>
                           <div className="text-white">
-                            <p className="font-bold text-lg">Hogar</p>
-                            <p className="text-sm opacity-90">Distribución del trabajo doméstico</p>
+                            <p className="font-bold text-base sm:text-lg">Hogar</p>
+                            <p className="text-xs sm:text-sm opacity-90">Distribución del trabajo doméstico</p>
                           </div>
                         </div>
-                        <div className="bg-gradient-to-r from-blue-400 to-blue-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                          <span className="text-4xl mr-4">🎓</span>
+                        <div className="bg-gradient-to-r from-blue-400 to-blue-600 p-3 sm:p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-3xl sm:text-4xl mr-3 sm:mr-4 flex-shrink-0">🎓</span>
                           <div className="text-white">
-                            <p className="font-bold text-lg">Educación</p>
-                            <p className="text-sm opacity-90">Participación en espacios académicos</p>
+                            <p className="font-bold text-base sm:text-lg">Educación</p>
+                            <p className="text-xs sm:text-sm opacity-90">Participación en espacios académicos</p>
                           </div>
                         </div>
-                        <div className="bg-gradient-to-r from-purple-400 to-purple-600 p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                          <span className="text-4xl mr-4">💼</span>
+                        <div className="bg-gradient-to-r from-purple-400 to-purple-600 p-3 sm:p-4 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-3xl sm:text-4xl mr-3 sm:mr-4 flex-shrink-0">💼</span>
                           <div className="text-white">
-                            <p className="font-bold text-lg">Trabajo</p>
-                            <p className="text-sm opacity-90">Acceso y desarrollo laboral</p>
+                            <p className="font-bold text-base sm:text-lg">Trabajo</p>
+                            <p className="text-xs sm:text-sm opacity-90">Acceso y desarrollo laboral</p>
                           </div>
                         </div>
                       </div>
                     </div>
 
                     {/* Transformaciones */}
-                    <div className="bg-white p-6 rounded-lg shadow mb-6">
-                      <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-4">
-                        <p className="font-bold text-yellow-800">⚠️ Nota Importante: Los roles de género NO son estáticos</p>
+                    <div className="bg-white p-4 sm:p-6 rounded-lg shadow mb-4 sm:mb-6">
+                      <div className="bg-yellow-100 border-l-4 border-yellow-500 p-3 sm:p-4 mb-3 sm:mb-4">
+                        <p className="font-bold text-yellow-800 text-sm sm:text-base">⚠️ Nota Importante: Los roles de género NO son estáticos</p>
                       </div>
 
-                      <h4 className="text-xl font-bold text-purple-600 mb-3">🔄 Transformaciones Contemporáneas</h4>
-                      <p className="text-gray-700 mb-4">En las últimas décadas, varios factores han promovido transformaciones importantes:</p>
+                      <h4 className="text-lg sm:text-xl font-bold text-purple-600 mb-2 sm:mb-3">🔄 Transformaciones Contemporáneas</h4>
+                      <p className="text-gray-700 text-sm sm:text-base mb-3 sm:mb-4">En las últimas décadas, varios factores han promovido transformaciones importantes:</p>
 
-                      <div className="grid md:grid-cols-3 gap-4 mb-4">
-                        <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
-                          <div className="text-4xl mb-2">🎓</div>
-                          <p className="font-bold text-blue-700">EDUCACIÓN SUPERIOR</p>
-                          <p className="text-sm text-gray-600 mt-2">Mayor participación femenina</p>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
+                          <div className="text-3xl sm:text-4xl mb-1 sm:mb-2">🎓</div>
+                          <p className="font-bold text-blue-700 text-sm sm:text-base">EDUCACIÓN SUPERIOR</p>
+                          <p className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">Mayor participación femenina</p>
                         </div>
-                        <div className="text-center p-4 bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg">
-                          <div className="text-4xl mb-2">✊</div>
-                          <p className="font-bold text-pink-700">FEMINISMO</p>
-                          <p className="text-sm text-gray-600 mt-2">Movimientos sociales activos</p>
+                        <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg">
+                          <div className="text-3xl sm:text-4xl mb-1 sm:mb-2">✊</div>
+                          <p className="font-bold text-pink-700 text-sm sm:text-base">FEMINISMO</p>
+                          <p className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">Movimientos sociales activos</p>
                         </div>
-                        <div className="text-center p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
-                          <div className="text-4xl mb-2">📜</div>
-                          <p className="font-bold text-green-700">POLÍTICAS PÚBLICAS</p>
-                          <p className="text-sm text-gray-600 mt-2">Legislación de igualdad</p>
+                        <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
+                          <div className="text-3xl sm:text-4xl mb-1 sm:mb-2">📜</div>
+                          <p className="font-bold text-green-700 text-sm sm:text-base">POLÍTICAS PÚBLICAS</p>
+                          <p className="text-xs sm:text-sm text-gray-600 mt-1 sm:mt-2">Legislación de igualdad</p>
                         </div>
                       </div>
 
-                      <div className="bg-green-50 p-4 rounded-lg">
-                        <p className="font-semibold text-green-800 mb-2">Logros destacados:</p>
-                        <ul className="space-y-1 text-gray-700">
-                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Aumento de participación femenina en educación superior</li>
-                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Mayor presencia en trabajo remunerado</li>
-                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Acción de movimientos feministas</li>
-                          <li className="flex items-start"><span className="text-green-600 mr-2">✅</span> Cambios en políticas públicas de igualdad</li>
+                      <div className="bg-green-50 p-3 sm:p-4 rounded-lg">
+                        <p className="font-semibold text-green-800 mb-2 text-sm sm:text-base">Logros destacados:</p>
+                        <ul className="space-y-1 text-gray-700 text-xs sm:text-sm">
+                          <li className="flex items-start"><span className="text-green-600 mr-2 flex-shrink-0">✅</span><span>Aumento de participación femenina en educación superior</span></li>
+                          <li className="flex items-start"><span className="text-green-600 mr-2 flex-shrink-0">✅</span><span>Mayor presencia en trabajo remunerado</span></li>
+                          <li className="flex items-start"><span className="text-green-600 mr-2 flex-shrink-0">✅</span><span>Acción de movimientos feministas</span></li>
+                          <li className="flex items-start"><span className="text-green-600 mr-2 flex-shrink-0">✅</span><span>Cambios en políticas públicas de igualdad</span></li>
                         </ul>
-                        <p className="text-sm text-gray-600 italic mt-3">(Malaver-Fonseca, Serrano-Cárdenas & Castro-Silva, 2021)</p>
+                        <p className="text-xs sm:text-sm text-gray-600 italic mt-2 sm:mt-3">(Malaver-Fonseca, Serrano-Cárdenas & Castro-Silva, 2021)</p>
                       </div>
                     </div>
 
                     {/* COVID-19 */}
-                    <div className="bg-white p-6 rounded-lg shadow">
-                      <h4 className="text-xl font-bold text-purple-600 mb-3 flex items-center">
-                        <span className="text-2xl mr-2">🦠</span>
-                        Impacto de la Pandemia COVID-19
+                    <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
+                      <h4 className="text-lg sm:text-xl font-bold text-purple-600 mb-2 sm:mb-3 flex items-center">
+                        <span className="text-xl sm:text-2xl mr-2 flex-shrink-0">🦠</span>
+                        <span>Impacto de la Pandemia COVID-19</span>
                       </h4>
-                      <p className="text-gray-700 mb-4">La pandemia evidenció tanto <strong>avances</strong> como <strong>retrocesos</strong> en la equidad de género:</p>
+                      <p className="text-gray-700 text-sm sm:text-base mb-3 sm:mb-4">La pandemia evidenció tanto <strong>avances</strong> como <strong>retrocesos</strong> en la equidad de género:</p>
 
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
-                          <h5 className="font-bold text-red-700 mb-2">📉 Retrocesos</h5>
-                          <ul className="space-y-1 text-sm text-gray-700">
-                            <li className="flex items-start"><span className="text-red-500 mr-2">⚠️</span> Incremento de cargas de cuidado sobre las mujeres</li>
-                            <li className="flex items-start"><span className="text-red-500 mr-2">⚠️</span> Sobrecarga del trabajo doméstico no remunerado</li>
-                            <li className="flex items-start"><span className="text-red-500 mr-2">⚠️</span> Reducción de participación laboral femenina</li>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div className="bg-red-50 p-3 sm:p-4 rounded-lg border-l-4 border-red-400">
+                          <h5 className="font-bold text-red-700 mb-2 text-sm sm:text-base">📉 Retrocesos</h5>
+                          <ul className="space-y-1 text-xs sm:text-sm text-gray-700">
+                            <li className="flex items-start"><span className="text-red-500 mr-2 flex-shrink-0">⚠️</span><span>Incremento de cargas de cuidado sobre las mujeres</span></li>
+                            <li className="flex items-start"><span className="text-red-500 mr-2 flex-shrink-0">⚠️</span><span>Sobrecarga del trabajo doméstico no remunerado</span></li>
+                            <li className="flex items-start"><span className="text-red-500 mr-2 flex-shrink-0">⚠️</span><span>Reducción de participación laboral femenina</span></li>
                           </ul>
                         </div>
 
-                        <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
-                          <h5 className="font-bold text-green-700 mb-2">💡 Oportunidades</h5>
-                          <ul className="space-y-1 text-sm text-gray-700">
-                            <li className="flex items-start"><span className="text-green-500 mr-2">✨</span> Visibilización de necesidad de políticas equitativas</li>
-                            <li className="flex items-start"><span className="text-green-500 mr-2">💬</span> Mayor conciencia sobre economías del cuidado</li>
-                            <li className="flex items-start"><span className="text-green-500 mr-2">🏠</span> Normalización del trabajo remoto</li>
-                            <li className="flex items-start"><span className="text-green-500 mr-2">👨‍👧</span> Mayor participación masculina en tareas domésticas</li>
+                        <div className="bg-green-50 p-3 sm:p-4 rounded-lg border-l-4 border-green-400">
+                          <h5 className="font-bold text-green-700 mb-2 text-sm sm:text-base">💡 Oportunidades</h5>
+                          <ul className="space-y-1 text-xs sm:text-sm text-gray-700">
+                            <li className="flex items-start"><span className="text-green-500 mr-2 flex-shrink-0">✨</span><span>Visibilización de necesidad de políticas equitativas</span></li>
+                            <li className="flex items-start"><span className="text-green-500 mr-2 flex-shrink-0">💬</span><span>Mayor conciencia sobre economías del cuidado</span></li>
+                            <li className="flex items-start"><span className="text-green-500 mr-2 flex-shrink-0">🏠</span><span>Normalización del trabajo remoto</span></li>
+                            <li className="flex items-start"><span className="text-green-500 mr-2 flex-shrink-0">👨‍👧</span><span>Mayor participación masculina en tareas domésticas</span></li>
                           </ul>
                         </div>
                       </div>
@@ -1074,106 +1074,106 @@ export default function SectionsPage() {
                   </div>
 
                   {/* Influencias Culturales - DISEÑO MEJORADO Y MÁS COLORIDO */}
-                  <div className="bg-gradient-to-br from-cyan-100 via-teal-100 to-blue-100 p-10 rounded-2xl shadow-2xl border-4 border-cyan-300 hover:border-teal-400 transition-all duration-300">
-                    <div className="bg-gradient-to-r from-cyan-600 via-teal-600 to-blue-600 text-white p-6 rounded-xl shadow-xl mb-8 transform hover:scale-[1.02] transition-all duration-300">
-                      <h3 className="text-4xl font-black flex items-center">
-                        <span className="text-5xl mr-4 animate-spin-slow">🌍</span>
-                        Influencias Culturales
+                  <div className="bg-gradient-to-br from-cyan-100 via-teal-100 to-blue-100 p-5 sm:p-10 rounded-2xl shadow-2xl border-4 border-cyan-300 hover:border-teal-400 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-cyan-600 via-teal-600 to-blue-600 text-white p-4 sm:p-6 rounded-xl shadow-xl mb-6 sm:mb-8 transform hover:scale-[1.02] transition-all duration-300">
+                      <h3 className="text-2xl sm:text-4xl font-black flex items-center">
+                        <span className="text-4xl sm:text-5xl mr-3 sm:mr-4 animate-spin-slow">🌍</span>
+                        <span className="break-words">Influencias Culturales</span>
                       </h3>
                     </div>
 
-                    <div className="bg-white p-8 rounded-2xl shadow-2xl mb-8 border-l-8 border-cyan-500">
-                      <h4 className="text-2xl font-bold text-cyan-700 mb-4 flex items-center">
-                        <span className="text-3xl mr-3">🔍</span>
-                        Definición y Alcance
+                    <div className="bg-white p-5 sm:p-8 rounded-2xl shadow-2xl mb-6 sm:mb-8 border-l-8 border-cyan-500">
+                      <h4 className="text-xl sm:text-2xl font-bold text-cyan-700 mb-3 sm:mb-4 flex items-center">
+                        <span className="text-2xl sm:text-3xl mr-2 sm:mr-3 flex-shrink-0">🔍</span>
+                        <span className="break-words">Definición y Alcance</span>
                       </h4>
-                      <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-gradient-to-r from-cyan-50 to-teal-50 p-5 rounded-xl">
+                      <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 bg-gradient-to-r from-cyan-50 to-teal-50 p-4 sm:p-5 rounded-xl break-words">
                         Las <strong className="text-cyan-700">influencias culturales</strong> abarcan un conjunto de factores que moldean los valores, creencias y prácticas de las sociedades.
                       </p>
 
-                      <h5 className="font-black text-cyan-800 mb-5 text-xl flex items-center">
-                        <span className="text-2xl mr-2">🌐</span>
+                      <h5 className="font-black text-cyan-800 mb-4 sm:mb-5 text-base sm:text-xl flex items-center">
+                        <span className="text-xl sm:text-2xl mr-2 flex-shrink-0">🌐</span>
                         Factores Principales
                       </h5>
-                      <div className="grid md:grid-cols-4 gap-4 mb-6">
-                        <div className="text-center p-5 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
-                          <div className="text-5xl mb-2">🚶‍♀️</div>
-                          <p className="font-black text-lg text-white">MIGRACIÓN</p>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="text-center p-4 sm:p-5 bg-gradient-to-br from-pink-400 to-pink-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-4xl sm:text-5xl mb-1 sm:mb-2">🚶‍♀️</div>
+                          <p className="font-black text-sm sm:text-lg text-white break-words">MIGRACIÓN</p>
                         </div>
-                        <div className="text-center p-5 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
-                          <div className="text-5xl mb-2">🌐</div>
-                          <p className="font-black text-lg text-white">GLOBALIZACIÓN</p>
+                        <div className="text-center p-4 sm:p-5 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-4xl sm:text-5xl mb-1 sm:mb-2">🌐</div>
+                          <p className="font-black text-sm sm:text-lg text-white break-words">GLOBALIZACIÓN</p>
                         </div>
-                        <div className="text-center p-5 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
-                          <div className="text-5xl mb-2">📱</div>
-                          <p className="font-black text-lg text-white">MEDIOS SOCIALES</p>
+                        <div className="text-center p-4 sm:p-5 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-4xl sm:text-5xl mb-1 sm:mb-2">📱</div>
+                          <p className="font-black text-sm sm:text-lg text-white break-words">MEDIOS SOCIALES</p>
                         </div>
-                        <div className="text-center p-5 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
-                          <div className="text-5xl mb-2">📜</div>
-                          <p className="font-black text-lg text-white">POLÍTICAS PÚBLICAS</p>
+                        <div className="text-center p-4 sm:p-5 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
+                          <div className="text-4xl sm:text-5xl mb-1 sm:mb-2">📜</div>
+                          <p className="font-black text-sm sm:text-lg text-white break-words">POLÍTICAS PÚBLICAS</p>
                         </div>
                       </div>
 
-                      <h5 className="font-black text-cyan-800 mb-4 text-xl flex items-center">
-                        <span className="text-2xl mr-2">📊</span>
+                      <h5 className="font-black text-cyan-800 mb-3 sm:mb-4 text-base sm:text-xl flex items-center">
+                        <span className="text-xl sm:text-2xl mr-2 flex-shrink-0">📊</span>
                         Escalas de Interacción
                       </h5>
-                      <div className="space-y-4">
-                        <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                          <span className="text-5xl mr-4">🏘️</span>
+                      <div className="space-y-3 sm:space-y-4">
+                        <div className="bg-gradient-to-r from-yellow-400 to-orange-500 p-4 sm:p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-4xl sm:text-5xl mr-3 sm:mr-4 flex-shrink-0">🏘️</span>
                           <div className="text-white">
-                            <p className="font-bold text-xl">Local</p>
-                            <p className="text-sm opacity-90">Valores comunitarios • Tradiciones familiares</p>
+                            <p className="font-bold text-base sm:text-xl">Local</p>
+                            <p className="text-xs sm:text-sm opacity-90 break-words">Valores comunitarios • Tradiciones familiares</p>
                           </div>
                         </div>
-                        <div className="bg-gradient-to-r from-indigo-400 to-purple-500 p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                          <span className="text-5xl mr-4">🌆</span>
+                        <div className="bg-gradient-to-r from-indigo-400 to-purple-500 p-4 sm:p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-4xl sm:text-5xl mr-3 sm:mr-4 flex-shrink-0">🌆</span>
                           <div className="text-white">
-                            <p className="font-bold text-xl">Regional</p>
-                            <p className="text-sm opacity-90">Políticas y normativas • Legislación laboral</p>
+                            <p className="font-bold text-base sm:text-xl">Regional</p>
+                            <p className="text-xs sm:text-sm opacity-90 break-words">Políticas y normativas • Legislación laboral</p>
                           </div>
                         </div>
-                        <div className="bg-gradient-to-r from-teal-400 to-cyan-500 p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                          <span className="text-5xl mr-4">🌍</span>
+                        <div className="bg-gradient-to-r from-teal-400 to-cyan-500 p-4 sm:p-5 rounded-xl flex items-center shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                          <span className="text-4xl sm:text-5xl mr-3 sm:mr-4 flex-shrink-0">🌍</span>
                           <div className="text-white">
-                            <p className="font-bold text-xl">Global</p>
-                            <p className="text-sm text-gray-600">Flujos transnacionales • Movimientos sociales internacionales</p>
+                            <p className="font-bold text-base sm:text-xl">Global</p>
+                            <p className="text-xs sm:text-sm opacity-90 break-words">Flujos transnacionales • Movimientos sociales internacionales</p>
                           </div>
                         </div>
                       </div>
 
-                      <p className="text-sm text-gray-600 italic mt-4">
+                      <p className="text-xs sm:text-sm text-gray-600 italic mt-3 sm:mt-4 break-words">
                         (Alfaro Arismendy & Bonilla Maradey, 2021)
                       </p>
                     </div>
 
-                    <div className="bg-white p-6 rounded-lg shadow mb-6">
-                      <h4 className="text-xl font-bold text-cyan-600 mb-3">🎭 Consecuencias de las Influencias Culturales</h4>
+                    <div className="bg-white p-4 sm:p-6 rounded-lg shadow mb-4 sm:mb-6">
+                      <h4 className="text-lg sm:text-xl font-bold text-cyan-600 mb-2 sm:mb-3">🎭 Consecuencias de las Influencias Culturales</h4>
                       
-                      <div className="space-y-4">
-                        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg">
-                          <h5 className="font-bold text-purple-700 mb-2 flex items-center">
-                            <span className="mr-2">🌈</span> 1. Identidades Híbridas
+                      <div className="space-y-3 sm:space-y-4">
+                        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-3 sm:p-4 rounded-lg">
+                          <h5 className="font-bold text-purple-700 mb-2 flex items-center text-sm sm:text-base">
+                            <span className="mr-2 flex-shrink-0">🌈</span> <span className="break-words">1. Identidades Híbridas</span>
                           </h5>
-                          <ul className="text-sm text-gray-700 space-y-1 ml-6">
-                            <li>• Fusión de modelos tradicionales y contemporáneos</li>
-                            <li>• Negociación constante de expectativas contradictorias</li>
-                            <li>• Emergencia de nuevas formas de expresión de género</li>
+                          <ul className="text-xs sm:text-sm text-gray-700 space-y-1 ml-5 sm:ml-6">
+                            <li className="break-words">• Fusión de modelos tradicionales y contemporáneos</li>
+                            <li className="break-words">• Negociación constante de expectativas contradictorias</li>
+                            <li className="break-words">• Emergencia de nuevas formas de expresión de género</li>
                           </ul>
                         </div>
 
-                        <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg">
-                          <h5 className="font-bold text-orange-700 mb-2 flex items-center">
-                            <span className="mr-2">♻️</span> 2. Resignificación de Tradiciones
+                        <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-3 sm:p-4 rounded-lg">
+                          <h5 className="font-bold text-orange-700 mb-2 flex items-center text-sm sm:text-base">
+                            <span className="mr-2 flex-shrink-0">♻️</span> <span className="break-words">2. Resignificación de Tradiciones</span>
                           </h5>
-                          <p className="text-sm text-gray-700">Adaptación de prácticas tradicionales a nuevos contextos globales</p>
+                          <p className="text-xs sm:text-sm text-gray-700 break-words">Adaptación de prácticas tradicionales a nuevos contextos globales</p>
                         </div>
 
-                        <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg">
-                          <h5 className="font-bold text-green-700 mb-2 flex items-center">
-                            <span className="mr-2">🏙️</span> 3. Reconfiguración de Estilos de Vida
+                        <div className="bg-gradient-to-r from-green-50 to-green-100 p-3 sm:p-4 rounded-lg">
+                          <h5 className="font-bold text-green-700 mb-2 flex items-center text-sm sm:text-base">
+                            <span className="mr-2 flex-shrink-0">🏙️</span> <span className="break-words">3. Reconfiguración de Estilos de Vida</span>
                           </h5>
-                          <div className="grid md:grid-cols-3 gap-2 mt-2">
+                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2">
                             <div className="bg-white p-2 rounded text-center">
                               <p className="text-xs font-semibold text-green-700">Urbano</p>
                               <p className="text-xs text-gray-600">Roles flexibles</p>
@@ -1189,13 +1189,13 @@ export default function SectionsPage() {
                           </div>
                         </div>
 
-                        <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg">
-                          <h5 className="font-bold text-blue-700 mb-2 flex items-center">
-                            <span className="mr-2">💭</span> 4. Transformación de Expectativas
+                        <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-3 sm:p-4 rounded-lg">
+                          <h5 className="font-bold text-blue-700 mb-2 flex items-center text-sm sm:text-base">
+                            <span className="mr-2 flex-shrink-0">💭</span> <span className="break-words">4. Transformación de Expectativas</span>
                           </h5>
-                          <div className="bg-blue-200 border-l-4 border-blue-500 p-3 mt-2">
-                            <p className="text-sm font-semibold text-blue-900">📌 Hallazgo Clave (OECD, 2023):</p>
-                            <p className="text-sm text-blue-800 mt-1">
+                          <div className="bg-blue-200 border-l-4 border-blue-500 p-2 sm:p-3 mt-2">
+                            <p className="text-xs sm:text-sm font-semibold text-blue-900 break-words">📌 Hallazgo Clave (OECD, 2023):</p>
+                            <p className="text-xs sm:text-sm text-blue-800 mt-1 break-words">
                               Persistencia de desigualdades estructurales y necesidad urgente de políticas públicas que promuevan la igualdad de oportunidades.
                             </p>
                           </div>
@@ -1203,88 +1203,88 @@ export default function SectionsPage() {
                       </div>
                     </div>
 
-                    <div className="bg-white p-6 rounded-lg shadow">
-                      <h4 className="text-xl font-bold text-cyan-600 mb-3 flex items-center">
-                        <span className="text-2xl mr-2">🏢</span>
-                        Impacto en Contextos Empresariales
+                    <div className="bg-white p-4 sm:p-6 rounded-lg shadow">
+                      <h4 className="text-lg sm:text-xl font-bold text-cyan-600 mb-2 sm:mb-3 flex items-center">
+                        <span className="text-xl sm:text-2xl mr-2 flex-shrink-0">🏢</span>
+                        <span className="break-words">Impacto en Contextos Empresariales</span>
                       </h4>
-                      <p className="text-gray-700 mb-4">Estudios como el de <strong>Vos (2022)</strong> demuestran que los valores culturales influyen en:</p>
+                      <p className="text-gray-700 mb-3 sm:mb-4 text-sm sm:text-base break-words">Estudios como el de <strong>Vos (2022)</strong> demuestran que los valores culturales influyen en:</p>
                       
-                      <div className="grid md:grid-cols-2 gap-3">
-                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">💻 Adopción tecnológica</strong><br/><span className="text-sm text-gray-600">Valores sobre innovación y cambio</span></div>
-                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">🤝 Relaciones laborales</strong><br/><span className="text-sm text-gray-600">Normas de interacción y jerarquía</span></div>
-                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">👔 Liderazgo</strong><br/><span className="text-sm text-gray-600">Estereotipos de género en puestos directivos</span></div>
-                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700">⚖️ Equidad salarial</strong><br/><span className="text-sm text-gray-600">Valoración diferencial del trabajo</span></div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700 text-sm sm:text-base">💻 Adopción tecnológica</strong><br/><span className="text-xs sm:text-sm text-gray-600">Valores sobre innovación y cambio</span></div>
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700 text-sm sm:text-base">🤝 Relaciones laborales</strong><br/><span className="text-xs sm:text-sm text-gray-600">Normas de interacción y jerarquía</span></div>
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700 text-sm sm:text-base">👔 Liderazgo</strong><br/><span className="text-xs sm:text-sm text-gray-600">Estereotipos de género en puestos directivos</span></div>
+                        <div className="bg-cyan-50 p-3 rounded"><strong className="text-cyan-700 text-sm sm:text-base">⚖️ Equidad salarial</strong><br/><span className="text-xs sm:text-sm text-gray-600">Valoración diferencial del trabajo</span></div>
                       </div>
                     </div>
                   </div>
 
                   {/* Conclusiones - DISEÑO MEJORADO Y MÁS COLORIDO */}
-                  <div className="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-10 rounded-2xl shadow-2xl border-4 border-indigo-300 hover:border-purple-400 transition-all duration-300">
-                    <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white p-6 rounded-xl shadow-xl mb-8 transform hover:scale-[1.02] transition-all duration-300">
-                      <h3 className="text-4xl font-black flex items-center">
-                        <span className="text-5xl mr-4">🎓</span>
+                  <div className="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 p-5 sm:p-10 rounded-2xl shadow-2xl border-4 border-indigo-300 hover:border-purple-400 transition-all duration-300">
+                    <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white p-4 sm:p-6 rounded-xl shadow-xl mb-6 sm:mb-8 transform hover:scale-[1.02] transition-all duration-300">
+                      <h3 className="text-2xl sm:text-4xl font-black flex items-center">
+                        <span className="text-4xl sm:text-5xl mr-3 sm:mr-4">🎓</span>
                         Conclusión
                       </h3>
                     </div>
 
-                    <div className="bg-white p-8 rounded-2xl shadow-2xl mb-8 border-l-8 border-indigo-500">
-                      <h4 className="text-2xl font-bold text-indigo-700 mb-5 flex items-center">
-                        <span className="text-3xl mr-3">🔗</span>
-                        Interdependencia de Fenómenos
+                    <div className="bg-white p-5 sm:p-8 rounded-2xl shadow-2xl mb-6 sm:mb-8 border-l-8 border-indigo-500">
+                      <h4 className="text-xl sm:text-2xl font-bold text-indigo-700 mb-4 sm:mb-5 flex items-center">
+                        <span className="text-2xl sm:text-3xl mr-2 sm:mr-3 flex-shrink-0">🔗</span>
+                        <span className="break-words">Interdependencia de Fenómenos</span>
                       </h4>
-                      <p className="text-gray-800 text-lg leading-relaxed mb-6 bg-gradient-to-r from-indigo-50 to-purple-50 p-5 rounded-xl">
+                      <p className="text-gray-800 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 bg-gradient-to-r from-indigo-50 to-purple-50 p-4 sm:p-5 rounded-xl break-words">
                         En conclusión, los <strong className="text-indigo-700">roles de género</strong> y las <strong className="text-purple-700">influencias culturales</strong> son fenómenos <strong className="text-pink-700">interdependientes</strong> que reflejan la dinámica social contemporánea.
                       </p>
 
-                      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-2xl shadow-lg mb-6">
-                        <h5 className="font-black text-indigo-800 mb-4 text-xl flex items-center">
-                          <span className="text-2xl mr-2">🌟</span>
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-4 sm:p-6 rounded-2xl shadow-lg mb-4 sm:mb-6">
+                        <h5 className="font-black text-indigo-800 mb-3 sm:mb-4 text-base sm:text-xl flex items-center">
+                          <span className="text-xl sm:text-2xl mr-2 flex-shrink-0">🌟</span>
                           Hallazgos Principales
                         </h5>
-                        <div className="space-y-3">
-                          <div className="bg-gradient-to-r from-pink-500 to-rose-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                            <p className="flex items-start"><span className="font-black text-2xl mr-3">1</span> <span className="text-lg">Normas culturales continúan moldeando expectativas sobre hombres y mujeres</span></p>
+                        <div className="space-y-2 sm:space-y-3">
+                          <div className="bg-gradient-to-r from-pink-500 to-rose-600 text-white p-3 sm:p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start text-sm sm:text-base"><span className="font-black text-xl sm:text-2xl mr-2 sm:mr-3 flex-shrink-0">1</span> <span className="break-words">Normas culturales continúan moldeando expectativas sobre hombres y mujeres</span></p>
                           </div>
-                          <div className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                            <p className="flex items-start"><span className="font-black text-2xl mr-3">2</span> <span className="text-lg">Procesos de globalización han impulsado transformaciones significativas</span></p>
+                          <div className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white p-3 sm:p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start text-sm sm:text-base"><span className="font-black text-xl sm:text-2xl mr-2 sm:mr-3 flex-shrink-0">2</span> <span className="break-words">Procesos de globalización han impulsado transformaciones significativas</span></p>
                           </div>
-                          <div className="bg-gradient-to-r from-blue-500 to-cyan-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                            <p className="flex items-start"><span className="font-black text-2xl mr-3">3</span> <span className="text-lg">Movimientos por la igualdad han generado cambios estructurales importantes</span></p>
+                          <div className="bg-gradient-to-r from-blue-500 to-cyan-600 text-white p-3 sm:p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start text-sm sm:text-base"><span className="font-black text-xl sm:text-2xl mr-2 sm:mr-3 flex-shrink-0">3</span> <span className="break-words">Movimientos por la igualdad han generado cambios estructurales importantes</span></p>
                           </div>
-                          <div className="bg-gradient-to-r from-teal-500 to-green-600 text-white p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
-                            <p className="flex items-start"><span className="font-black text-2xl mr-3">4</span> <span className="text-lg">Desigualdades estructurales persisten en múltiples ámbitos</span></p>
+                          <div className="bg-gradient-to-r from-teal-500 to-green-600 text-white p-3 sm:p-4 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                            <p className="flex items-start text-sm sm:text-base"><span className="font-black text-xl sm:text-2xl mr-2 sm:mr-3 flex-shrink-0">4</span> <span className="break-words">Desigualdades estructurales persisten en múltiples ámbitos</span></p>
                           </div>
                         </div>
                       </div>
 
-                      <div className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-                        <h5 className="font-black text-3xl mb-6 text-center flex items-center justify-center">
-                          <span className="text-4xl mr-3">💡</span>
-                          Requisitos para la Equidad
+                      <div className="bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-white p-5 sm:p-8 rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300">
+                        <h5 className="font-black text-2xl sm:text-3xl mb-4 sm:mb-6 text-center flex flex-col sm:flex-row items-center justify-center">
+                          <span className="text-3xl sm:text-4xl mb-2 sm:mb-0 sm:mr-3">💡</span>
+                          <span className="break-words">Requisitos para la Equidad</span>
                         </h5>
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
-                            <span className="text-3xl mr-3">✓</span>
-                            <span className="font-bold text-lg">Cambios estructurales</span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                          <div className="bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-2xl sm:text-3xl mr-2 sm:mr-3 flex-shrink-0">✓</span>
+                            <span className="font-bold text-sm sm:text-lg break-words">Cambios estructurales</span>
                           </div>
-                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
-                            <span className="text-3xl mr-3">✓</span>
-                            <span className="font-bold text-lg">Redefinición de valores culturales</span>
+                          <div className="bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-2xl sm:text-3xl mr-2 sm:mr-3 flex-shrink-0">✓</span>
+                            <span className="font-bold text-sm sm:text-lg break-words">Redefinición de valores culturales</span>
                           </div>
-                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
-                            <span className="text-3xl mr-3">✓</span>
-                            <span className="font-bold text-lg">Transformación de prácticas sociales</span>
+                          <div className="bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-2xl sm:text-3xl mr-2 sm:mr-3 flex-shrink-0">✓</span>
+                            <span className="font-bold text-sm sm:text-lg break-words">Transformación de prácticas sociales</span>
                           </div>
-                          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl flex items-center shadow-lg">
-                            <span className="text-3xl mr-3">✓</span>
-                            <span className="font-bold text-lg">Políticas públicas efectivas</span>
+                          <div className="bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl flex items-center shadow-lg">
+                            <span className="text-2xl sm:text-3xl mr-2 sm:mr-3 flex-shrink-0">✓</span>
+                            <span className="font-bold text-sm sm:text-lg break-words">Políticas públicas efectivas</span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="mt-6 bg-gradient-to-r from-yellow-100 to-orange-100 p-4 rounded-xl border-l-4 border-orange-500">
-                        <p className="text-sm text-gray-700 italic font-semibold">
+                      <div className="mt-4 sm:mt-6 bg-gradient-to-r from-yellow-100 to-orange-100 p-3 sm:p-4 rounded-xl border-l-4 border-orange-500">
+                        <p className="text-xs sm:text-sm text-gray-700 italic font-semibold break-words">
                           📚 Referencias: OECD (2023), Vos (2022)
                         </p>
                       </div>
