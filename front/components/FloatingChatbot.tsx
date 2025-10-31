@@ -121,17 +121,17 @@ export default function FloatingChatbot() {
             }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
-            className={`fixed bottom-6 right-6 z-50 w-80 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden ${isMinimized ? 'h-auto' : 'h-[500px]'}`}
+            className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-80 max-w-md bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden ${isMinimized ? 'h-auto' : 'h-[500px] max-h-[80vh]'}`}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 p-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="bg-white/20 p-2 rounded-lg">
-                  <Bot className="w-5 h-5 text-white" />
+            <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 p-3 sm:p-4 flex items-center justify-between">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="bg-white/20 p-1.5 sm:p-2 rounded-lg">
+                  <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-white">Gender Quest AI</h3>
-                  <p className="text-xs text-white/80">Asistente virtual</p>
+                  <h3 className="font-bold text-white text-sm sm:text-base">Gender Quest AI</h3>
+                  <p className="text-[10px] sm:text-xs text-white/80">Asistente virtual</p>
                 </div>
               </div>
               <div className="flex gap-2">

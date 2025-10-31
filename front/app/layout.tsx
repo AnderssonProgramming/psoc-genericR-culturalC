@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: 'Gender Quest - Plataforma Educativa sobre Roles de Género',
   description: 'Juego educativo interactivo y plataforma web para aprender sobre roles de género, estereotipos y equidad.',
   keywords: 'educación, género, roles, equidad, juego educativo',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  themeColor: '#7c3aed',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
