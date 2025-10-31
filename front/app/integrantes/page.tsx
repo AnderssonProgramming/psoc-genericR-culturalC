@@ -47,7 +47,7 @@ const integrantes = [
   },
   {
     carrera: 'Ingeniería de Sistemas',
-    icon: '�',
+    icon: '💻',
     color: 'from-purple-500 to-fuchsia-500',
     miembros: [
       'Andersson David Sánchez Méndez',
