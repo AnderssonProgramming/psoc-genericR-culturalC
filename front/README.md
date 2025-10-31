@@ -12,7 +12,9 @@
 
 *Experiencia educativa inmersiva sobre roles de género*
 
-[📖 Documentación Principal](../README.md) | [🔧 Backend API](../back/README.md) | [🎮 Demo](#)
+**🚀 Despliegue en Producción**: [https://psoc-generic-r-cultural-c.vercel.app/](https://psoc-generic-r-cultural-c.vercel.app/)
+
+[📖 Documentación Principal](../README.md) | [🔧 Backend API](../back/README.md)
 
 </div>
 
@@ -41,21 +43,23 @@
 El **frontend de Gender Quest** es una aplicación web moderna construida con **Next.js 16** (App Router) que ofrece:
 
 - 🎮 **Juego 3D Interactivo** con Three.js
-- 🤖 **Chatbot AI Flotante** disponible en todas las páginas
+- 🤖 **Chatbot AI Flotante Minimizable** con Groq (Llama 3.3 70B)
+- 💬 **Chat de Página Completa** con tema oscuro moderno
 - 📚 **8 Secciones Educativas** con contenido multimedia
 - 🏆 **Leaderboard en Tiempo Real** con Supabase Realtime
 - 🔐 **Autenticación Segura** con contexto React
+- 🎵 **Control de Música Ambiente** con diseño mejorado
 - 📱 **Diseño Responsive** para móvil, tablet y desktop
 - ✨ **Animaciones Fluidas** con Framer Motion
 
 ### Objetivos
 
 ✅ **Experiencia de usuario excepcional**  
-✅ **Diseño moderno y atractivo**  
+✅ **Diseño moderno y atractivo** con tema oscuro cohesivo  
 ✅ **Performance optimizado** (Core Web Vitals)  
 ✅ **Accesibilidad** (WCAG 2.1)  
 ✅ **SEO optimizado**  
-✅ **Progressive Web App** (PWA ready)
+✅ **UI/UX consistente** en toda la aplicación
 
 ---
 
@@ -74,10 +78,12 @@ El **frontend de Gender Quest** es una aplicación web moderna construida con **
 
 ### 🤖 Chatbot AI
 
-- **Ollama (LLM Local)**: Respuestas inteligentes y contextuales
-- **Interfaz Flotante**: Botón siempre visible
+- **Groq API (Llama 3.3 70B)**: Respuestas inteligentes y contextuales
+- **Interfaz Flotante Minimizable**: Botón siempre visible con opción de minimizar
+- **Chat de Página Completa**: Interfaz `/chat` con tema oscuro elegante
 - **Historial**: Mantiene contexto de conversación
 - **Smooth Animations**: Transiciones fluidas
+- **Diseño Compacto**: UI optimizada sin texto pegado a márgenes
 - **Markdown Support**: Formato rico en respuestas
 - **Fallback a Hugging Face**: Si Ollama no está disponible
 
@@ -103,6 +109,14 @@ El **frontend de Gender Quest** es una aplicación web moderna construida con **
 - **Cards Interactivas**: Hover effects y animaciones
 - **Navegación Intuitiva**: Grid responsive
 - **Contenido Rico**: Texto, imágenes, videos
+- **Iconos Emoji**: Representación visual de cada área (💻 para Sistemas)
+
+### 🎵 Control de Música
+
+- **Botones Flotantes**: Controles de música siempre visibles
+- **Diseño Mejorado**: Tamaño p-4, bordes redondeados, tema purple
+- **Play/Pause Visual**: SVG centrado con barras animadas
+- **Sombras con Brillo**: Efecto purple-500/20 para profundidad
 
 ---
 
@@ -160,9 +174,8 @@ El **frontend de Gender Quest** es una aplicación web moderna construida con **
 | Librería | Versión | Propósito |
 |----------|---------|-----------|
 | **@supabase/supabase-js** | 2.39 | Cliente Supabase |
-| **openai** | 4.20 | Cliente OpenAI para chatbot (legacy, no usado) |
 
-**Nota**: El chatbot usa Ollama (LLM local) que corre en el backend. No se requiere `openai` npm package.
+**Nota**: El chatbot usa Groq API (Llama 3.3 70B) que se integra desde el backend. No se requieren dependencias adicionales en el frontend.
 
 ### UI Components
 
@@ -180,7 +193,7 @@ Asegúrate de tener:
 
 - ✅ **Node.js 18+** instalado
 - ✅ **npm** o **pnpm**
-- ✅ **Backend** corriendo en `http://localhost:3001`
+- ✅ **Backend** corriendo (local o Railway)
 - ✅ **Proyecto Supabase** configurado
 
 ### 2️⃣ Instalar Dependencias
@@ -336,8 +349,18 @@ front/
 | `/register` | `app/register/page.tsx` | ✍️ Registro de usuario | No |
 | `/game` | `app/game/page.tsx` | 🎮 Juego 3D interactivo | Sí |
 | `/leaderboard` | `app/leaderboard/page.tsx` | 🏆 Ranking global | No |
-| `/chat` | `app/chat/page.tsx` | 💬 Chat con AI | Sí |
+| `/chat` | `app/chat/page.tsx` | 💬 Chat completo con AI (tema oscuro) | Sí |
 | `/sections` | `app/sections/page.tsx` | 📚 Secciones educativas | No |
+| `/integrantes` | `app/integrantes/page.tsx` | 👥 Equipo de desarrollo | No |
+
+### Características de la Página `/chat`
+
+- 🎨 **Tema Oscuro**: Diseño slate-900/purple-900 matching con main site
+- 💬 **UI Compacta**: Header (p-4, text-xl), mensajes (text-sm), input (p-4)
+- 🎭 **Animaciones**: Framer Motion para transiciones suaves
+- 📜 **Scroll Automático**: Al enviar/recibir mensajes
+- 🔄 **Loading States**: Indicador mientras AI genera respuesta
+- 📱 **Responsive**: Adaptado para móvil, tablet, desktop
 
 ### Rutas Protegidas
 
@@ -387,23 +410,54 @@ export default function Layout({ children }) {
 
 ### FloatingChatbot (`components/FloatingChatbot.tsx`)
 
-**Responsabilidad**: Chatbot AI disponible globalmente
+**Responsabilidad**: Chatbot AI minimizable disponible globalmente
 
 **Features**:
 - ✅ Botón flotante siempre visible
 - ✅ Modal de chat con animación
-- ✅ Integración con backend `/api/chat` (Ollama)
+- ✅ **Botón minimizar** - Oculta mensajes/input pero mantiene header
+- ✅ Integración con backend `/api/chat` (Groq API - Llama 3.3 70B)
 - ✅ Historial de conversación
 - ✅ Indicador de "escribiendo..."
 - ✅ Markdown rendering en respuestas
+- ✅ Diseño compacto (500px altura, w-80 ancho)
 
 **Estado**:
 
 ```typescript
 const [isOpen, setIsOpen] = useState(false);
+const [isMinimized, setIsMinimized] = useState(false); // NEW
 const [messages, setMessages] = useState<Message[]>([]);
 const [input, setInput] = useState('');
 const [isLoading, setIsLoading] = useState(false);
+```
+
+---
+
+### BackgroundMusic (`components/BackgroundMusic.tsx`)
+
+**Responsabilidad**: Control de música ambiente
+
+**Features**:
+- ✅ Botones flotantes (play/pause, volumen)
+- ✅ **Diseño mejorado**: p-4, rounded-2xl, bordes purple
+- ✅ **Iconos centrados**: SVG personalizado para play, barras animadas
+- ✅ Sombras con efecto purple-500/20
+- ✅ Persistencia en LocalStorage
+
+**Uso**:
+
+```tsx
+import BackgroundMusic from '@/components/BackgroundMusic';
+
+export default function Layout({ children }) {
+  return (
+    <>
+      <BackgroundMusic />
+      {children}
+    </>
+  );
+}
 ```
 
 ---

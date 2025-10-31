@@ -2,15 +2,17 @@
 
 # 🔴 Gender Quest - Backend API
 
-### API REST con NestJS + Supabase + OpenAI
+### API REST con NestJS + Supabase + Groq AI
 
 [![NestJS](https://img.shields.io/badge/NestJS-10.0-E0234E?logo=nestjs)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.1-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-2.39-3ECF8E?logo=supabase)](https://supabase.com/)
-[![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000)](https://ollama.ai/)
+[![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-9f7aea)](https://groq.com/)
 [![Jest](https://img.shields.io/badge/Jest-29.5-C21325?logo=jest)](https://jestjs.io/)
 
 *API robusta y segura para la plataforma educativa Gender Quest*
+
+**🚀 Despliegue en Producción**: [https://psoc-genericr-culturalc-production.up.railway.app/api](https://psoc-genericr-culturalc-production.up.railway.app/api)
 
 [📖 Documentación Principal](../README.md) | [🌐 Frontend](../front/README.md) | [🔌 API Endpoints](#-endpoints)
 
@@ -44,14 +46,15 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 - 🎮 **Gestión de quiz y preguntas** educativas
 - 📊 **Sistema de puntajes** con verificación HMAC-SHA256
 - 🏆 **Leaderboard en tiempo real** con Supabase
-- 🤖 **Chatbot AI** con Ollama (LLM local)
+- 🤖 **Chatbot AI** con Groq API (Llama 3.3 70B)
 - 🗄️ **Base de datos PostgreSQL** con Supabase
 - 🛡️ **Seguridad robusta** con bcrypt, JWT y RLS
 
 ### Características Clave
 
 ✅ **Validación automática** de DTOs con `class-validator`  
-✅ **Documentación OpenAPI** (Swagger) integrada  
+✅ **AI Integration** con Groq SDK (Llama 3.3 70B)  
+✅ **Python AI Service** opcional para desarrollo local  
 ✅ **CORS configurado** para frontend  
 ✅ **Global prefix** `/api` para todos los endpoints  
 ✅ **Error handling** centralizado  
@@ -96,7 +99,7 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 3. **Frontend genera código HMAC** → Scores Module valida
 4. **Si código es válido** → Guarda en Supabase
 5. **Leaderboard actualiza** → Supabase Realtime notifica frontend
-6. **Usuario pregunta al chatbot** → Chat Module llama Ollama local
+6. **Usuario pregunta al chatbot** → Chat Module llama Groq API (Llama 3.3 70B)
 7. **Respuesta se guarda** → Chat session en Supabase
 
 ---
@@ -138,11 +141,12 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 
 ### Inteligencia Artificial
 
-| Librería | Versión | Propósito |
-|----------|---------|-----------|
-| `ollama` | - | LLM local (phi3, llama2, mistral, etc.) |
+| Servicio/Librería | Versión | Propósito |
+|-------------------|---------|-----------|
+| **Groq SDK** | 0.10.0 | API para Llama 3.3 70B (Producción) |
+| **Python AI Service** | - | Transformers locales (Dev opcional) |
 
-**Nota**: Ollama corre como servicio local, no requiere dependencias npm.
+**Nota**: Groq API se utiliza en producción. Python AI Service es opcional para desarrollo local sin dependencias de API.
 
 ### Validación
 
@@ -277,23 +281,56 @@ LIMIT 50;
 
 ### 💬 Chat Module (`src/chat/`)
 
-**Responsabilidad**: Chatbot educativo con OpenAI
+**Responsabilidad**: Chatbot educativo con Groq AI (Llama 3.3 70B)
 
 **Archivos**:
-- `chat.service.ts` - Integración con OpenAI GPT-4
-- `chat.controller.ts` - Endpoints REST
+- `chat.service.ts` - Integración con Groq API y Python AI Service
+- `chat.controller.ts` - Endpoints REST y diagnóstico
 - `dto/chat.dto.ts` - DTOs de chat
 
 **Endpoints**:
 - `POST /api/chat` - Enviar mensaje (autenticado)
 - `GET /api/chat/history` - Obtener historial (autenticado)
+- `GET /api/chat/config` - Configuración y diagnóstico AI
 
-**Configuración OpenAI**:
+**Configuración Groq API** (Producción):
 
 ```typescript
-const response = await openai.chat.completions.create({
-  model: 'gpt-4',
-  messages: [
+const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+  method: 'POST',
+  headers: {
+    'Authorization': `Bearer ${this.groqApiKey}`,
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    model: 'llama-3.3-70b-versatile',
+    messages: [
+      {
+        role: 'system',
+        content: 'Eres un asistente educativo especializado en roles de género...'
+      },
+      ...previousMessages,
+      { role: 'user', content: userMessage }
+    ],
+    temperature: 0.7,
+    max_tokens: 500
+  })
+});
+```
+
+**Python AI Service** (Desarrollo Local Opcional):
+
+```bash
+cd python-ai-service
+pip install -r requirements.txt
+python app.py  # Puerto 5000
+```
+
+**Flujo de Decisión AI**:
+
+1. Si `USE_LOCAL_MODEL=true` → Llama a Python AI Service (localhost:5000)
+2. Si `GROQ_API_KEY` está configurada → Llama a Groq API (producción)
+3. Si ambas fallan → Retorna respuesta demo
     {
       role: 'system',
       content: 'Eres un asistente educativo experto en roles de género...'
@@ -377,7 +414,8 @@ Asegúrate de tener instalado:
 - ✅ **Node.js 18+** (recomendado: LTS)
 - ✅ **npm** o **pnpm**
 - ✅ **Proyecto Supabase** creado
-- ✅ **Ollama instalado** localmente (opcional para chatbot)
+- ✅ **Groq API Key** desde [console.groq.com](https://console.groq.com) (gratis)
+- ✅ **Python 3.10+** (opcional, solo para Python AI Service local)
 
 ### 2️⃣ Instalar Dependencias
 
@@ -427,16 +465,15 @@ JWT_EXPIRES_IN=7d
 HMAC_SECRET=otro-secret-super-seguro-diferente-32-chars
 
 # ==========================================
-# OLLAMA CONFIGURATION (LLM Local)
+# GROQ AI CONFIGURATION (REQUERIDO)
 # ==========================================
-USE_LOCAL_MODEL=true
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=phi3
+GROQ_API_KEY=gsk_tu-api-key-desde-console-groq-com
 
 # ==========================================
-# HUGGING FACE API (Opcional - Fallback)
+# PYTHON AI SERVICE (OPCIONAL - Solo desarrollo local)
 # ==========================================
-HUGGINGFACE_API_KEY=hf_tu-token-opcional
+USE_LOCAL_MODEL=false
+PYTHON_AI_SERVICE_URL=http://localhost:5000
 
 # ==========================================
 # SERVER CONFIGURATION
@@ -472,9 +509,8 @@ $bytes = New-Object byte[] 32
 | `SUPABASE_URL` | Supabase Dashboard → Settings → API → Project URL |
 | `SUPABASE_ANON_KEY` | Supabase Dashboard → Settings → API → `anon` `public` |
 | `SUPABASE_SERVICE_KEY` | Supabase Dashboard → Settings → API → `service_role` `secret` |
-| `OLLAMA_BASE_URL` | URL local de Ollama (default: http://localhost:11434) |
-| `OLLAMA_MODEL` | Modelo a usar: phi3, llama2, mistral, gemma, etc. |
-| `HUGGINGFACE_API_KEY` | (Opcional) Hugging Face → Settings → Access Tokens |
+| `GROQ_API_KEY` | [console.groq.com](https://console.groq.com) → Create API Key (gratis) |
+| `PYTHON_AI_SERVICE_URL` | URL del Python AI Service local (default: http://localhost:5000) |
 
 ---
 

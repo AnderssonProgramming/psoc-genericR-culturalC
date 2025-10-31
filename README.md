@@ -10,12 +10,21 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-PostgreSQL-green?logo=supabase)](https://supabase.com/)
 [![Three.js](https://img.shields.io/badge/Three.js-0.180-black?logo=three.js)](https://threejs.org/)
+[![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-purple?logo=ai)](https://groq.com/)
 
 *Jugando aprendemos igualdad* 🌟
 
-[🚀 Demo](#) | [📖 Documentación](#-tabla-de-contenidos) | [🤝 Contribuir](#-contribuir) | [📝 Licencia](#-licencia)
+[🚀 Demo en Vivo](https://psoc-generic-r-cultural-c.vercel.app/) | [📖 Documentación](#-tabla-de-contenidos) | [🤝 Contribuir](#-contribuir) | [📝 Licencia](#-licencia)
 
 </div>
+
+---
+
+## 🌐 Despliegue
+
+- **Frontend**: [https://psoc-generic-r-cultural-c.vercel.app/](https://psoc-generic-r-cultural-c.vercel.app/) (Vercel)
+- **Backend API**: [https://psoc-genericr-culturalc-production.up.railway.app/api](https://psoc-genericr-culturalc-production.up.railway.app/api) (Railway)
+- **Base de Datos**: Supabase PostgreSQL (Cloud)
 
 ---
 
@@ -45,9 +54,11 @@
 
 El proyecto integra:
 - 🎯 **Juego web 3D** con Three.js y preguntas interactivas
-- 🤖 - **Chatbot educativo AI** con Ollama (modelo local) sobre roles de género
+- 🤖 **Chatbot educativo AI** con Groq (Llama 3.3 70B) sobre roles de género
 - 📊 **Sistema de ranking** en tiempo real
-- 📚 **8 secciones educativas** con contenido del documental
+- 📚 **8 secciones educativas** con contenido multimedia
+- 🎵 **Música ambiente** con controles personalizados
+- 💬 **Chat flotante** minimizable en todas las páginas
 - 🔐 **Autenticación segura** con JWT y verificación HMAC
 
 ### 🎯 Objetivos del Proyecto
@@ -71,11 +82,12 @@ El proyecto integra:
 
 ### 🤖 Chatbot AI Educativo
 
-- **Ollama (LLM Local)**: Modelo phi3 ejecutándose localmente
-- **Interfaz Flotante**: Disponible en todas las páginas
+- **Groq API (Llama 3.3 70B)**: Modelo de lenguaje de última generación
+- **Interfaz Flotante Minimizable**: Disponible en todas las páginas con botón para minimizar
+- **Chat de Página Completa**: Interfaz dedicada con tema oscuro y diseño moderno
 - **Historial de Conversación**: Guarda el contexto de la sesión
 - **Respuestas Educativas**: Enfocadas en equidad e igualdad de género
-- **Alternativa Hugging Face**: Soporte para API de Hugging Face si Ollama no está disponible
+- **Desarrollo Local Opcional**: Python AI Service con transformers para desarrollo sin API
 
 ### 📊 Ranking Global
 
@@ -107,10 +119,10 @@ graph TB
     A[👤 Usuario] -->|Juega| B[🎮 Frontend Next.js]
     B -->|API Calls| C[🔧 Backend NestJS]
     C -->|Query/Insert| D[(🗄️ Supabase PostgreSQL)]
-    C -->|AI Chat| E[🤖 Ollama LLM Local]
+    C -->|AI Chat| E[🤖 Groq API - Llama 3.3 70B]
     B -->|Realtime| D
     C -->|HMAC Verify| F[🔐 HMAC Service]
-    C -.->|Fallback| G[🤗 Hugging Face API]
+    C -.->|Dev Only| G[🐍 Python AI Service Local]
     
     style A fill:#667eea
     style B fill:#48bb78
@@ -128,7 +140,7 @@ graph TB
 3. **Backend valida** el código HMAC
 4. **Si es válido**, guarda en Supabase
 5. **Leaderboard actualiza** en tiempo real
-6. **Chatbot procesa** preguntas con Ollama (LLM local)
+6. **Chatbot procesa** preguntas con Groq API (Llama 3.3 70B)
 
 ---
 
@@ -159,9 +171,16 @@ graph TB
 | 🔑 **JWT** | 10.2 | Autenticación con tokens |
 | 🛡️ **Passport** | 0.7 | Estrategias de autenticación |
 | 🔐 **bcrypt** | 5.1 | Hash de contraseñas |
-| 🤖 **Ollama** | - | LLM local para chatbot (phi3) |
+| 🤖 **Groq SDK** | 0.10 | API para Llama 3.3 70B |
 | ✅ **class-validator** | 0.14 | Validación de DTOs |
 | 🔄 **RxJS** | 7.8 | Programación reactiva |
+
+### AI Services
+
+| Servicio | Estado | Propósito |
+|----------|--------|-----------|
+| 🚀 **Groq API** | ✅ Producción | Llama 3.3 70B para chatbot |
+| 🐍 **Python AI Service** | 🛠️ Dev Opcional | Transformers local (Flask) |
 
 ### Base de Datos
 
@@ -188,8 +207,9 @@ Antes de comenzar, asegúrate de tener instalado:
 
 - 📦 **Node.js** 18+ y npm/pnpm
 - 🗄️ Cuenta en **[Supabase](https://supabase.com)** (gratis)
-- 🤖 **Ollama** instalado localmente desde [Ollama.ai](https://ollama.ai/download)
+- 🔑 Cuenta en **[Groq](https://groq.com)** para API key (gratis)
 - 💻 **Git** para clonar el repositorio
+- 🐍 **Python 3.10+** (opcional, solo para desarrollo local con AI service)
 
 ### 1️⃣ Clonar el Repositorio
 
@@ -224,13 +244,12 @@ JWT_SECRET=genera-uno-con-openssl-rand-base64-32
 # HMAC Secret (para verificar códigos del juego)
 HMAC_SECRET=genera-otro-con-openssl-rand-base64-32
 
-# Ollama Configuration (LLM Local)
-USE_LOCAL_MODEL=true
-OLLAMA_BASE_URL=http://localhost:11434
-OLLAMA_MODEL=phi3
+# Groq AI Configuration (REQUERIDO para chatbot)
+GROQ_API_KEY=gsk_tu-api-key-aqui
 
-# Hugging Face API (Opcional - Fallback si Ollama no está disponible)
-HUGGINGFACE_API_KEY=hf_tu-token-opcional
+# Python AI Service (OPCIONAL - Solo para desarrollo local)
+USE_LOCAL_MODEL=false
+PYTHON_AI_SERVICE_URL=http://localhost:5000
 
 # Server Configuration
 PORT=3001
