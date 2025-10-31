@@ -117,11 +117,11 @@ export default function FloatingChatbot() {
               opacity: 1, 
               scale: 1, 
               y: 0,
-              height: isMinimized ? 'auto' : '600px'
+              height: isMinimized ? 'auto' : '500px'
             }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
-            className={`fixed bottom-6 right-6 z-50 w-96 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden ${isMinimized ? 'h-auto' : 'h-[600px]'}`}
+            className={`fixed bottom-6 right-6 z-50 w-80 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden ${isMinimized ? 'h-auto' : 'h-[500px]'}`}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 p-4 flex items-center justify-between">
