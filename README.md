@@ -74,7 +74,7 @@ El proyecto integra:
 
 ### 🎮 Juego Interactivo 3D
 
-- **30 Preguntas Educativas**: Sobre mujeres destacadas en ciencia, arte y política
+- **10 Preguntas Educativas**: Sobre roles de género
 - **Experiencia 3D Inmersiva**: Visualización con Three.js y React Three Fiber
 - **Sistema de Puntaje**: Puntuación en tiempo real y feedback inmediato
 - **Códigos HMAC**: Verificación criptográfica de resultados
@@ -334,7 +334,7 @@ npm run dev
 ### 🎯 Para Jugadores
 
 1. **Registro/Login**: Crea una cuenta o inicia sesión
-2. **Jugar**: Ve a `/game` y responde las 30 preguntas
+2. **Jugar**: Ve a `/game` y responde las 10 preguntas
 3. **Ver Resultados**: Al finalizar, verás tu puntaje y estadísticas
 4. **Ranking**: Compite en el leaderboard global
 5. **Chatbot**: Pregunta sobre roles de género en cualquier página
@@ -882,7 +882,7 @@ Proyecto desarrollado como parte de una iniciativa educativa sobre igualdad de g
 R: Sí, el frontend es totalmente responsive, pero para mejor experiencia 3D recomendamos desktop.
 
 **P: ¿Necesito pagar por el chatbot AI?**  
-R: No, usamos Ollama que es completamente gratuito y corre localmente en tu máquina. Solo necesitas descargar el modelo.
+R: No, usamos Groq API con su tier gratuito que incluye Llama 3.3 70B. Solo necesitas crear una cuenta gratuita en console.groq.com y obtener tu API key.
 
 **P: ¿Puedo usar esto para mi clase?**  
 R: ¡Absolutamente! El proyecto es open source y está diseñado para uso educativo.
