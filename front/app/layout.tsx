@@ -4,6 +4,7 @@ import { AuthProvider } from '@/lib/auth-context';
 import NavBar from '@/components/NavBar';
 import FloatingChatbot from '@/components/FloatingChatbot';
 import BackgroundMusic from '@/components/BackgroundMusic';
+import QRCodeModal from '@/components/QRCodeModal';
 
 export const metadata: Metadata = {
   title: 'Gender Quest - Plataforma Educativa sobre Roles de Género',
@@ -39,6 +40,9 @@ export default function RootLayout({
           
           {/* Background Music */}
           <BackgroundMusic />
+
+          {/* QR Code Modal - Available globally */}
+          <QRCodeModal />
         </AuthProvider>
       </body>
     </html>

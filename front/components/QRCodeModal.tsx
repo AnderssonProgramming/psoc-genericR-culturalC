@@ -45,7 +45,7 @@ export default function QRCodeModal({ url = 'https://psoc-generic-r-cultural-c.v
       {/* Floating QR Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 p-4 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/70 hover:scale-110 transition-all duration-300"
+        className="fixed bottom-24 right-6 z-40 p-4 rounded-2xl bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/70 hover:scale-110 transition-all duration-300"
         whileHover={{ y: -3 }}
         whileTap={{ scale: 0.95 }}
         title="Escanear desde móvil"

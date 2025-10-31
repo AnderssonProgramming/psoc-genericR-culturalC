@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { apiClient } from '@/lib/api';
-import QRCodeModal from '@/components/QRCodeModal';
 
 interface LeaderboardStats {
   totalPlayers: number;
@@ -286,9 +285,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      {/* QR Code Modal */}
-      <QRCodeModal />
     </div>
   );
 }
