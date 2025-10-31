@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Loader2, Bot } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, Bot, Minus } from 'lucide-react';
 import { apiClient } from '@/lib/api';
 import { useAuth } from '@/lib/auth-context';
 
@@ -15,6 +15,7 @@ interface Message {
 export default function FloatingChatbot() {
   const { user, token } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
@@ -112,10 +113,15 @@ export default function FloatingChatbot() {
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1, 
+              y: 0,
+              height: isMinimized ? 'auto' : '600px'
+            }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="fixed bottom-6 right-6 z-50 w-96 h-[600px] bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className={`fixed bottom-6 right-6 z-50 w-96 bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden ${isMinimized ? 'h-auto' : 'h-[600px]'}`}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 p-4 flex items-center justify-between">
@@ -128,83 +134,98 @@ export default function FloatingChatbot() {
                   <p className="text-xs text-white/80">Asistente virtual</p>
                 </div>
               </div>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4">
-              {messages.map((message, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-3 ${
-                      message.role === 'user'
-                        ? 'bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 text-white'
-                        : 'bg-white/5 border border-white/10 text-slate-200'
-                    }`}
-                  >
-                    <p className="text-sm leading-relaxed">{message.content}</p>
-                    <p
-                      className={`text-xs mt-1 ${
-                        message.role === 'user' ? 'text-white/70' : 'text-slate-400'
-                      }`}
-                    >
-                      {message.timestamp.toLocaleTimeString('es-ES', {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                      })}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-
-              {loading && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="flex justify-start"
-                >
-                  <div className="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 text-purple-400 animate-spin" />
-                    <span className="text-sm text-slate-300">Pensando...</span>
-                  </div>
-                </motion.div>
-              )}
-
-              <div ref={messagesEndRef} />
-            </div>
-
-            {/* Input */}
-            <div className="p-4 border-t border-white/10">
-              <form onSubmit={handleSubmit} className="flex gap-2">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Escribe tu mensaje..."
-                  className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
-                  disabled={loading}
-                />
+              <div className="flex gap-2">
                 <button
-                  type="submit"
-                  disabled={loading || !input.trim()}
-                  className="bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 text-white p-3 rounded-xl hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  onClick={() => setIsMinimized(!isMinimized)}
+                  className="text-white/80 hover:text-white transition-colors p-1 hover:bg-white/10 rounded"
+                  title="Minimizar"
                 >
-                  <Send className="w-5 h-5" />
+                  <Minus className="w-5 h-5" />
                 </button>
-              </form>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="text-white/80 hover:text-white transition-colors p-1 hover:bg-white/10 rounded"
+                  title="Cerrar"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
             </div>
+
+            {/* Messages - hidden when minimized */}
+            {!isMinimized && (
+              <>
+                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                  {messages.map((message, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                    >
+                      <div
+                        className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+                          message.role === 'user'
+                            ? 'bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 text-white'
+                            : 'bg-white/5 border border-white/10 text-slate-200'
+                        }`}
+                      >
+                        <p className="text-sm leading-relaxed">{message.content}</p>
+                        <p
+                          className={`text-xs mt-1 ${
+                            message.role === 'user' ? 'text-white/70' : 'text-slate-400'
+                          }`}
+                        >
+                          {message.timestamp.toLocaleTimeString('es-ES', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                          })}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+
+                  {loading && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="flex justify-start"
+                    >
+                      <div className="bg-white/5 border border-white/10 rounded-2xl px-4 py-3 flex items-center gap-2">
+                        <Loader2 className="w-4 h-4 text-purple-400 animate-spin" />
+                        <span className="text-sm text-slate-300">Pensando...</span>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input */}
+                <div className="p-4 border-t border-white/10">
+                  <form onSubmit={handleSubmit} className="flex gap-2">
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={input}
+                      onChange={(e) => setInput(e.target.value)}
+                      placeholder="Escribe tu mensaje..."
+                      className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
+                      disabled={loading}
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading || !input.trim()}
+                      className="bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500 text-white p-3 rounded-xl hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      title="Enviar mensaje"
+                    >
+                      <Send className="w-5 h-5" />
+                    </button>
+                  </form>
+                </div>
+              </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

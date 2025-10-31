@@ -149,20 +149,20 @@ export default function ChatPage() {
         </div>
 
         {/* Input Area */}
-        <form onSubmit={handleSendMessage} className="border-t p-4">
+        <form onSubmit={handleSendMessage} className="border-t p-4 bg-white">
           <div className="flex gap-2">
             <input
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               placeholder="Escribe tu pregunta aquí..."
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-gray-900 bg-white placeholder-gray-400"
               disabled={loading}
             />
             <button
               type="submit"
               disabled={loading || !inputMessage.trim()}
-              className="px-6 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition disabled:opacity-50"
+              className="px-6 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary-dark transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Enviar
             </button>
