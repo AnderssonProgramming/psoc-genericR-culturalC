@@ -88,18 +88,18 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-8 px-4">
-      <div className="max-w-5xl mx-auto">
-        <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-purple-100" style={{ height: '85vh' }}>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 py-8 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="bg-slate-800/50 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-purple-500/20" style={{ height: '88vh' }}>
           {/* Header */}
-          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white p-8">
-            <div className="flex items-center gap-4 mb-3">
-              <div className="bg-white/20 backdrop-blur-sm p-3 rounded-2xl">
-                <span className="text-4xl">🤖</span>
+          <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 p-6 border-b border-purple-500/20">
+            <div className="flex items-center gap-4">
+              <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+                <span className="text-3xl">🤖</span>
               </div>
               <div>
-                <h1 className="text-4xl font-bold mb-1 drop-shadow-lg">Chatbot Educativo</h1>
-                <p className="text-lg opacity-90 font-medium">
+                <h1 className="text-3xl font-bold text-white mb-1">Chatbot Educativo</h1>
+                <p className="text-white/90 text-sm font-medium">
                   Pregunta sobre roles de género, estereotipos y la importancia de la igualdad
                 </p>
               </div>
@@ -107,30 +107,30 @@ export default function ChatPage() {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-gradient-to-b from-white/50 to-purple-50/30" style={{ height: 'calc(85vh - 220px)' }}>
+          <div className="flex-1 overflow-y-auto p-8 space-y-5" style={{ height: 'calc(88vh - 180px)' }}>
             {messages.length === 0 && (
-              <div className="text-center py-12">
-                <div className="inline-block bg-gradient-to-br from-indigo-100 to-purple-100 rounded-3xl p-8 shadow-lg">
-                  <p className="text-2xl mb-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+              <div className="text-center py-16 px-6">
+                <div className="inline-block bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-3xl p-10 shadow-xl border border-purple-500/30">
+                  <p className="text-3xl mb-6 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                     ¡Hola! Soy tu asistente educativo 👋
                   </p>
-                  <p className="text-lg mb-4 text-gray-700 font-semibold">Puedes preguntarme sobre:</p>
-                  <ul className="space-y-3 text-left">
-                    <li className="flex items-center gap-3 text-gray-700">
+                  <p className="text-xl mb-6 text-purple-200 font-semibold">Puedes preguntarme sobre:</p>
+                  <ul className="space-y-4 text-left max-w-md mx-auto">
+                    <li className="flex items-center gap-3 text-purple-100">
                       <span className="text-2xl">💭</span>
-                      <span className="font-medium">Roles de género y estereotipos</span>
+                      <span className="font-medium text-lg">Roles de género y estereotipos</span>
                     </li>
-                    <li className="flex items-center gap-3 text-gray-700">
+                    <li className="flex items-center gap-3 text-purple-100">
                       <span className="text-2xl">📜</span>
-                      <span className="font-medium">Historia de la igualdad de género</span>
+                      <span className="font-medium text-lg">Historia de la igualdad de género</span>
                     </li>
-                    <li className="flex items-center gap-3 text-gray-700">
+                    <li className="flex items-center gap-3 text-purple-100">
                       <span className="text-2xl">⭐</span>
-                      <span className="font-medium">Mujeres destacadas en diferentes campos</span>
+                      <span className="font-medium text-lg">Mujeres destacadas en diferentes campos</span>
                     </li>
-                    <li className="flex items-center gap-3 text-gray-700">
+                    <li className="flex items-center gap-3 text-purple-100">
                       <span className="text-2xl">🌈</span>
-                      <span className="font-medium">Cómo promover la igualdad en la vida diaria</span>
+                      <span className="font-medium text-lg">Cómo promover la igualdad en la vida diaria</span>
                     </li>
                   </ul>
                 </div>
@@ -143,14 +143,14 @@ export default function ChatPage() {
               className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}
             >
               <div
-                className={`max-w-[80%] rounded-3xl px-6 py-4 shadow-lg ${
+                className={`max-w-[75%] rounded-2xl px-5 py-4 shadow-xl ${
                   message.role === 'user'
-                    ? 'bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white'
-                    : 'bg-white border-2 border-purple-100 text-gray-800'
+                    ? 'bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white border border-purple-400/30'
+                    : 'bg-slate-700/80 backdrop-blur-sm border border-purple-500/30 text-purple-50'
                 }`}
               >
-                <p className="whitespace-pre-wrap text-base leading-relaxed font-medium">{message.content}</p>
-                <p className={`text-xs mt-2 font-semibold ${message.role === 'user' ? 'text-white/70' : 'text-purple-400'}`}>
+                <p className="whitespace-pre-wrap text-base leading-relaxed">{message.content}</p>
+                <p className={`text-xs mt-2 font-medium ${message.role === 'user' ? 'text-purple-200' : 'text-purple-300'}`}>
                   {message.timestamp.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' })}
                 </p>
               </div>
@@ -159,12 +159,12 @@ export default function ChatPage() {
 
           {loading && (
             <div className="flex justify-start animate-fade-in">
-              <div className="bg-white border-2 border-purple-200 rounded-3xl px-6 py-4 shadow-lg">
+              <div className="bg-slate-700/80 backdrop-blur-sm border border-purple-500/30 rounded-2xl px-5 py-4 shadow-xl">
                 <div className="flex gap-2 items-center">
-                  <div className="w-3 h-3 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full animate-bounce"></div>
-                  <div className="w-3 h-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                  <div className="w-3 h-3 bg-gradient-to-r from-pink-600 to-red-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                  <span className="ml-2 text-purple-600 font-semibold">Pensando...</span>
+                  <div className="w-2.5 h-2.5 bg-purple-500 rounded-full animate-bounce"></div>
+                  <div className="w-2.5 h-2.5 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="w-2.5 h-2.5 bg-indigo-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                  <span className="ml-2 text-purple-200 font-medium">Pensando...</span>
                 </div>
               </div>
             </div>
@@ -174,20 +174,20 @@ export default function ChatPage() {
         </div>
 
         {/* Input Area */}
-        <form onSubmit={handleSendMessage} className="p-6 bg-gradient-to-r from-white to-purple-50/30 border-t-2 border-purple-200">
+        <form onSubmit={handleSendMessage} className="p-6 bg-slate-800/80 backdrop-blur-sm border-t border-purple-500/20">
           <div className="flex gap-3">
             <input
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               placeholder="✨ Escribe tu pregunta aquí..."
-              className="flex-1 px-6 py-4 border-2 border-purple-200 rounded-2xl focus:ring-4 focus:ring-purple-300 focus:border-purple-400 text-gray-800 bg-white placeholder-gray-400 text-lg font-medium shadow-sm transition-all"
+              className="flex-1 px-5 py-4 bg-slate-700/50 border border-purple-500/30 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-400 text-white placeholder-purple-300/60 text-base transition-all"
               disabled={loading}
             />
             <button
               type="submit"
               disabled={loading || !inputMessage.trim()}
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg hover:shadow-xl hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              className="px-8 py-4 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white rounded-xl font-semibold text-base hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
             >
               Enviar 🚀
             </button>
