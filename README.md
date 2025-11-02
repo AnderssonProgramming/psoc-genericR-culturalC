@@ -22,9 +22,28 @@
 
 ## 🌐 Despliegue
 
-- **Frontend**: [https://psoc-generic-r-cultural-c.vercel.app/](https://psoc-generic-r-cultural-c.vercel.app/) (Vercel)
-- **Backend API**: [https://psoc-genericr-culturalc-production.up.railway.app/api](https://psoc-genericr-culturalc-production.up.railway.app/api) (Railway)
-- **Base de Datos**: Supabase PostgreSQL (Cloud)
+<div align="center">
+
+### 🚀 Servicios en Producción
+
+| Servicio | Plataforma | Estado | URL |
+|----------|-----------|---------|-----|
+| **🎨 Frontend** | Vercel | ✅ Activo | [psoc-generic-r-cultural-c.vercel.app](https://psoc-generic-r-cultural-c.vercel.app/) |
+| **⚡ Backend API** | Azure Web App | ✅ Activo | [sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api) |
+| **🔄 Backend (Alt)** | Railway | 🟡 Inactivo* | [psoc-genericr-culturalc-production.up.railway.app/api](https://psoc-genericr-culturalc-production.up.railway.app/api) |
+| **🗄️ Base de Datos** | Supabase | ✅ Activo | PostgreSQL Cloud |
+| **🤖 AI Service** | Railway | ✅ Activo | Python + Groq API |
+
+<sub>* El backend de Railway está inactivo pero se puede activar en cualquier momento como respaldo</sub>
+
+### 🔗 Endpoints Principales
+
+- **Health Check**: [`/api`](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api)
+- **Quiz**: [`/api/quiz`](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api/quiz)
+- **Leaderboard**: [`/api/leaderboard`](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api/leaderboard)
+- **Chat AI**: [`/api/chat`](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api/chat)
+
+</div>
 
 ---
 
@@ -702,55 +721,138 @@ npm run test:e2e
 
 ## 🚀 Despliegue
 
-### Opción 1: Vercel + Railway
+### 🌟 Arquitectura de Despliegue Actual
 
-**Frontend (Vercel):**
-
-1. Conecta tu repo de GitHub a [Vercel](https://vercel.com)
-2. Configura variables de entorno
-3. Deploy automático en cada push
-
-**Backend (Railway):**
-
-1. Crea un proyecto en [Railway](https://railway.app)
-2. Conecta tu repo y selecciona la carpeta `back/`
-3. Configura variables de entorno
-4. Deploy automático
-
-### Opción 2: Render
-
-**Backend:**
-
-```yaml
-# render.yaml
-services:
-  - type: web
-    name: gender-quest-api
-    env: node
-    buildCommand: cd back && npm install && npm run build
-    startCommand: cd back && npm run start:prod
-    envVars:
-      - key: SUPABASE_URL
-        sync: false
-      - key: OPENAI_API_KEY
-        sync: false
+```
+┌─────────────────────────────────────────────────────┐
+│         🌐 USUARIOS FINALES                          │
+└────────────────┬────────────────────────────────────┘
+                 │
+    ┌────────────▼────────────┐
+    │    Vercel CDN           │  ← Frontend (Next.js)
+    │  psoc-generic-r...      │     Optimizado con SSR
+    └────────────┬────────────┘
+                 │
+    ┌────────────▼────────────────────────┐
+    │  Azure Web App (Principal)          │  ← Backend NestJS
+    │  sorokina-c2end0bphkc...            │     Region: Canada Central
+    └────────────┬────────────────────────┘
+                 │
+                 ├─────► 🗄️ Supabase PostgreSQL (Cloud)
+                 ├─────► 🤖 Groq API (Llama 3.3 70B)
+                 └─────► 🐍 Python AI Service (Railway - Opcional)
+                 
+    ┌────────────────────────┐
+    │  Railway (Respaldo)    │  ← Backend alternativo
+    │  🟡 Inactivo           │     (Se puede activar)
+    └────────────────────────┘
 ```
 
-**Frontend:**
+### ✅ Despliegue en Producción
 
-```yaml
-services:
-  - type: web
-    name: gender-quest-web
-    env: node
-    buildCommand: cd front && npm install && npm run build
-    startCommand: cd front && npm run start
+#### 🎨 **Frontend → Vercel**
+
+**Configuración automática:**
+1. Push a GitHub → Deploy automático
+2. Variables de entorno configuradas
+3. Optimización automática con Next.js
+
+**Variables de Entorno (Vercel):**
+```env
+NEXT_PUBLIC_API_URL=https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api
+NEXT_PUBLIC_SUPABASE_URL=https://bxbwhdbfxfcyukitwsnq.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key
 ```
 
-### Opción 3: Docker
+#### ⚡ **Backend → Azure Web App (Principal)**
 
-```dockerfile
-# Dockerfile (backend)
+**Configuración:**
+- **Plataforma**: Azure App Service
+- **Stack**: Node.js 18 LTS
+- **Region**: Canada Central
+- **Plan**: B1 (Basic)
+- **Deploy**: GitHub Actions (CI/CD automático)
+
+**Variables de Entorno (Azure):**
+```env
+SUPABASE_URL=https://bxbwhdbfxfcyukitwsnq.supabase.co
+SUPABASE_KEY=tu-service-role-key
+GROQ_API_KEY=tu-groq-api-key
+JWT_SECRET=tu-jwt-secret
+FRONTEND_URL=https://psoc-generic-r-cultural-c.vercel.app
+HMAC_SECRET=tu-hmac-secret
+```
+
+**Health Check**: 
+```bash
+curl https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api
+```
+
+#### 🔄 **Backend → Railway (Alternativo - Inactivo)**
+
+**Estado**: 🟡 Inactivo pero funcional
+- Configurado como respaldo del backend
+- Puede activarse en cualquier momento
+- Mismas variables de entorno que Azure
+- URL: `https://psoc-genericr-culturalc-production.up.railway.app/api`
+
+#### 🗄️ **Base de Datos → Supabase**
+
+- PostgreSQL 15 en la nube
+- Backup automático diario
+- SSL/TLS encryption
+- Row Level Security (RLS) habilitado
+
+#### 🤖 **AI Service → Groq API**
+
+- Modelo: Llama 3.3 70B Versatile
+- Tier: Free (30 req/min)
+- Latencia: ~200-500ms
+- Respaldo: Python AI Service en Railway
+
+---
+
+### 🛠️ Configuración de Despliegue Manual
+
+#### Opción 1: Azure Web App (Recomendado)
+
+**1. Crear Web App:**
+```bash
+az webapp create \
+  --resource-group GenderQuest \
+  --plan GenderQuestPlan \
+  --name sorokina \
+  --runtime "NODE|18-lts"
+```
+
+**2. Configurar variables de entorno:**
+- Azure Portal → App Service → Configuration → Application settings
+
+**3. Configurar CI/CD:**
+- GitHub → Settings → Secrets → Add repository secrets
+- Azure auto-genera el workflow en `.github/workflows/`
+
+#### Opción 2: Railway (Respaldo)
+
+**1. Crear proyecto:**
+```bash
+railway init
+```
+
+**2. Configurar variables:**
+```bash
+railway variables set SUPABASE_URL=...
+railway variables set GROQ_API_KEY=...
+```
+
+**3. Deploy:**
+```bash
+railway up
+```
+
+#### Opción 3: Docker (Auto-hospedado)
+
+**Backend Dockerfile:**
 FROM node:18-alpine
 WORKDIR /app
 COPY back/package*.json ./

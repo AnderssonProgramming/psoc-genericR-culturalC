@@ -8,13 +8,25 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.1-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Supabase](https://img.shields.io/badge/Supabase-2.39-3ECF8E?logo=supabase)](https://supabase.com/)
 [![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-9f7aea)](https://groq.com/)
+[![Azure](https://img.shields.io/badge/Azure-Web_App-0078D4?logo=microsoftazure)](https://azure.microsoft.com/)
 [![Jest](https://img.shields.io/badge/Jest-29.5-C21325?logo=jest)](https://jestjs.io/)
 
 *API robusta y segura para la plataforma educativa Gender Quest*
 
-**🚀 Despliegue en Producción**: [https://psoc-genericr-culturalc-production.up.railway.app/api](https://psoc-genericr-culturalc-production.up.railway.app/api)
+---
 
-[📖 Documentación Principal](../README.md) | [🌐 Frontend](../front/README.md) | [🔌 API Endpoints](#-endpoints)
+## 🌐 Servicios en Producción
+
+| Plataforma | Estado | URL | Región |
+|------------|---------|-----|--------|
+| **⚡ Azure Web App** | ✅ **Activo** | [sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api) | 🇨🇦 Canada Central |
+| **🔄 Railway** | 🟡 Inactivo* | [psoc-genericr-culturalc-production.up.railway.app/api](https://psoc-genericr-culturalc-production.up.railway.app/api) | 🇺🇸 US West |
+
+<sub>* Railway está configurado como respaldo y puede activarse en cualquier momento</sub>
+
+### 🔗 Quick Links
+
+[📖 Docs Principal](../README.md) | [🎨 Frontend](../front/README.md) | [🔌 API Endpoints](#-endpoints) | [🧪 Health Check](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api)
 
 </div>
 
@@ -49,17 +61,21 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 - 🤖 **Chatbot AI** con Groq API (Llama 3.3 70B)
 - 🗄️ **Base de datos PostgreSQL** con Supabase
 - 🛡️ **Seguridad robusta** con bcrypt, JWT y RLS
+- 💚 **Health Check** endpoints para monitoreo
+- 🌍 **Multi-deploy** en Azure (principal) y Railway (respaldo)
 
 ### Características Clave
 
 ✅ **Validación automática** de DTOs con `class-validator`  
 ✅ **AI Integration** con Groq SDK (Llama 3.3 70B)  
 ✅ **Python AI Service** opcional para desarrollo local  
-✅ **CORS configurado** para frontend  
+✅ **CORS configurado** para frontend en Vercel  
 ✅ **Global prefix** `/api` para todos los endpoints  
-✅ **Error handling** centralizado  
-✅ **Testing** con Jest  
-✅ **TypeScript** para type-safety completo
+✅ **Error handling** centralizado con filtros de excepción  
+✅ **Testing** con Jest (unitarios y E2E)  
+✅ **TypeScript** para type-safety completo  
+✅ **Health endpoints** para verificación de estado  
+✅ **CI/CD automático** con GitHub Actions (Azure)
 
 ---
 
@@ -68,36 +84,48 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                      Frontend (Next.js)                      │
-│                    http://localhost:3000                     │
+│         https://psoc-generic-r-cultural-c.vercel.app         │
 └───────────────────────────┬─────────────────────────────────┘
-                            │ HTTP/HTTPS
+                            │ HTTPS
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   Backend API (NestJS)                       │
-│                  http://localhost:3001/api                   │
+│              ⚡ Backend API (Azure - Principal)              │
+│     https://sorokina-c2end0bphkcaf4ab.canadacentral...      │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
 │  │ Auth Module  │  │ Quiz Module  │  │ Chat Module  │      │
-│  │   (JWT)      │  │  (Questions) │  │  (OpenAI)    │      │
+│  │   (JWT)      │  │  (Questions) │  │  (Groq AI)   │      │
 │  └──────────────┘  └──────────────┘  └──────────────┘      │
 │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │Scores Module │  │Leaderboard   │  │   Common     │      │
-│  │  (HMAC)      │  │   Module     │  │  (HMAC Svc)  │      │
+│  │Scores Module │  │Leaderboard   │  │ Health Check │      │
+│  │  (HMAC)      │  │   Module     │  │   Module     │      │
 │  └──────────────┘  └──────────────┘  └──────────────┘      │
+│  ┌──────────────────────────────────────────────────┐      │
+│  │         Common Module (HMAC Service)             │      │
+│  └──────────────────────────────────────────────────┘      │
 └───────────────┬──────────────────────────┬──────────────────┘
                 │                          │
                 ▼                          ▼
     ┌───────────────────────┐  ┌───────────────────────┐
-    │ Supabase (PostgreSQL) │  │   OpenAI API (GPT-4)  │
-    │   + Realtime + RLS    │  │   Chat Completions    │
+    │ Supabase (PostgreSQL) │  │   Groq API (LLM)      │
+    │   + Realtime + RLS    │  │   Llama 3.3 70B       │
     └───────────────────────┘  └───────────────────────┘
+
+            │ Respaldo
+            ▼
+┌─────────────────────────────────────────────────────────────┐
+│            🔄 Backend API (Railway - Inactivo)               │
+│     https://psoc-genericr-culturalc-production...           │
+│                  (Mismo código y config)                     │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ### Flujo de Datos Principal
 
-1. **Usuario hace login** → Auth Module valida y genera JWT
-2. **Usuario juega quiz** → Frontend envía respuestas
-3. **Frontend genera código HMAC** → Scores Module valida
-4. **Si código es válido** → Guarda en Supabase
+1. **Usuario hace login** → Auth Module valida credenciales con bcrypt
+2. **Auth genera JWT** → Token válido por 7 días
+3. **Usuario juega quiz** → Frontend envía respuestas
+4. **Frontend genera código HMAC-SHA256** → Scores Module valida
+5. **Si código es válido** → Guarda en Supabase con flag `verified: true`
 5. **Leaderboard actualiza** → Supabase Realtime notifica frontend
 6. **Usuario pregunta al chatbot** → Chat Module llama Groq API (Llama 3.3 70B)
 7. **Respuesta se guarda** → Chat session en Supabase

@@ -9,12 +9,30 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?logo=tailwind-css)](https://tailwindcss.com/)
 [![Three.js](https://img.shields.io/badge/Three.js-0.180-000000?logo=three.js)](https://threejs.org/)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)](https://vercel.com/)
 
 *Experiencia educativa inmersiva sobre roles de género*
 
-**🚀 Despliegue en Producción**: [https://psoc-generic-r-cultural-c.vercel.app/](https://psoc-generic-r-cultural-c.vercel.app/)
+---
 
-[📖 Documentación Principal](../README.md) | [🔧 Backend API](../back/README.md)
+## 🚀 Despliegue en Producción
+
+<div align="center">
+
+| Servicio | Estado | URL |
+|----------|---------|-----|
+| **🎨 Frontend** | ✅ Activo | [psoc-generic-r-cultural-c.vercel.app](https://psoc-generic-r-cultural-c.vercel.app/) |
+| **⚡ Backend API** | ✅ Activo | [sorokina-c2end0bphkcaf4ab...azurewebsites.net](https://sorokina-c2end0bphkcaf4ab.canadacentral-01.azurewebsites.net/api) |
+
+### 🔗 Quick Access
+
+[🏠 Landing](https://psoc-generic-r-cultural-c.vercel.app/) | [🎮 Juego](https://psoc-generic-r-cultural-c.vercel.app/game) | [🏆 Leaderboard](https://psoc-generic-r-cultural-c.vercel.app/leaderboard) | [� Chat](https://psoc-generic-r-cultural-c.vercel.app/chat) | [📚 Secciones](https://psoc-generic-r-cultural-c.vercel.app/sections)
+
+</div>
+
+---
+
+[📖 Docs Principal](../README.md) | [🔧 Backend API](../back/README.md)
 
 </div>
 
@@ -42,24 +60,27 @@
 
 El **frontend de Gender Quest** es una aplicación web moderna construida con **Next.js 16** (App Router) que ofrece:
 
-- 🎮 **Juego 3D Interactivo** con Three.js
-- 🤖 **Chatbot AI Flotante Minimizable** con Groq (Llama 3.3 70B)
-- 💬 **Chat de Página Completa** con tema oscuro moderno
-- 📚 **8 Secciones Educativas** con contenido multimedia
+- 🎮 **Juego 3D Interactivo** con Three.js y React Three Fiber
+- 🤖 **Chatbot AI Flotante Minimizable** con Groq API (Llama 3.3 70B)
+- 💬 **Chat de Página Completa** con tema oscuro moderno y UX optimizada
+- 📚 **8 Secciones Educativas** con contenido multimedia y diseño responsive
 - 🏆 **Leaderboard en Tiempo Real** con Supabase Realtime
-- 🔐 **Autenticación Segura** con contexto React
+- 🔐 **Autenticación Segura** con contexto React y JWT
 - 🎵 **Control de Música Ambiente** con diseño mejorado
-- 📱 **Diseño Responsive** para móvil, tablet y desktop
+- 📱 **Diseño 100% Responsive** optimizado para móvil, tablet y desktop
+- 📲 **Código QR Generador** para acceso rápido desde móviles
 - ✨ **Animaciones Fluidas** con Framer Motion
+- 🌐 **PWA Ready** con manifest.json configurado
 
 ### Objetivos
 
-✅ **Experiencia de usuario excepcional**  
-✅ **Diseño moderno y atractivo** con tema oscuro cohesivo  
-✅ **Performance optimizado** (Core Web Vitals)  
-✅ **Accesibilidad** (WCAG 2.1)  
-✅ **SEO optimizado**  
-✅ **UI/UX consistente** en toda la aplicación
+✅ **Experiencia de usuario excepcional** con navegación intuitiva  
+✅ **Diseño moderno y atractivo** con tema oscuro cohesivo y gradientes  
+✅ **Performance optimizado** (Core Web Vitals + Next.js optimizations)  
+✅ **Accesibilidad** (WCAG 2.1 AA compliance)  
+✅ **SEO optimizado** con metadata dinámica  
+✅ **UI/UX consistente** en toda la aplicación  
+✅ **Mobile First** con breakpoints responsive (sm, md, lg)
 
 ---
 
@@ -78,14 +99,52 @@ El **frontend de Gender Quest** es una aplicación web moderna construida con **
 
 ### 🤖 Chatbot AI
 
-- **Groq API (Llama 3.3 70B)**: Respuestas inteligentes y contextuales
-- **Interfaz Flotante Minimizable**: Botón siempre visible con opción de minimizar
-- **Chat de Página Completa**: Interfaz `/chat` con tema oscuro elegante
-- **Historial**: Mantiene contexto de conversación
-- **Smooth Animations**: Transiciones fluidas
-- **Diseño Compacto**: UI optimizada sin texto pegado a márgenes
-- **Markdown Support**: Formato rico en respuestas
-- **Fallback a Hugging Face**: Si Ollama no está disponible
+- **Groq API (Llama 3.3 70B)**: Respuestas inteligentes sobre roles de género
+- **Interfaz Flotante Minimizable**: 
+  - Botón siempre visible en esquina inferior derecha
+  - Icono de QrCode con animación
+  - Se puede minimizar/maximizar con un clic
+  - Posición: `bottom-6 right-6` (evita superposición con QR)
+- **Chat de Página Completa**: 
+  - Interfaz `/chat` con tema oscuro elegante
+  - Diseño responsive: móvil (h-[85vh]), desktop (h-[90vh])
+  - Botón adaptativo: muestra "🚀" en móvil, "Enviar 🚀" en desktop
+  - Mensajes con burbujas diferenciadas (usuario vs AI)
+- **Historial Persistente**: Mantiene contexto de conversación
+- **Smooth Animations**: Transiciones fluidas con Framer Motion
+- **Diseño Compacto**: 
+  - Móvil: `w-[calc(100vw-2rem)]` (full-width menos padding)
+  - Desktop: `w-80` (320px)
+  - Max height: `max-h-[80vh]` evita overflow en móviles
+- **Markdown Support**: Formato rico en respuestas con strong/em
+- **Loading States**: Indicadores visuales mientras procesa
+
+### 📲 Código QR para Móviles
+
+- **Generador Automático**: Crea QR del URL de producción
+- **Botón Flotante Global**: Disponible en todas las páginas
+- **Modal Interactivo**:
+  - Diseño compacto: `max-w-sm` (384px)
+  - QR de 180px (optimizado para pantallas pequeñas)
+  - URL clickeable para copiar
+  - Botón de descarga (PNG 512x512)
+- **Posición Estratégica**: `bottom-24 right-6` (encima del chatbot)
+- **Responsive**: Se adapta a pantallas pequeñas sin overflow
+
+### 📱 Responsive Design Optimizado
+
+- **Breakpoints Tailwind**:
+  - `sm`: 640px (tablets pequeñas)
+  - `md`: 768px (tablets)
+  - `lg`: 1024px (desktop)
+- **Mobile First**: Diseño base para móviles, se expande para desktop
+- **Componentes Adaptables**:
+  - Textos: `text-xs sm:text-sm`, `text-2xl sm:text-3xl md:text-4xl`
+  - Padding: `p-3 sm:p-6`, `p-4 sm:p-8`
+  - Grids: `grid-cols-1 sm:grid-cols-2 md:grid-cols-3`
+  - Flex: `flex-col sm:flex-row`
+- **Viewport Meta**: `width=device-width, initial-scale=1, maximum-scale=5`
+- **Marco Conceptual Responsive**: Sección completamente optimizada con overflow-x-hidden
 
 ### 📊 Leaderboard
 
