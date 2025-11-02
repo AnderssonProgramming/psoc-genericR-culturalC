@@ -1,5 +1,6 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
+# This is the Azure Deploy focused for backend
 name: Build and deploy Node.js app to Azure Web App - sorokina
 on:
   push:
@@ -53,3 +54,4 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AD905A3375F8409AA3C43EE351A6F989 }}
+
