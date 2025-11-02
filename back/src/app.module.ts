@@ -6,6 +6,7 @@ import { LeaderboardModule } from './leaderboard/leaderboard.module';
 import { ChatModule } from './chat/chat.module';
 import { QuizModule } from './quiz/quiz.module';
 import { SupabaseModule } from './supabase/supabase.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { SupabaseModule } from './supabase/supabase.module';
     LeaderboardModule,
     ChatModule,
     QuizModule,
+    HealthModule,
   ],
 })
 export class AppModule {}
