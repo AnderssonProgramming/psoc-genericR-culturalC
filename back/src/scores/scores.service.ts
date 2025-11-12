@@ -20,7 +20,7 @@ export class ScoresService {
       throw new BadRequestException(validation.error);
     }
 
-    const { username, score, correct, total, timestamp } = validation;
+    const { username, score, correct, total, completionTimeSeconds, timestamp } = validation;
 
     // Check if code already used
     const { data: existingScore } = await this.supabase
@@ -52,6 +52,7 @@ export class ScoresService {
         score,
         correct_answers: correct,
         total_questions: total,
+        completion_time_seconds: completionTimeSeconds || null,
         submission_code: code,
         verified: true,
         submitted_at: new Date(timestamp * 1000).toISOString(),

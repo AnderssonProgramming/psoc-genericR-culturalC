@@ -10,11 +10,19 @@ interface ResultsScreenProps {
   onRestart: () => void
   onViewLeaderboard: () => void
   guestMode: boolean
+  completionTime?: number | null // Tiempo en segundos (solo para usuarios autenticados)
 }
 
-export function ResultsScreen({ score, totalQuestions, code, onRestart, onViewLeaderboard, guestMode }: ResultsScreenProps) {
+export function ResultsScreen({ score, totalQuestions, code, onRestart, onViewLeaderboard, guestMode, completionTime }: ResultsScreenProps) {
   const [codeCopied, setCodeCopied] = useState(false)
   const percentage = Math.round((score / totalQuestions) * 100)
+
+  // Formatear tiempo en mm:ss
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
 
   const getScoreMessage = () => {
     if (percentage === 100) return { text: "¡Perfecto! 🌟", color: "from-yellow-400 to-amber-500" }
@@ -133,6 +141,30 @@ export function ResultsScreen({ score, totalQuestions, code, onRestart, onViewLe
             </div>
           </motion.div>
         </div>
+
+        {/* Tiempo de completado - Solo para usuarios autenticados */}
+        {!guestMode && completionTime !== undefined && completionTime !== null && completionTime > 0 && (
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="bg-gradient-to-r from-blue-900/40 via-purple-900/40 to-fuchsia-900/40 rounded-2xl px-6 py-4 border-2 border-blue-400/30 backdrop-blur-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-4xl">⏱️</span>
+                <div>
+                  <p className="text-blue-300 text-xs font-semibold uppercase tracking-wider mb-0.5">
+                    Tiempo de completado
+                  </p>
+                  <p className="text-white text-3xl font-black tabular-nums">
+                    {formatTime(completionTime)}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         {/* Confirmación y código de referencia */}
         {!guestMode && (

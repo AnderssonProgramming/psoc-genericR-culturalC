@@ -27,7 +27,10 @@ export class QuizController {
   @Post('submit')
   async submitQuiz(
     @Request() req,
-    @Body() body: { answers: { questionId: number; answer: string }[] },
+    @Body() body: { 
+      answers: { questionId: number; answer: string }[];
+      completionTimeSeconds?: number;
+    },
   ) {
     const userId = req.user?.id;
     
@@ -44,11 +47,12 @@ export class QuizController {
     const { score, details } = this.quizService.calculateScore(body.answers);
     const totalQuestions = 10;
     
-    // Generar código único
+    // Generar código único con tiempo de completado
     const code = await this.quizService.generateGameCode(
       userId,
       score,
       totalQuestions,
+      body.completionTimeSeconds,
     );
 
     // Guardar INMEDIATAMENTE en el leaderboard al completar el quiz usando el código generado
@@ -60,6 +64,7 @@ export class QuizController {
       percentage: Math.round((score / totalQuestions) * 100),
       code,
       details,
+      completionTime: body.completionTimeSeconds,
     };
   }
 

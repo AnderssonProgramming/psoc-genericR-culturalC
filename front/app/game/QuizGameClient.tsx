@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { apiClient } from "@/lib/api"
 import { useAuth } from "@/lib/auth-context"
 import { useRouter } from "next/navigation"
@@ -45,6 +45,11 @@ export default function QuizGame() {
   // Intensidad de la escena 3D (cambia con respuestas correctas/incorrectas)
   const [sceneIntensity, setSceneIntensity] = useState(1)
 
+  // ⏱️ TEMPORIZADOR - Solo para usuarios autenticados
+  const [quizStartTime, setQuizStartTime] = useState<number | null>(null)
+  const [elapsedTime, setElapsedTime] = useState(0)
+  const timerIntervalRef = useRef<NodeJS.Timeout | null>(null)
+
   // Cargar preguntas e intentos al iniciar
   useEffect(() => {
     loadQuestions()
@@ -52,6 +57,27 @@ export default function QuizGame() {
       loadUserAttempts()
     }
   }, [user])
+
+  // ⏱️ Actualizar temporizador cada segundo (solo si está jugando y es usuario autenticado)
+  useEffect(() => {
+    if (gameState === "playing" && user && !guestMode && quizStartTime) {
+      timerIntervalRef.current = setInterval(() => {
+        setElapsedTime(Math.floor((Date.now() - quizStartTime) / 1000))
+      }, 1000)
+
+      return () => {
+        if (timerIntervalRef.current) {
+          clearInterval(timerIntervalRef.current)
+        }
+      }
+    } else {
+      // Limpiar intervalo si no está jugando
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current)
+        timerIntervalRef.current = null
+      }
+    }
+  }, [gameState, user, guestMode, quizStartTime])
 
   const loadQuestions = async () => {
     try {
@@ -96,11 +122,17 @@ export default function QuizGame() {
       router.push("/login")
       return
     }
+    
+    // ⏱️ Iniciar temporizador para usuarios autenticados
+    setQuizStartTime(Date.now())
+    setElapsedTime(0)
     setGameState("playing")
   }
 
   const handleStartGuestMode = () => {
     setGuestMode(true)
+    setQuizStartTime(null) // No trackear tiempo en modo invitado
+    setElapsedTime(0)
     setGameState("playing")
   }
 
@@ -130,6 +162,14 @@ export default function QuizGame() {
   // Enviar quiz
   const submitQuiz = async (finalAnswers: { questionId: number; answer: string }[]) => {
     try {
+      // ⏱️ Detener temporizador y calcular tiempo final
+      const completionTimeSeconds = quizStartTime ? Math.floor((Date.now() - quizStartTime) / 1000) : 0
+      
+      if (timerIntervalRef.current) {
+        clearInterval(timerIntervalRef.current)
+        timerIntervalRef.current = null
+      }
+
       if (guestMode) {
         // Modo invitado: no guardar en backend
         setResult({
@@ -137,14 +177,16 @@ export default function QuizGame() {
           totalQuestions: questions.length,
           percentage: Math.round((finalAnswers.length / questions.length) * 100),
           code: "",
-          guestMode: true
+          guestMode: true,
+          completionTime: null
         })
       } else {
-        // Modo autenticado: enviar al backend
-        const response = await apiClient.submitQuiz(finalAnswers)
+        // Modo autenticado: enviar al backend con tiempo de completado
+        const response = await apiClient.submitQuiz(finalAnswers, completionTimeSeconds)
         setResult({
           ...response,
-          guestMode: false
+          guestMode: false,
+          completionTime: completionTimeSeconds
         })
       }
       setGameState("results")
@@ -167,6 +209,14 @@ export default function QuizGame() {
     setAnswers([])
     setResult(null)
     setGuestMode(false)
+    setQuizStartTime(null)
+    setElapsedTime(0)
+    
+    if (timerIntervalRef.current) {
+      clearInterval(timerIntervalRef.current)
+      timerIntervalRef.current = null
+    }
+    
     setGameState("welcome")
   }
 
@@ -244,6 +294,7 @@ export default function QuizGame() {
               questionNumber={currentQuestionIndex + 1}
               totalQuestions={questions.length}
               answeredQuestions={answers.length}
+              elapsedTime={user && !guestMode ? elapsedTime : undefined}
             />
           )}
 
@@ -255,6 +306,7 @@ export default function QuizGame() {
               onRestart={handleRestart}
               onViewLeaderboard={handleViewLeaderboard}
               guestMode={result.guestMode}
+              completionTime={result.completionTime}
             />
           )}
         </AnimatePresence>

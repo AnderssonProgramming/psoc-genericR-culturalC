@@ -18,11 +18,19 @@ interface QuizCardProps {
   questionNumber: number
   totalQuestions: number
   answeredQuestions: number
+  elapsedTime?: number // Tiempo transcurrido en segundos (solo para usuarios autenticados)
 }
 
-export function QuizCard({ question, onAnswer, questionNumber, totalQuestions, answeredQuestions }: QuizCardProps) {
+export function QuizCard({ question, onAnswer, questionNumber, totalQuestions, answeredQuestions, elapsedTime }: QuizCardProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [showFeedback, setShowFeedback] = useState(false)
+
+  // Formatear tiempo en mm:ss
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
 
   const handleAnswer = (answerIndex: number) => {
     if (showFeedback) return
@@ -116,6 +124,21 @@ export function QuizCard({ question, onAnswer, questionNumber, totalQuestions, a
 
       {/* Contenido de la pregunta */}
       <div className={`p-8 bg-gradient-to-br ${colors.gradient}`}>
+        {/* Temporizador - Solo para usuarios autenticados */}
+        {elapsedTime !== undefined && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-4 flex items-center justify-center gap-2 bg-black/30 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20"
+          >
+            <span className="text-2xl">⏱️</span>
+            <div className="text-white">
+              <div className="text-xs font-semibold opacity-70">Tiempo transcurrido</div>
+              <div className="text-2xl font-black tabular-nums">{formatTime(elapsedTime)}</div>
+            </div>
+          </motion.div>
+        )}
+
         {/* Pregunta */}
         <h2 className="text-3xl font-black text-white mb-6 leading-tight">
           {question.question}

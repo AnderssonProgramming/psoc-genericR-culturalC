@@ -119,10 +119,10 @@ export class ApiClient {
     return this.request<{ count: number; remaining: number }>('/quiz/attempts');
   }
 
-  async submitQuiz(answers: { questionId: number; answer: string }[]) {
+  async submitQuiz(answers: { questionId: number; answer: string }[], completionTimeSeconds?: number) {
     return this.request<any>('/quiz/submit', {
       method: 'POST',
-      body: JSON.stringify({ answers }),
+      body: JSON.stringify({ answers, completionTimeSeconds }),
     });
   }
 

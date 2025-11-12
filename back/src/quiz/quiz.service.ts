@@ -116,7 +116,12 @@ export class QuizService {
     return this.questions.map(({ correctAnswer, ...question }) => question);
   }
 
-  async generateGameCode(userId: string, score: number, totalQuestions: number): Promise<string> {
+  async generateGameCode(
+    userId: string,
+    score: number,
+    totalQuestions: number,
+    completionTimeSeconds?: number,
+  ): Promise<string> {
     // Generar código único de 8 caracteres
     const code = randomBytes(4).toString('hex').toUpperCase();
     
@@ -133,6 +138,7 @@ export class QuizService {
         user_id: userId,
         score,
         percentage,
+        completion_time: completionTimeSeconds || null,
         expires_at: expiresAt.toISOString(),
         used: false,
       });
@@ -181,6 +187,15 @@ export class QuizService {
     const totalQuestions = 10;
     const correctAnswers = score;
 
+    // Obtener el completion_time del game_code
+    const { data: gameCodeData } = await this.supabase
+      .from('game_codes')
+      .select('completion_time')
+      .eq('code', submissionCode)
+      .single();
+
+    const completionTime = gameCodeData?.completion_time || null;
+
     const { error } = await this.supabase
       .from('scores')
       .insert({
@@ -188,6 +203,7 @@ export class QuizService {
         score,
         correct_answers: correctAnswers,
         total_questions: totalQuestions,
+        completion_time_seconds: completionTime,
         submission_code: submissionCode,
         verified: true,
         submitted_at: new Date().toISOString(),

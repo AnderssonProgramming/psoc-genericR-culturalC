@@ -15,12 +15,14 @@ export class LeaderboardService {
         score,
         correct_answers,
         total_questions,
+        completion_time_seconds,
         submitted_at,
         user:users(username, avatar_url)
       `,
       )
       .eq('verified', true)
       .order('score', { ascending: false })
+      .order('completion_time_seconds', { ascending: true, nullsFirst: false })
       .order('submitted_at', { ascending: true })
       .limit(limit);
 
@@ -34,6 +36,7 @@ export class LeaderboardService {
       avatarUrl: Array.isArray(entry.user) ? entry.user[0]?.avatar_url : entry.user?.avatar_url,
       score: entry.score,
       accuracy: ((entry.correct_answers / entry.total_questions) * 100).toFixed(1),
+      completionTime: entry.completion_time_seconds,
       submittedAt: entry.submitted_at,
     }));
   }

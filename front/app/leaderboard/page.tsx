@@ -17,12 +17,21 @@ export default function LeaderboardPage() {
   const loadLeaderboard = async () => {
     try {
       const data = await apiClient.getLeaderboard(50);
+      console.log('📊 Leaderboard data:', data); // Debug para ver los datos
       setLeaderboard(data);
     } catch (err) {
       console.error('Error loading leaderboard:', err);
     } finally {
       setLoading(false);
     }
+  };
+
+  // Formatear tiempo en mm:ss
+  const formatTime = (seconds: number | null | undefined) => {
+    if (!seconds || seconds <= 0) return '-';
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
   const loadMyRank = async () => {
@@ -94,6 +103,9 @@ export default function LeaderboardPage() {
                       Precisión
                     </th>
                     <th className="px-6 py-4 text-right text-white font-bold text-sm uppercase tracking-wider">
+                      Tiempo
+                    </th>
+                    <th className="px-6 py-4 text-right text-white font-bold text-sm uppercase tracking-wider">
                       Fecha
                     </th>
                   </tr>
@@ -133,6 +145,11 @@ export default function LeaderboardPage() {
                       <td className="px-6 py-5 text-right">
                         <span className="px-4 py-2 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full text-sm font-bold shadow-lg">
                           {entry.accuracy}%
+                        </span>
+                      </td>
+                      <td className="px-6 py-5 text-right">
+                        <span className="text-base font-mono font-bold text-white tabular-nums">
+                          {formatTime(entry.completionTime)}
                         </span>
                       </td>
                       <td className="px-6 py-5 text-right">

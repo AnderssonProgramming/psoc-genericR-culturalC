@@ -29,17 +29,26 @@ export class HmacService {
   }
 
   /**
-   * Genera un código completo: username|score|correct|total|timestamp|hmac
+   * Genera un código completo: username|score|correct|total|completionTime|timestamp|hmac
+   * completionTime está en segundos
    */
-  generateCode(username: string, score: number, correct: number, total: number): string {
+  generateCode(
+    username: string,
+    score: number,
+    correct: number,
+    total: number,
+    completionTimeSeconds?: number,
+  ): string {
     const timestamp = Math.floor(Date.now() / 1000);
-    const payload = `${username}|${score}|${correct}|${total}|${timestamp}`;
+    const timeValue = completionTimeSeconds !== undefined ? completionTimeSeconds : 0;
+    const payload = `${username}|${score}|${correct}|${total}|${timeValue}|${timestamp}`;
     const hmac = this.generateHmac(payload);
     return `${payload}|${hmac}`;
   }
 
   /**
-   * Parsea y valida un código generado por Unity
+   * Parsea y valida un código generado
+   * Formato: username|score|correct|total|completionTime|timestamp|hmac
    */
   parseAndValidateCode(code: string): {
     valid: boolean;
@@ -47,17 +56,36 @@ export class HmacService {
     score?: number;
     correct?: number;
     total?: number;
+    completionTimeSeconds?: number;
     timestamp?: number;
     error?: string;
   } {
     const parts = code.split('|');
-    
-    if (parts.length !== 6) {
+
+    // Soportar formato antiguo (sin completion time) y nuevo formato
+    if (parts.length !== 7 && parts.length !== 6) {
       return { valid: false, error: 'Invalid code format' };
     }
 
-    const [username, scoreStr, correctStr, totalStr, timestampStr, providedHmac] = parts;
-    const payload = `${username}|${scoreStr}|${correctStr}|${totalStr}|${timestampStr}`;
+    let username: string;
+    let scoreStr: string;
+    let correctStr: string;
+    let totalStr: string;
+    let completionTimeStr: string;
+    let timestampStr: string;
+    let providedHmac: string;
+    let payload: string;
+
+    if (parts.length === 7) {
+      // Nuevo formato con completion time
+      [username, scoreStr, correctStr, totalStr, completionTimeStr, timestampStr, providedHmac] = parts;
+      payload = `${username}|${scoreStr}|${correctStr}|${totalStr}|${completionTimeStr}|${timestampStr}`;
+    } else {
+      // Formato antiguo sin completion time (retrocompatibilidad)
+      [username, scoreStr, correctStr, totalStr, timestampStr, providedHmac] = parts;
+      payload = `${username}|${scoreStr}|${correctStr}|${totalStr}|${timestampStr}`;
+      completionTimeStr = '0';
+    }
 
     // Verificar HMAC
     if (!this.verifyHmac(payload, providedHmac)) {
@@ -68,11 +96,17 @@ export class HmacService {
     const score = parseInt(scoreStr, 10);
     const correct = parseInt(correctStr, 10);
     const total = parseInt(totalStr, 10);
+    const completionTimeSeconds = parseInt(completionTimeStr, 10);
     const timestamp = parseInt(timestampStr, 10);
 
     // Validaciones básicas
-    if (isNaN(score) || isNaN(correct) || isNaN(total) || isNaN(timestamp)) {
+    if (isNaN(score) || isNaN(correct) || isNaN(total) || isNaN(timestamp) || isNaN(completionTimeSeconds)) {
       return { valid: false, error: 'Invalid numeric values' };
+    }
+
+    // Validación: completion time debe ser razonable (entre 10 segundos y 1 hora)
+    if (completionTimeSeconds > 0 && (completionTimeSeconds < 10 || completionTimeSeconds > 3600)) {
+      return { valid: false, error: 'Invalid completion time (must be between 10s and 1h)' };
     }
 
     // Verificar que no haya expirado (7 días)
@@ -88,6 +122,7 @@ export class HmacService {
       score,
       correct,
       total,
+      completionTimeSeconds,
       timestamp,
     };
   }
