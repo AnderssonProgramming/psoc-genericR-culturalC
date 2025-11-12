@@ -1102,7 +1102,7 @@ export default function SectionsPage() {
                         </div>
                         <div className="text-center p-4 sm:p-5 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
                           <div className="text-4xl sm:text-5xl mb-1 sm:mb-2">🌐</div>
-                          <p className="font-black text-sm sm:text-lg text-white break-words">GLOBALIZACIÓN</p>
+                          <p className="font-black text-sm sm:text-lg text-white">GLOBALIZACIÓN</p>
                         </div>
                         <div className="text-center p-4 sm:p-5 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl shadow-xl transform hover:scale-110 transition-all duration-300">
                           <div className="text-4xl sm:text-5xl mb-1 sm:mb-2">📱</div>
