@@ -639,15 +639,15 @@ Giddens, A. (2006). *Sociología* (5ª ed.). Alianza Editorial.
 
 Malaver-Fonseca, L. F., Serrano-Cárdenas, L. F., & Castro-Silva, H. F. (2021). La pandemia COVID-19 y el rol de las mujeres en la economía del cuidado en América Latina: Una revisión sistemática. *Estudios Gerenciales*, *37*(159), 153-163.
 
-OECD. (2023). *Gender equality in Colombia: Access to justice and politics at the local level*. OECD Publishing. https://doi.org/10.1787/6f9aa989-en
+OECD. (2023). *Gender equality in Colombia: Access to justice and politics at the local level*. OECD Publishing.
 
 Ospina, J. M. (2023). *Roles, género, jóvenes, sexualidad, toma de decisiones*. Universidad Javeriana Cali.
 
-Pérez Sánchez, B., & Concha-Salgado, A. (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. *Anales de Psicología*, *37*(3), 450-459. https://doi.org/10.6018/analesps.428371
+Pérez Sánchez, B., & Concha-Salgado, A. (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. *Anales de Psicología*, *37*(3), 450-459. 
 
 Scott, J. W. (1990). *Gender and the politics of history*. Columbia University Press.
 
-Vos, J. F. J. (2022). The influence of cultural values on enterprise system adoption. *Journal of Business Research*, *145*, 813-826. https://doi.org/10.1016/j.jbusres.2022.03.019
+Vos, J. F. J. (2022). The influence of cultural values on enterprise system adoption. *Journal of Business Research*, *145*, 813-826.
 
 ---
 
@@ -1583,80 +1583,51 @@ export default function SectionsPage() {
                   </div>
 
                   <div className="bg-white p-8 rounded-xl shadow-xl border-l-4 border-yellow-500">
-                    <h3 className="text-xl font-bold text-yellow-700 mb-4">📖 Referencias Principales</h3>
                     <div className="space-y-4 text-gray-700">
-                      <div className="bg-yellow-50 p-4 rounded-lg hover:bg-yellow-100 transition">
+                      <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-yellow-400">
+                        <p className="leading-relaxed">Alfaro Arismendy, C. G., & Bonilla Maradey, P. A. (2021). <em>Influencia de las costumbres y valores colombianos en docentes extranjeros</em>. Universidad Ean.</p>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-orange-400">
                         <p className="leading-relaxed">Berger, P. L., & Luckmann, T. (1968). <em>La construcción social de la realidad</em>. Amorrortu Editores.</p>
                       </div>
-                      <div className="bg-orange-50 p-4 rounded-lg hover:bg-orange-100 transition">
+                      
+                      <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-yellow-400">
                         <p className="leading-relaxed">Bourdieu, P. (2000). <em>La dominación masculina</em>. Anagrama.</p>
                       </div>
-                      <div className="bg-yellow-50 p-4 rounded-lg hover:bg-yellow-100 transition">
+                      
+                      <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-orange-400">
                         <p className="leading-relaxed">Butler, J. (2007). <em>El género en disputa: El feminismo y la subversión de la identidad</em>. Paidós.</p>
                       </div>
-                      <div className="bg-orange-50 p-4 rounded-lg hover:bg-orange-100 transition">
+                      
+                      <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-yellow-400">
                         <p className="leading-relaxed">Giddens, A. (2006). <em>Sociología</em> (5ª ed.). Alianza Editorial.</p>
                       </div>
-                      <div className="bg-yellow-50 p-4 rounded-lg hover:bg-yellow-100 transition">
-                        <p className="leading-relaxed">Scott, J. W. (1990). <em>Gender and the Politics of History</em>. Columbia University Press.</p>
+                      
+                      <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-orange-400">
+                        <p className="leading-relaxed">Malaver-Fonseca, L. F., Serrano-Cárdenas, L. F., & Castro-Silva, H. F. (2021). La pandemia COVID-19 y el rol de las mujeres en la economía del cuidado en América Latina: Una revisión sistemática. <em>Estudios Gerenciales</em>, <em>37</em>(159), 153-163.</p>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-yellow-400">
+                        <p className="leading-relaxed">OECD. (2023). <em>Gender equality in Colombia: Access to justice and politics at the local level</em>. OECD Publishing.</p>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-orange-400">
+                        <p className="leading-relaxed">Ospina, J. M. (2023). <em>Roles, género, jóvenes, sexualidad, toma de decisiones</em>. Universidad Javeriana Cali.</p>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-yellow-400">
+                        <p className="leading-relaxed">Pérez Sánchez, B., & Concha-Salgado, A. (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. <em>Anales de Psicología</em>, <em>37</em>(3), 450-459.</p>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-orange-400">
+                        <p className="leading-relaxed">Scott, J. W. (1990). <em>Gender and the politics of history</em>. Columbia University Press.</p>
+                      </div>
+                      
+                      <div className="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-yellow-400">
+                        <p className="leading-relaxed">Vos, J. F. J. (2022). The influence of cultural values on enterprise system adoption. <em>Journal of Business Research</em>, <em>145</em>, 813-826.</p>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-pink-50 to-purple-50 p-8 rounded-xl shadow-xl border-l-4 border-pink-500 mt-6">
-                    <h3 className="text-xl font-bold text-pink-700 mb-4 flex items-center">
-                      <span className="text-2xl mr-2">🧠</span>
-                      Referencias del Marco Conceptual
-                    </h3>
-                    <div className="space-y-4 text-gray-700">
-                      <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-pink-400">
-                        <p className="leading-relaxed"><strong>Alfaro Arismendy, C. G., & Bonilla Maradey, P. A.</strong> (2021). <em>Influencia de las costumbres y valores colombianos en docentes extranjeros</em>. Universidad Ean.</p>
-                      </div>
-                      <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-purple-400">
-                        <p className="leading-relaxed"><strong>Malaver-Fonseca, L. F., Serrano-Cárdenas, L. F., & Castro-Silva, H. F.</strong> (2021). La pandemia COVID-19 y el rol de las mujeres en la economía del cuidado en América Latina: Una revisión sistemática. <em>Estudios Gerenciales</em>.</p>
-                      </div>
-                      <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-blue-400">
-                        <p className="leading-relaxed"><strong>OECD</strong> (2023). <em>Gender Equality in Colombia</em>. OECD Publishing.</p>
-                      </div>
-                      <div className="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-green-400">
-                        <p className="leading-relaxed"><strong>Ospina, J. M.</strong> (2023). <em>Roles, género, jóvenes, sexualidad, toma de decisiones</em>. Universidad Javeriana Cali.</p>
-                      </div>
-                      <div className="bg-gradient-to-r from-indigo-50 to-indigo-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-indigo-400">
-                        <p className="leading-relaxed"><strong>Pérez Sánchez, B., & Concha-Salgado, A.</strong> (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. <em>Anales de Psicología</em>.</p>
-                      </div>
-                      <div className="bg-gradient-to-r from-teal-50 to-teal-100 p-4 rounded-lg hover:shadow-md transition border-l-4 border-teal-400">
-                        <p className="leading-relaxed"><strong>Vos, J. F. J.</strong> (2022). The influence of cultural values on Enterprise System adoption. <em>Journal of Business Research</em>.</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl shadow-lg border-l-4 border-blue-500">
-                    <h3 className="text-lg font-bold text-blue-700 mb-3 flex items-center">
-                      <span className="text-2xl mr-2">📝</span>
-                      Nota sobre las Referencias
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed mb-3">
-                      Esta lista será ampliada con las referencias específicas de cada sección según se complete el desarrollo de la plataforma.
-                    </p>
-                    <div className="bg-white p-4 rounded-lg">
-                      <p className="text-sm text-gray-600">
-                        <strong className="text-blue-700">Para consultar más recursos:</strong>
-                      </p>
-                      <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                        <li>• American Psychological Association (APA)</li>
-                        <li>• ONU Mujeres</li>
-                        <li>• UNESCO - Género e Igualdad</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-xl shadow-lg text-center">
-                    <p className="text-lg font-bold">
-                      📅 Revisión y actualización continua
-                    </p>
-                    <p className="mt-2 opacity-90">
-                      Este documento será actualizado conforme se completen las secciones pendientes
-                    </p>
                   </div>
                 </div>
               )}
