@@ -5,6 +5,7 @@
 ### Plataforma Educativa Interactiva sobre Roles de Género
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Open Source](https://img.shields.io/badge/Open-Source-success?logo=github)](https://github.com/AnderssonProgramming/psoc-genericR-culturalC)
 [![Next.js](https://img.shields.io/badge/Next.js-16.0-black?logo=next.js)](https://nextjs.org/)
 [![NestJS](https://img.shields.io/badge/NestJS-10.0-red?logo=nestjs)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?logo=typescript)](https://www.typescriptlang.org/)
@@ -14,7 +15,7 @@
 
 *Jugando aprendemos igualdad* 🌟
 
-[🚀 Demo en Vivo](https://psoc-generic-r-cultural-c.vercel.app/) | [📖 Documentación](#-tabla-de-contenidos) | [🤝 Contribuir](#-contribuir) | [📝 Licencia](#-licencia)
+[🚀 Demo en Vivo](https://psoc-generic-r-cultural-c.vercel.app/) | [📖 Documentación](#-tabla-de-contenidos) | [💻 Código Fuente](https://github.com/AnderssonProgramming/psoc-genericR-culturalC) | [🤝 Contribuir](#-contribuir)
 
 </div>
 
@@ -96,8 +97,10 @@ El proyecto integra:
 - **10 Preguntas Educativas**: Sobre roles de género
 - **Experiencia 3D Inmersiva**: Visualización con Three.js y React Three Fiber
 - **Sistema de Puntaje**: Puntuación en tiempo real y feedback inmediato
-- **Códigos HMAC**: Verificación criptográfica de resultados
+- **⏱️ Temporizador Competitivo**: Registra el tiempo de completado para usuarios autenticados
+- **Códigos HMAC**: Verificación criptográfica de resultados con tiempo incluido
 - **Pantallas Dinámicas**: Bienvenida, juego, y resultados animados
+- **Modo Invitado**: Opción para jugar sin registro (sin temporizador)
 
 ### 🤖 Chatbot AI Educativo
 
@@ -112,8 +115,11 @@ El proyecto integra:
 
 - **Leaderboard en Tiempo Real**: Actualización automática con Supabase
 - **Top Jugadores**: Muestra los mejores puntajes verificados
-- **Estadísticas**: Puntaje promedio, preguntas correctas, fecha de envío
+- **⏱️ Desempate por Tiempo**: Usuarios con mismo puntaje se ordenan por menor tiempo
+- **Columna de Tiempo**: Muestra tiempo de completado en formato mm:ss
+- **Estadísticas**: Puntaje, precisión, tiempo y fecha de envío
 - **Perfiles de Usuario**: Avatares y nombres de usuario
+- **Ordenamiento Inteligente**: Score DESC → Tiempo ASC → Fecha ASC
 
 ### 🔐 Autenticación Segura
 
@@ -124,10 +130,21 @@ El proyecto integra:
 
 ### 📚 Contenido Educativo
 
-- **8 Secciones Temáticas**: Basadas en documental educativo
+- **8 Secciones Temáticas**: Basadas en contenido académico sobre roles de género
 - **Navegación Intuitiva**: Cards con vista previa y animaciones
 - **Responsive Design**: Adaptado a móvil, tablet y desktop
-- **Material Multimedia**: Texto, imágenes y videos
+- **Material Multimedia**: Texto, gráficos y contenido interactivo
+- **Referencias Bibliográficas**: Formato APA 7ma edición con 11 fuentes académicas
+- **Marco Conceptual**: Análisis cultural, factores principales y escalas de interacción
+
+### 🎨 Experiencia de Usuario
+
+- **🎵 Música Ambiente**: Reproductor con controles personalizados en todas las páginas
+- **💬 Chatbot Flotante**: Minimizable con botón circular en esquina inferior
+- **📱 QR Code Modal**: Comparte tu puntaje con QR personalizado y links de Azure
+- **🌐 Código Abierto**: Link prominente al repositorio de GitHub en página principal
+- **🎯 Animaciones Fluidas**: Framer Motion en toda la aplicación
+- **🌙 Tema Oscuro**: Diseño moderno con gradientes púrpura/fucsia
 
 ---
 
@@ -570,9 +587,28 @@ CREATE TABLE scores (
   score INTEGER NOT NULL,
   correct_answers INTEGER NOT NULL,
   total_questions INTEGER NOT NULL,
+  completion_time_seconds INTEGER, -- ⏱️ Tiempo de completado en segundos (nuevo)
   submission_code TEXT UNIQUE NOT NULL,
   verified BOOLEAN DEFAULT FALSE,
   submitted_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+```
+
+#### Tabla: `game_codes`
+
+```sql
+CREATE TABLE game_codes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  code TEXT UNIQUE NOT NULL,
+  user_id UUID REFERENCES users(id),
+  username TEXT NOT NULL,
+  score INTEGER NOT NULL,
+  correct_answers INTEGER NOT NULL,
+  total_questions INTEGER NOT NULL,
+  completion_time INTEGER, -- ⏱️ Tiempo de completado en segundos (nuevo)
+  hmac TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  expires_at TIMESTAMP WITH TIME ZONE DEFAULT NOW() + INTERVAL '24 hours'
 );
 ```
 
@@ -603,9 +639,12 @@ CREATE TABLE analytics_events (
 ```sql
 CREATE INDEX idx_scores_user_id ON scores(user_id);
 CREATE INDEX idx_scores_score ON scores(score DESC);
+CREATE INDEX idx_scores_completion_time ON scores(completion_time_seconds); -- ⏱️ Índice para ordenamiento por tiempo
 CREATE INDEX idx_scores_verified ON scores(verified);
 CREATE INDEX idx_chat_sessions_user_id ON chat_sessions(user_id);
 CREATE INDEX idx_analytics_event_type ON analytics_events(event_type);
+CREATE INDEX idx_game_codes_code ON game_codes(code);
+CREATE INDEX idx_game_codes_expires ON game_codes(expires_at);
 ```
 
 ### Row Level Security (RLS)

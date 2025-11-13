@@ -57,7 +57,8 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 - 🔐 **Autenticación y autorización** con JWT
 - 🎮 **Gestión de quiz y preguntas** educativas
 - 📊 **Sistema de puntajes** con verificación HMAC-SHA256
-- 🏆 **Leaderboard en tiempo real** con Supabase
+- ⏱️ **Temporizador competitivo** - Registra tiempo de completado de usuarios autenticados
+- 🏆 **Leaderboard en tiempo real** con Supabase y desempate por tiempo
 - 🤖 **Chatbot AI** con Groq API (Llama 3.3 70B)
 - 🗄️ **Base de datos PostgreSQL** con Supabase
 - 🛡️ **Seguridad robusta** con bcrypt, JWT y RLS
@@ -67,6 +68,7 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 ### Características Clave
 
 ✅ **Validación automática** de DTOs con `class-validator`  
+✅ **⏱️ Sistema de temporizador** - Valida y almacena tiempos de completado (10s-1h)  
 ✅ **AI Integration** con Groq SDK (Llama 3.3 70B)  
 ✅ **Python AI Service** opcional para desarrollo local  
 ✅ **CORS configurado** para frontend en Vercel  
@@ -75,7 +77,8 @@ El **backend de Gender Quest** es una API REST construida con **NestJS** que pro
 ✅ **Testing** con Jest (unitarios y E2E)  
 ✅ **TypeScript** para type-safety completo  
 ✅ **Health endpoints** para verificación de estado  
-✅ **CI/CD automático** con GitHub Actions (Azure)
+✅ **CI/CD automático** con GitHub Actions (Azure)  
+✅ **Códigos HMAC seguros** - Incluyen tiempo en formato de 7 partes
 
 ---
 
@@ -235,12 +238,14 @@ request -> JwtAuthGuard -> validateToken -> extractUser -> continue
 
 **Endpoints**:
 - `GET /api/quiz/questions` - Obtener preguntas (autenticado)
-- `POST /api/quiz/submit` - Enviar respuestas (autenticado)
+- `POST /api/quiz/submit` - Enviar respuestas con tiempo opcional (autenticado)
 
 **Features**:
-- ✅ Preguntas sobre mujeres destacadas
+- ✅ Preguntas sobre roles de género y mujeres destacadas
 - ✅ Validación de respuestas
 - ✅ Cálculo de puntaje
+- ✅ ⏱️ Acepta `completionTimeSeconds` para usuarios autenticados
+- ✅ Genera códigos HMAC con tiempo incluido
 
 ---
 
@@ -260,16 +265,19 @@ request -> JwtAuthGuard -> validateToken -> extractUser -> continue
 **Verificación HMAC**:
 
 ```typescript
-// Código del frontend: username|score|correct|total|timestamp|hash
+// Código del frontend (nuevo formato): username|score|correct|total|completionTime|timestamp|hash
+// Formato antiguo (retrocompatible): username|score|correct|total|timestamp|hash
 
 verify(code) {
   1. Split código por '|'
-  2. Extraer: username, score, correct, total, timestamp, hash
-  3. Recalcular: expectedHash = HMAC-SHA256(payload, secret)
-  4. Validar: hash === expectedHash
-  5. Validar: timestamp < 7 días
-  6. Validar: código único (no usado antes)
-  7. Si todo OK: guardar en DB con verified=true
+  2. Detectar formato: 7 partes (nuevo) o 6 partes (antiguo)
+  3. Extraer: username, score, correct, total, [completionTime], timestamp, hash
+  4. Validar: completionTime entre 10-3600 segundos (si presente)
+  5. Recalcular: expectedHash = HMAC-SHA256(payload, secret)
+  6. Validar: hash === expectedHash
+  7. Validar: timestamp < 7 días
+  8. Validar: código único (no usado antes)
+  9. Si todo OK: guardar en DB con verified=true y completion_time_seconds
 }
 ```
 
@@ -284,8 +292,22 @@ verify(code) {
 - `leaderboard.controller.ts` - Endpoints REST
 
 **Endpoints**:
-- `GET /api/leaderboard` - Top 50 jugadores (público)
+- `GET /api/leaderboard` - Top 50 jugadores ordenados por score y tiempo (público)
 - `GET /api/leaderboard/stats` - Estadísticas globales (público)
+
+**Ordenamiento del Ranking**:
+
+```sql
+ORDER BY
+  score DESC,                      -- Mayor puntaje primero
+  completion_time_seconds ASC,     -- Menor tiempo en caso de empate (nulls al final)
+  submitted_at ASC                 -- Más antiguo en caso de empate de tiempo
+```
+
+**Features**:
+- ✅ Desempate inteligente por tiempo de completado
+- ✅ Muestra tiempo en formato mm:ss
+- ✅ Rankings justos para competencia
 
 **Query Optimizada**:
 

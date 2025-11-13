@@ -89,13 +89,20 @@ El **frontend de Gender Quest** es una aplicación web moderna construida con **
 ### 🎮 Juego Interactivo 3D
 
 - **Three.js Scene**: Entorno 3D inmersivo
-- **30 Preguntas**: Quiz educativo sobre mujeres destacadas
+- **10 Preguntas**: Quiz educativo sobre roles de género
+- **⏱️ Temporizador Competitivo**: 
+  - Solo para usuarios autenticados (no en modo invitado)
+  - Actualización cada segundo
+  - Muestra en cada pregunta en formato mm:ss
+  - Se guarda en backend para ranking
 - **Pantallas Dinámicas**:
   - 👋 Welcome Screen con animaciones
-  - 🎯 Quiz Card con temporizador
-  - 🎉 Results Screen con estadísticas
+  - 🎯 Quiz Card con temporizador visible
+  - 🎉 Results Screen con tiempo de completado
+- **Códigos HMAC**: Incluyen tiempo en formato de 7 partes
 - **Efectos Visuales**: Partículas, lighting, animaciones
 - **Responsive**: Adaptado a diferentes tamaños de pantalla
+- **Modo Invitado**: Opción para jugar sin registro (sin temporizador)
 
 ### 🤖 Chatbot AI
 
@@ -149,10 +156,16 @@ El **frontend de Gender Quest** es una aplicación web moderna construida con **
 ### 📊 Leaderboard
 
 - **Tiempo Real**: Actualización automática con Supabase
-- **Top 50 Jugadores**: Ranking global
-- **Estadísticas**: Score, respuestas correctas, fecha
+- **Top 50 Jugadores**: Ranking global con desempate por tiempo
+- **⏱️ Columna de Tiempo**: Muestra completion time en formato mm:ss
+- **Ordenamiento Inteligente**: 
+  - Mayor puntaje primero
+  - Menor tiempo en caso de empate
+  - Fecha más antigua como último criterio
+- **Estadísticas**: Score, precisión, tiempo, fecha
 - **Perfiles**: Avatar y username de jugadores
 - **Animaciones**: Entrada suave de elementos
+- **Formato Numérico**: Tiempo con font-mono para alineación perfecta
 
 ### 🔐 Autenticación
 
@@ -164,11 +177,22 @@ El **frontend de Gender Quest** es una aplicación web moderna construida con **
 
 ### 📚 Contenido Educativo
 
-- **8 Secciones Temáticas**: Documental dividido
+- **8 Secciones Temáticas**: Contenido académico sobre roles de género
 - **Cards Interactivas**: Hover effects y animaciones
 - **Navegación Intuitiva**: Grid responsive
-- **Contenido Rico**: Texto, imágenes, videos
-- **Iconos Emoji**: Representación visual de cada área (💻 para Sistemas)
+- **Contenido Rico**: Texto, gráficos y material educativo
+- **Referencias Bibliográficas**: 11 fuentes en formato APA 7ma edición
+- **Marco Conceptual**: Análisis cultural, factores y escalas
+- **Iconos Emoji**: Representación visual de cada área
+
+### 🌐 Experiencia de Usuario
+
+- **🎵 Música Ambiente**: Controles flotantes con diseño mejorado
+- **💬 Chatbot Flotante**: Minimizable en todas las páginas
+- **� QR Code Modal**: Comparte puntajes con diseño personalizado y links de Azure
+- **🔗 Código Abierto**: Banner prominente con link al repositorio de GitHub
+- **✨ Animaciones**: Framer Motion en toda la app
+- **🌙 Tema Oscuro**: Gradientes púrpura/fucsia consistentes
 
 ### 🎵 Control de Música
 
