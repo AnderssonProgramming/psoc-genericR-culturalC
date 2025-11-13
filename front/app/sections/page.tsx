@@ -328,24 +328,12 @@ Las investigaciones revisadas evidencian que la equidad de género requiere **no
 
 ---
 
-## 📚 Referencias Bibliográficas
-
-1. **Alfaro Arismendy, C. G., & Bonilla Maradey, P. A.** (2021). *Influencia de las costumbres y valores colombianos en docentes extranjeros*. Universidad Ean.
-
-2. **Malaver-Fonseca, L. F., Serrano-Cárdenas, L. F., & Castro-Silva, H. F.** (2021). La pandemia COVID-19 y el rol de las mujeres en la economía del cuidado en América Latina: Una revisión sistemática. *Estudios Gerenciales*.
-
-3. **OECD** (2023). *Gender Equality in Colombia*. OECD Publishing.
-
-4. **Ospina, J. M.** (2023). *Roles, género, jóvenes, sexualidad, toma de decisiones*. Universidad Javeriana Cali.
-
-5. **Pérez Sánchez, B., & Concha-Salgado, A.** (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. *Anales de Psicología*.
-
-6. **Vos, J. F. J.** (2022). The influence of cultural values on Enterprise System adoption. *Journal of Business Research*.
-
 ---
 
 *📖 Marco Conceptual desarrollado como parte del proyecto **Gender Quest***  
 *Enfoque desde la Psicología Social para promover la equidad de género*
+
+*Para consultar las referencias completas, ver la sección **📚 Referencias Bibliográficas***
     `,
   },
   {
@@ -633,11 +621,13 @@ Finalmente, es importante destacar que este proyecto **fue desarrollado por estu
     color: 'from-yellow-600 to-yellow-800',
     icon: '📚',
     content: `
-### Referencias Bibliográficas
+## 📚 Referencias Bibliográficas
 
 **Formato APA 7ª Edición**
 
 ---
+
+Alfaro Arismendy, C. G., & Bonilla Maradey, P. A. (2021). *Influencia de las costumbres y valores colombianos en docentes extranjeros*. Universidad Ean.
 
 Berger, P. L., & Luckmann, T. (1968). *La construcción social de la realidad*. Amorrortu Editores.
 
@@ -647,23 +637,22 @@ Butler, J. (2007). *El género en disputa: El feminismo y la subversión de la i
 
 Giddens, A. (2006). *Sociología* (5ª ed.). Alianza Editorial.
 
-Scott, J. W. (1990). *Gender and the Politics of History*. Columbia University Press.
+Malaver-Fonseca, L. F., Serrano-Cárdenas, L. F., & Castro-Silva, H. F. (2021). La pandemia COVID-19 y el rol de las mujeres en la economía del cuidado en América Latina: Una revisión sistemática. *Estudios Gerenciales*, *37*(159), 153-163.
+
+OECD. (2023). *Gender equality in Colombia: Access to justice and politics at the local level*. OECD Publishing. https://doi.org/10.1787/6f9aa989-en
+
+Ospina, J. M. (2023). *Roles, género, jóvenes, sexualidad, toma de decisiones*. Universidad Javeriana Cali.
+
+Pérez Sánchez, B., & Concha-Salgado, A. (2021). The Gender Role Attitude Scale (GRAS): Adaptación al contexto chileno. *Anales de Psicología*, *37*(3), 450-459. https://doi.org/10.6018/analesps.428371
+
+Scott, J. W. (1990). *Gender and the politics of history*. Columbia University Press.
+
+Vos, J. F. J. (2022). The influence of cultural values on enterprise system adoption. *Journal of Business Research*, *145*, 813-826. https://doi.org/10.1016/j.jbusres.2022.03.019
 
 ---
 
-**Nota:** Esta lista será ampliada con las referencias específicas de cada sección según se complete el desarrollo del proyecto. Se recomienda incluir fuentes actualizadas sobre psicología social, estudios de género, neurociencia y educación para fortalecer la base teórica del trabajo.
-
----
-
-**Para consultar más recursos:**
-
-- American Psychological Association (APA): https://www.apa.org/topics/gender
-- ONU Mujeres: https://www.unwomen.org/es
-- UNESCO - Género e Igualdad: https://es.unesco.org/themes/educacion-igualdad-genero
-
----
-
-**Revisión y actualización continua:** Este documento será actualizado conforme se completen las secciones pendientes y se integren nuevas fuentes académicas relevantes.
+*📖 Documento académico desarrollado como parte del proyecto **Gender Quest***  
+*Enfoque multidisciplinario desde la Psicología Social y Estudios de Género*
     `,
   },
 ];
