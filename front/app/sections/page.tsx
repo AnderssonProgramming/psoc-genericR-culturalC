@@ -721,31 +721,41 @@ export default function SectionsPage() {
             <div className="p-8 bg-gradient-to-br from-gray-50 via-purple-50 to-pink-50">
               {/* Mostrar imágenes solo en la portada (sección 1) */}
               {section?.id === 1 && (
-                <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Primera imagen */}
+                <div className="mb-8 space-y-8">
+                  {/* Primera imagen - Portada principal */}
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
-                    <Image 
-                      src="/gender-quest.jpg" 
-                      alt="Gender Quest - El cambio empieza con equilibrio" 
-                      width={800}
-                      height={400}
-                      className="relative rounded-xl shadow-2xl object-cover w-full"
-                      priority
-                    />
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-1000 animate-pulse"></div>
+                    <div className="relative">
+                      <Image 
+                        src="/portada.png" 
+                        alt="Gender Quest - Portada Principal" 
+                        width={1200}
+                        height={600}
+                        className="relative rounded-2xl shadow-2xl object-cover w-full border-4 border-white"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl"></div>
+                    </div>
                   </div>
                   
-                  {/* Segunda imagen */}
+                  {/* Segunda imagen - El cambio empieza con equilibrio */}
                   <div className="relative group">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000"></div>
-                    <Image 
-                      src="/portada.png" 
-                      alt="Gender Quest - Portada" 
-                      width={800}
-                      height={400}
-                      className="relative rounded-xl shadow-2xl object-cover w-full"
-                      priority
-                    />
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-1000"></div>
+                    <div className="relative">
+                      <Image 
+                        src="/gender-quest.jpg" 
+                        alt="Gender Quest - El cambio empieza con equilibrio" 
+                        width={1200}
+                        height={500}
+                        className="relative rounded-2xl shadow-2xl object-cover w-full border-4 border-white transform group-hover:scale-[1.02] transition duration-500"
+                        priority
+                      />
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-transparent p-6 rounded-b-2xl">
+                        <p className="text-white text-2xl md:text-3xl font-black text-center italic drop-shadow-lg">
+                          "El cambio empieza con equilibrio"
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               )}
