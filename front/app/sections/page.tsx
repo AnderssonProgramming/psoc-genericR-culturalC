@@ -738,23 +738,18 @@ export default function SectionsPage() {
                     </div>
                   </div>
                   
-                  {/* Segunda imagen - El cambio empieza con equilibrio */}
+                  {/* Segunda imagen - Gender Quest */}
                   <div className="relative group">
                     <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 via-fuchsia-600 to-pink-600 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition duration-1000"></div>
                     <div className="relative">
                       <Image 
                         src="/gender-quest.jpg" 
-                        alt="Gender Quest - El cambio empieza con equilibrio" 
+                        alt="Gender Quest - Diversidad e Inclusión" 
                         width={1200}
                         height={500}
                         className="relative rounded-2xl shadow-2xl object-cover w-full border-4 border-white transform group-hover:scale-[1.02] transition duration-500"
                         priority
                       />
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-transparent p-6 rounded-b-2xl">
-                        <p className="text-white text-2xl md:text-3xl font-black text-center italic drop-shadow-lg">
-                          "El cambio empieza con equilibrio"
-                        </p>
-                      </div>
                     </div>
                   </div>
                 </div>
